@@ -170,13 +170,9 @@
         body: JSON.stringify(data)
       })
       .then(response => {
-        if (response.ok) {
-          const message = `Hello Rahman Sir, I am interested in this work.%0A%0AThis is my details:%0AName: ${name}%0APhone: ${phone}%0AProfession: ${selectedProfession}%0AGender: ${gender}%0ALanguage: ${language}%0AAge: ${age}%0A%0APlease share me work details.`;
-          const whatsappURL = `https://wa.me/919743140915?text=${message}`;
-          window.open(whatsappURL, '_blank');
-        } else {
-          alert("Something went wrong. Try again.");
-        }
+        const message = `Hello Rahman Sir, I am interested in this work.%0A%0AThis is my details:%0AName: ${name}%0APhone: ${phone}%0AProfession: ${selectedProfession}%0AGender: ${gender}%0ALanguage: ${language}%0AAge: ${age}%0A%0APlease share me work details.`;
+        const whatsappURL = `https://wa.me/919743140915?text=${message}`;
+        window.location.href = whatsappURL; // ✅ One-click open fix
       })
       .catch(error => {
         alert("Error! Try again.");
