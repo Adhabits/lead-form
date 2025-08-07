@@ -3,39 +3,46 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Golden Form</title>
+  <title>Lead Form</title>
   <style>
     body {
-      background-color: #000;
-      color: white;
+      margin: 0;
       font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #000000, #1a1a1a);
+      color: #fff;
       display: flex;
       justify-content: center;
       align-items: start;
       min-height: 100vh;
-      margin: 0;
-      padding: 20px;
+      padding: 40px 20px;
     }
+
     .container {
-      background-color: #111;
-      padding: 25px;
-      border-radius: 15px;
+      background: rgba(255, 215, 0, 0.05);
+      border: 1px solid gold;
+      border-radius: 20px;
+      padding: 30px;
       width: 100%;
       max-width: 480px;
-      border: 2px solid gold;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 30px rgba(255, 215, 0, 0.2);
     }
+
     h2 {
-      color: gold;
       text-align: center;
-      margin-bottom: 20px;
+      color: gold;
+      font-size: 26px;
+      margin-bottom: 25px;
     }
+
     .profession-options {
       display: flex;
       justify-content: space-between;
       gap: 10px;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       flex-wrap: wrap;
     }
+
     .profession-button {
       flex: 1;
       background-color: #222;
@@ -45,56 +52,64 @@
       color: white;
       cursor: pointer;
       font-weight: bold;
-      position: relative;
-      transition: all 0.3s ease-in-out;
-      animation: pulse 3s infinite;
+      text-align: center;
+      transition: 0.3s ease-in-out;
     }
+
     .profession-button:hover {
       background-color: gold;
-      color: black;
+      color: #000;
+      transform: scale(1.05);
     }
-    @keyframes pulse {
-      0% { transform: scale(1); box-shadow: 0 0 0 0 gold; }
-      50% { transform: scale(1.05); box-shadow: 0 0 15px 2px gold; }
-      100% { transform: scale(1); box-shadow: 0 0 0 0 gold; }
-    }
+
     .form-section {
       display: none;
     }
+
     label {
       color: gold;
-      font-weight: bold;
+      font-weight: 600;
+      margin-top: 15px;
       display: block;
-      margin-top: 10px;
     }
+
     input, select {
       width: 100%;
-      padding: 10px;
-      margin-top: 5px;
+      padding: 12px;
+      margin-top: 6px;
       border: 1px solid gold;
-      border-radius: 5px;
-      background: #000;
+      border-radius: 8px;
+      background-color: rgba(0, 0, 0, 0.6);
       color: white;
+      font-size: 15px;
     }
+
     .row {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
     }
+
     .row input {
       flex: 1;
     }
+
     .whatsapp-button {
       background-color: #25D366;
       color: white;
       padding: 14px;
-      width: 100%;
-      font-size: 16px;
+      font-size: 17px;
       font-weight: bold;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
+      width: 100%;
+      margin-top: 25px;
       cursor: pointer;
-      margin-top: 20px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .whatsapp-button:hover {
+      background-color: #1DA851;
     }
   </style>
 </head>
@@ -103,9 +118,9 @@
   <div class="container">
     <h2>Aapka Profession Kya Hai?</h2>
     <div class="profession-options">
-      <button class="profession-button" onclick="selectProfession('Job')">👍 Job</button>
-      <button class="profession-button" onclick="selectProfession('Student')">🎓 Student</button>
-      <button class="profession-button" onclick="selectProfession('House Wife')">👩‍🍳 House Wife</button>
+      <div class="profession-button" onclick="selectProfession('Job')">💼 Job</div>
+      <div class="profession-button" onclick="selectProfession('Student')">🎓 Student</div>
+      <div class="profession-button" onclick="selectProfession('House Wife')">🏠 House Wife</div>
     </div>
 
     <div class="form-section" id="formSection">
@@ -132,7 +147,7 @@
         <label>Age</label>
         <input type="number" id="age" placeholder="Enter Age" required>
 
-        <button type="submit" class="whatsapp-button">Send on WhatsApp</button>
+        <button type="submit" class="whatsapp-button">📲 Send on WhatsApp</button>
       </form>
     </div>
   </div>
@@ -170,9 +185,13 @@
         body: JSON.stringify(data)
       })
       .then(response => {
-        const message = `Hello Rahman Sir, I am interested in this work.%0A%0AThis is my details:%0AName: ${name}%0APhone: ${phone}%0AProfession: ${selectedProfession}%0AGender: ${gender}%0ALanguage: ${language}%0AAge: ${age}%0A%0APlease share me work details.`;
-        const whatsappURL = `https://wa.me/919743140915?text=${message}`;
-        window.location.href = whatsappURL; // ✅ One-click open fix
+        if (response.ok) {
+          const message = `Hello Rahman Sir, I am interested in this work.%0A%0AThis is my details:%0AName: ${name}%0APhone: ${phone}%0AProfession: ${selectedProfession}%0AGender: ${gender}%0ALanguage: ${language}%0AAge: ${age}%0A%0APlease share me work details.`;
+          const whatsappURL = `https://wa.me/919743140915?text=${message}`;
+          window.location.href = whatsappURL;
+        } else {
+          alert("Something went wrong. Try again.");
+        }
       })
       .catch(error => {
         alert("Error! Try again.");
@@ -197,5 +216,6 @@
   <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1323195878793934&ev=PageView&noscript=1"/>
   </noscript>
+
 </body>
 </html>
