@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Form to Google Sheet</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background: #fdf6e3;
+    }
+    h2 {
+      text-align: center;
+      color: #b58900;
+    }
+    form {
+      max-width: 400px;
+      margin: auto;
+      background: #fff3b0;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #008000;
+      color: white;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    p.note {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>🎯 Choose Your Profession</h2>
+<p style="text-align:center;">This is my details 👇</p>
+
+<form id="myForm">
+  <input type="text" name="name" placeholder="Full Name" required />
+  <input type="text" name="phone" placeholder="Phone Number" required />
+  <input type="number" name="age" placeholder="Age" required />
+  <select name="gender" required>
+    <option value="">Select Gender</option>
+    <option>Male</option>
+    <option>Female</option>
+  </select>
+  <select name="language" required>
+    <option value="">Select Language</option>
+    <option>Hindi</option>
+    <option>English</option>
+  </select>
+  <select name="profession" required>
+    <option value="">Select Profession</option>
+    <option>Student</option>
+    <option>Housewife</option>
+    <option>Working Professional</option>
+  </select>
+
+  <button type="submit">Submit & Go to WhatsApp</button>
+  <p class="note">👇 Please share me work details 👇</p>
+</form>
+
+<script>
+const form = document.getElementById('myForm');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const data = new FormData(form);
+  const jsonData = {};
+  data.forEach((value, key) => { jsonData[key] = value; });
+
+  const url = "https://script.google.com/macros/s/AKfycbxzCnzfp0kvqxrinEjypHxZIf3MnDr_EeZmK-qwYrHh9pIQQY1iD19bnYEGTU4euz37Ug/exec";
+
+  try {
+    const res = await fetch(url, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(jsonData)
+    });
+    const waLink = `https://wa.me/91${jsonData.phone}?text=Hi%2C%20I%20am%20interested%20in%20this%20work.%20Please%20share%20details.`;
+    window.location.href = waLink;
+  } catch (err) {
+    alert("Something went wrong. Try again.");
+  }
+});
+</script>
+
+</body>
+</html>
