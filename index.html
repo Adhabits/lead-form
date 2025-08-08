@@ -1,221 +1,504 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lead Form</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #000000, #1a1a1a);
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: start;
-      min-height: 100vh;
-      padding: 40px 20px;
-    }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AdHabits — Meta Ads for Affiliates</title>
+<meta name="description" content="Professional Meta Ads for affiliate marketers." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
 
-    .container {
-      background: rgba(255, 215, 0, 0.05);
-      border: 1px solid gold;
-      border-radius: 20px;
-      padding: 30px;
-      width: 100%;
-      max-width: 480px;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 8px 30px rgba(255, 215, 0, 0.2);
-    }
+<style>
+:root{
+  --bg:#0a0f1b; --text:#e7eaf0; --muted:#a6b0c3; --stroke:#1d273b; --card:#101726;
+  --grad:linear-gradient(135deg,#8b5cf6 0%, #22d3ee 55%, #34d399 100%); --accent:#ff914d; --brand:#ffb454;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+a{text-decoration:none;color:inherit}
+.container{max-width:1150px;margin:auto;padding:0 18px}
 
-    h2 {
-      text-align: center;
-      color: gold;
-      font-size: 26px;
-      margin-bottom: 25px;
-    }
+/* NAV */
+.nav{position:sticky;top:0;z-index:50;background:rgba(8,12,22,.75);border-bottom:1px solid var(--stroke);backdrop-filter:saturate(160%) blur(10px)}
+.nav-inner{height:68px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800}
+.logo{width:28px;height:28px;display:grid;place-items:center}
+.logo img{width:100%;height:100%;object-fit:contain}
+.nav a{margin-left:16px;color:#c9d3e6;font-weight:700}
+.nav a:hover{color:#fff}
+.nav .btn.secondary{padding:10px 14px;border-radius:12px;background:#0f1526;border:1px solid #303a57}
 
-    .profession-options {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 25px;
-      flex-wrap: wrap;
-    }
+/* HERO */
+.hero{padding:82px 0 70px;background:radial-gradient(1200px 600px at 80% -10%, rgba(167,139,250,.20), transparent 60%),radial-gradient(900px 500px at -10% 10%, rgba(34,211,238,.18), transparent 60%)}
+.eyebrow{display:inline-block;padding:8px 14px;border:1px solid #2a344f;border-radius:999px;color:#b5c1d8;margin-bottom:18px}
+h1{font-family:"Poppins",system-ui,Arial,Helvetica,sans-serif;font-weight:800;font-size:clamp(32px, 6vw, 56px);line-height:1.08;letter-spacing:-0.02em;margin:0 0 10px;text-wrap:balance}
+.hl2{color:var(--accent)}
+.kpis{color:#cfd7e9;margin:18px 0 22px;font-size:clamp(16px, 2.6vw, 19px);line-height:1.45}
+.video-card{margin:18px 0}
+.yt-embed{position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid #25304a}
+.yt-embed iframe{position:absolute;inset:0;width:100%;height:100%}
+.cta{display:flex;gap:14px;flex-wrap:wrap;margin:6px 0 18px}
+.btn{padding:14px 20px;border-radius:14px;font-weight:800;transition:transform .2s ease, box-shadow .2s ease}
+.btn.primary{background:var(--grad);border:none;color:#08121f;text-shadow:0 1px 0 rgba(255,255,255,.3)}
+.btn.primary:hover{transform:scale(1.05);box-shadow:0 0 18px rgba(139,92,246,.6)}
+.btn.secondary{background:#0f1526;border:1px solid #303a57;color:#d7def0}
+.btn.secondary:hover{transform:scale(1.05);box-shadow:0 0 18px rgba(34,211,238,.4)}
+.panel{border:1px solid var(--stroke);background:#0f1628;border-radius:18px;padding:14px;color:#aeb9ce;font-size:15px}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
+.reveal.on{opacity:1;transform:none}
 
-    .profession-button {
-      flex: 1;
-      background-color: #222;
-      border: 2px solid gold;
-      padding: 12px;
-      border-radius: 30px;
-      color: white;
-      cursor: pointer;
-      font-weight: bold;
-      text-align: center;
-      transition: 0.3s ease-in-out;
-    }
+/* PLATFORMS STRIP */
+.brand-names{padding:32px 0 18px}
+.bnc-container{max-width:1150px;margin:auto;padding:0 18px}
+.bnc-title{margin:0 0 12px;font:600 22px/1.3 Inter,system-ui,Arial;color:#aeb8cc}
+.bnc-band{position:relative;overflow:hidden;padding:10px 6px;border-radius:22px;border:1px solid #273047;background:linear-gradient(180deg,#0f172a,#0b0f1a)}
+.bnc-track{display:flex;align-items:center;gap:14px;animation:bnc-scroll 14s linear infinite;will-change:transform}
+.bnc-band:hover .bnc-track{animation-play-state:paused}
+.bnc-item{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 18px;min-width:140px;border-radius:14px;border:1px solid transparent;text-align:center;white-space:nowrap;font:800 14px/1 Inter,system-ui,Arial;letter-spacing:.2px;transition:transform .25s ease, box-shadow .25s ease, filter .25s ease}
+.bnc-item:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 12px 22px rgba(0,0,0,.35);filter:saturate(1.1) brightness(1.05)}
+.brand-idp{background:#2597d3;color:#011421;border-color:#2aa7f0}
+.brand-mt{background:linear-gradient(135deg,#ff7a1f,#ff5a00);color:#190a02;border-color:#ff7a1f}
+.brand-biz{background:linear-gradient(135deg,#b5141b,#d4a017);color:#1b0b03;border-color:#d07b1e}
+.brand-leadsguru{background:#fed100;color:#0a0c18;border-color:#f6c200}
+.brand-gyangrowth{background:#fe9d63;color:#140903;border-color:#ffb07f}
+.brand-richind{background:linear-gradient(135deg,#995fbc,#95d4f2);color:#0c0a18;border-color:#a887d0}
+.brand-forever{background:#fec500;color:#0e0c06;border-color:#f1b800}
+.bnc-fade{pointer-events:none;position:absolute;top:0;bottom:0;width:70px;background:linear-gradient(to right,#0b0f1a,transparent)}
+.bnc-left{left:0}.bnc-right{right:0;transform:scaleX(-1)}
+@keyframes bnc-scroll{from{transform:translateX(0)} to{transform:translateX(-50%)}}
 
-    .profession-button:hover {
-      background-color: gold;
-      color: #000;
-      transform: scale(1.05);
-    }
+/* FEATURES STACKED */
+.stacked{padding:60px 0}
+.stk-wrap{max-width:900px;margin:auto;padding:0 18px}
+.stk-title{margin:0 0 8px;font:800 34px/1.15 Inter,system-ui,Arial;color:#e8edf7}
+.stk-sub{margin:0 0 22px;color:#9fb0c9}
+.stk-stack{position:relative;height: calc(520px + 220px * 6)}
+.stk-card{--gap:18px;--topBase:84px;position:sticky;top:calc(var(--topBase) + var(--i) * var(--gap));z-index:calc(100 - var(--i));
+  margin:0;padding:22px;border-radius:22px;border:1px solid #273047;background:linear-gradient(180deg,#0f172a,#0b0f1a);
+  box-shadow:0 6px 14px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.02);transition:transform .18s ease}
+.stk-icon{font-size:22px;margin-bottom:10px;display:inline-grid;place-items:center;width:38px;height:38px;border-radius:12px;background:rgba(148,163,184,.08);border:1px solid #2a3657}
+.stk-card h3{margin:6px 0 6px;font:800 20px/1.25 Inter,system-ui,Arial;color:#eaf1ff}
+.stk-card p{margin:0;color:#9fb0c9}
 
-    .form-section {
-      display: none;
-    }
+/* EXPERT */
+.exp1{padding:60px 0}
+.ex-wrap{max-width:1150px;margin:auto;padding:0 18px;display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center}
+@media (max-width:980px){.ex-wrap{grid-template-columns:1fr;gap:20px}}
+.ex-copy h2{margin:0 0 8px;font:800 36px/1.15 Inter,system-ui,Arial;color:#e8edf7}
+.ex-sub{margin:0 0 18px;color:#9fb0c9}
+.name-grad{background:linear-gradient(135deg,#8b5cf6,#22d3ee 60%,#34d399);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800}
+.ex-frame{position:relative;border-radius:24px;overflow:hidden;border:1px solid #273047;background:#0b0f1a;box-shadow:0 14px 36px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.03)}
+.ex-frame img{width:100%;height:auto;display:block;transform-origin:center;animation:ken 18s ease-in-out infinite alternate, floaty 8s ease-in-out infinite}
+@keyframes ken{from{transform:scale(1.04)} to{transform:scale(1.12)}}
+@keyframes floaty{0%{transform:translateY(0) scale(1.08)}50%{transform:translateY(-6px) scale(1.10)}100%{transform:translateY(0) scale(1.08)}}
+.ex-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0 20px}
+@media (max-width:520px){.ex-stats{grid-template-columns:1fr}}
+.ex-stat{border:1px solid #273047;border-radius:16px;padding:18px;background:linear-gradient(180deg,#0f172a,#0b0f1a)}
+.ex-stat .num{font:800 40px/1 Inter;color:#fff}
+.ex-stat .lbl{margin-top:6px;color:#9fb0c9}
+.ex-btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;border-radius:14px;background:var(--grad);color:#08121f;font:800 15px/1.1 Inter;border:none;box-shadow:0 8px 22px rgba(34,211,238,.25);transition:transform .2s ease}
 
-    label {
-      color: gold;
-      font-weight: 600;
-      margin-top: 15px;
-      display: block;
-    }
+/* TESTIMONIALS — HORIZONTAL CAROUSEL */
+.tcarousel{padding:56px 0}
+.tc-wrap{max-width:1100px;margin:auto;padding:0 18px}
+.tc-title{margin:0 0 6px;font:800 32px/1.15 Inter;color:#e8edf7}
+.tc-title .hl{color:var(--brand)}
+.tc-sub{margin:0 0 16px;color:#9fb0c9}
+.tc-window{position:relative;overflow:hidden;border:1px solid #273047;border-radius:20px;background:linear-gradient(180deg,#0f172a,#0b0f1a);padding:18px}
+.tc-track{display:flex;gap:14px;animation:tc-move 22s linear infinite}
+.tc-window:hover .tc-track{animation-play-state:paused}
+.tc-card{flex:0 0 auto;width:220px;border:1px solid #273047;border-radius:14px;padding:8px;background:#0e1424;box-shadow:0 6px 14px rgba(0,0,0,.35)}
+.tc-shot{border-radius:10px;overflow:hidden;border:1px solid #273047;aspect-ratio:9/19.5}
+.tc-shot img{width:100%;height:100%;object-fit:contain}
+@keyframes tc-move{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-    input, select {
-      width: 100%;
-      padding: 12px;
-      margin-top: 6px;
-      border: 1px solid gold;
-      border-radius: 8px;
-      background-color: rgba(0, 0, 0, 0.6);
-      color: white;
-      font-size: 15px;
-    }
+/* FAQ */
+.faq{padding:60px 0}
+.faq-wrap{max-width:900px;margin:auto;padding:0 18px}
+.faq h2{margin-bottom:10px;font:800 34px/1.15 Inter;color:#e8edf7}
+.faq-sub{color:#9fb0c9;margin-bottom:18px}
+.faq-item{border:1px solid #273047;border-radius:14px;background:linear-gradient(180deg,#0f172a,#0b0f1a);margin:10px 0;padding:14px 16px}
+.faq-q{display:flex;justify-content:space-between;align-items:center;gap:10px;cursor:pointer;font-weight:700}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;padding-top:0;color:#aeb9ce}
+.faq-item.open .faq-a{max-height:220px;padding-top:8px}
+.faq-toggle{width:24px;height:24px;border-radius:8px;border:1px solid #2a3657;display:grid;place-items:center}
 
-    .row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
+/* PLANS */
+.plans{padding:60px 0}
+.plans-wrap{max-width:1100px;margin:auto;padding:0 18px;text-align:center}
+.plans-title{font:800 32px/1.2 Inter;color:#e8edf7;margin-bottom:6px}
+.plans-title .hl{color:var(--brand)}
+.plans-sub{color:#9fb0c9;margin-bottom:28px}
+.plans-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.plan-card{background:linear-gradient(180deg,#0f172a,#0b0f1a);border:1px solid #273047;border-radius:16px;padding:24px 20px;box-shadow:0 6px 14px rgba(0,0,0,.35),inset 0 0 0 1px rgba(255,255,255,.02);transition:transform .2s ease}
+.plan-card:hover{transform:translateY(-4px) scale(1.02)}
+.plan-card.highlight{border-color:var(--brand);box-shadow:0 0 16px rgba(255,180,84,.35)}
+.plan-name{font:700 20px/1.3 Inter;color:#eaf1ff;margin-bottom:4px}
+.plan-price{font:800 30px/1.2 Inter;color:var(--brand);margin:10px 0 14px}
+.strike{color:#9fb0c9;text-decoration:line-through;margin-right:6px;font-weight:700}
+.badge{display:inline-block;background:#112034;border:1px solid #273047;padding:4px 8px;border-radius:999px;color:#9fb0c9;font-size:12px;margin-left:8px}
+.plan-features{list-style:none;padding:0;margin:0 0 18px;color:#aeb9ce;text-align:left}
+.plan-features li{margin:8px 0;position:relative;padding-left:18px}
+.plan-features li::before{content:"✔";position:absolute;left:0;color:var(--brand)}
+.plan-btn{display:inline-block;padding:10px 18px;background:var(--brand);color:#0b0f1a;font-weight:800;border-radius:10px}
+.plan-btn:hover{filter:brightness(1.05)}
 
-    .row input {
-      flex: 1;
-    }
+/* GET STARTED */
+.gs{padding:60px 0}
+.gs-wrap{max-width:1150px;margin:auto;padding:0 18px;display:grid;grid-template-columns:1.1fr .9fr;gap:26px}
+@media (max-width:990px){.gs-wrap{grid-template-columns:1fr}}
+.gs-title{margin:0 0 6px;font:800 38px/1.15 Inter;color:#e8edf7}
+.gs-sub{margin:0 0 18px;color:#9fb0c9}
+.gs-lbl{display:block;margin:14px 0 8px;color:#b9c7dd;font-weight:600}
+.gs-input{width:100%;background:#0f172a;border:1px solid #243047;color:#eaf1ff;border-radius:12px;padding:14px 14px;outline:none}
+.gs-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:560px){.gs-row{grid-template-columns:1fr}}
+.col{display:flex;flex-direction:column}
+.gs-btn{margin-top:16px;display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;border-radius:14px;border:none;cursor:pointer;width:100%;background:linear-gradient(135deg,#22d3ee,#34d399);color:#08121f;font:800 15px/1 Inter;box-shadow:0 10px 24px rgba(34,211,238,.3)}
+.gs-btn:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.2)}
+.gs-proof{border:1px solid #273047;border-radius:18px;padding:18px 18px 22px;background:linear-gradient(180deg,#0f172a,#0b0f1a);box-shadow:inset 0 0 0 1px rgba(255,255,255,.02)}
+.gs-proof h3{margin:0 0 6px;color:#e8edf7;font:800 24px/1.2 Inter}
+.gs-proof p{margin:0 0 14px;color:#9fb0c9}
+.gs-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.stat{border:1px solid #273047;border-radius:14px;padding:16px;text-align:center}
+.stat .num{font:800 30px/1 Inter;color:#fff}
+.stat .lbl{margin-top:6px;color:#9fb0c9;font-size:14px}
+.gs-footer{margin-top:26px;border-top:1px solid #1f2a3d;padding:14px 18px;display:flex;align-items:center;gap:10px;max-width:1150px;margin-left:auto;margin-right:auto}
+.gs-footer img{height:22px;width:auto}
+.gs-footer .spacer{flex:1}
+.ig-link{display:inline-flex;align-items:center;margin-left:10px}
+</style>
 
-    .whatsapp-button {
-      background-color: #25D366;
-      color: white;
-      padding: 14px;
-      font-size: 17px;
-      font-weight: bold;
-      border: none;
-      border-radius: 10px;
-      width: 100%;
-      margin-top: 25px;
-      cursor: pointer;
-      transition: all 0.3s ease-in-out;
+<script>
+// counters + reveal
+function animateNum(el, to, dur=1300){
+  const start=performance.now();
+  function step(t){const p=Math.min(1,(t-start)/dur);const ease=1-Math.pow(1-p,3);el.textContent=Math.floor(ease*to);if(p<1) requestAnimationFrame(step);}
+  requestAnimationFrame(step);
+}
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('on');
+      if(e.target.dataset.count){ animateNum(e.target, parseInt(e.target.dataset.count), 1400); }
+      io.unobserve(e.target);
     }
-
-    .whatsapp-button:hover {
-      background-color: #1DA851;
-    }
-  </style>
+  });
+},{threshold:0.2});
+document.addEventListener('DOMContentLoaded', ()=>{ document.querySelectorAll('.reveal').forEach(el=>io.observe(el)); });
+function waOpen(){ const text="Hello, I’m interested in your Affiliate Ad Service!"; window.open(`https://wa.me/919743140915?text=${encodeURIComponent(text)}`,'_blank'); }
+</script>
 </head>
 <body>
 
-  <div class="container">
-    <h2>Aapka Profession Kya Hai?</h2>
-    <div class="profession-options">
-      <div class="profession-button" onclick="selectProfession('Job')">💼 Job</div>
-      <div class="profession-button" onclick="selectProfession('Student')">🎓 Student</div>
-      <div class="profession-button" onclick="selectProfession('House Wife')">🏠 House Wife</div>
+<!-- NAV -->
+<header class="nav">
+  <div class="container nav-inner">
+    <div class="brand">
+      <span class="logo"><img src="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png" alt="AdHabits" /></span>
+      <span>AdHabits</span>
     </div>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#expert">Expert</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#faq">FAQ</a>
+      <a href="#plans">Plans</a>
+      <a class="btn secondary" href="javascript:waOpen()">WhatsApp</a>
+    </nav>
+  </div>
+</header>
 
-    <div class="form-section" id="formSection">
-      <form id="mainForm">
-        <div class="row">
-          <input type="text" id="name" placeholder="Your Name" required>
-          <input type="text" id="phone" placeholder="Phone No." required>
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="reveal">
+      <span class="eyebrow">Affiliate Marketer?</span>
+      <h1>Let Us Run Your <span class="hl2">Meta Ads</span><br/>&amp; Get You More Leads</h1>
+
+      <div class="video-card">
+        <div class="yt-embed">
+          <iframe src="https://www.youtube.com/embed/ornKwN73i5U?autoplay=1&mute=1&loop=1&playlist=ornKwN73i5U" title="AdHabits Intro" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
+      </div>
 
-        <label>Select Language</label>
-        <select id="language" required>
-          <option value="" disabled selected>Select Language</option>
-          <option value="Hindi">Hindi</option>
-          <option value="English">English</option>
-        </select>
+      <div class="kpis">
+        <b class="reveal" data-count="3">0</b>+ Years Experience •
+        <b class="reveal" data-count="250">0</b>+ Affiliates Served •
+        Trusted by <b class="reveal" data-count="50">0</b>+ Top Performers
+      </div>
 
-        <label>Select Gender</label>
-        <select id="gender" required>
-          <option value="" disabled selected>Select Gender</option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-        </select>
+      <div class="cta">
+        <a href="#start" class="btn primary">Yes, I want ad setup help!</a>
+        <a href="#features" class="btn secondary">See How It Works</a>
+      </div>
 
-        <label>Age</label>
-        <input type="number" id="age" placeholder="Enter Age" required>
-
-        <button type="submit" class="whatsapp-button">📲 Send on WhatsApp</button>
-      </form>
+      <div class="panel">⚡ Fast onboarding • ✅ Verified results available • 💬 WhatsApp support</div>
     </div>
   </div>
+</section>
 
-  <script>
-    let selectedProfession = "";
+<!-- PLATFORMS -->
+<section class="brand-names">
+  <div class="bnc-container">
+    <h2 class="bnc-title">Trusted by top affiliates from these platforms</h2>
+    <div class="bnc-band">
+      <div class="bnc-track">
+        <span class="bnc-item brand-idp">IDP</span>
+        <span class="bnc-item brand-mt">MillionaireTrack</span>
+        <span class="bnc-item brand-biz">Bizgurukul</span>
+        <span class="bnc-item brand-leadsguru">LeadsGuru</span>
+        <span class="bnc-item brand-gyangrowth">GyaanGrowth</span>
+        <span class="bnc-item brand-richind">RichIND</span>
+        <span class="bnc-item brand-forever">Forever</span>
+        <!-- loop duplicate -->
+        <span class="bnc-item brand-idp">IDP</span>
+        <span class="bnc-item brand-mt">MillionaireTrack</span>
+        <span class="bnc-item brand-biz">Bizgurukul</span>
+        <span class="bnc-item brand-leadsguru">LeadsGuru</span>
+        <span class="bnc-item brand-gyangrowth">GyaanGrowth</span>
+        <span class="bnc-item brand-richind">RichIND</span>
+        <span class="bnc-item brand-forever">Forever</span>
+      </div>
+      <div class="bnc-fade bnc-left"></div>
+      <div class="bnc-fade bnc-right"></div>
+    </div>
+  </div>
+</section>
 
-    function selectProfession(prof) {
-      selectedProfession = prof;
-      document.getElementById("formSection").style.display = "block";
-    }
+<!-- FEATURES -->
+<section id="features" class="stacked">
+  <div class="stk-wrap">
+    <h2 class="stk-title">Why Choose AdHabits</h2>
+    <p class="stk-sub">We deliver results that matter to your affiliate business</p>
+    <div class="stk-stack">
+      <article class="stk-card" style="--i:0"><div class="stk-icon">💼</div><h3>100% Affiliate Focus</h3><p>Specialized in affiliate campaigns only.</p></article>
+      <article class="stk-card" style="--i:1"><div class="stk-icon">✍️</div><h3>Custom Ad Copy Monthly</h3><p>Fresh, converting copy delivered every month.</p></article>
+      <article class="stk-card" style="--i:2"><div class="stk-icon">📈</div><h3>₹50+ Lakh Managed</h3><p>Proven track record with large budgets.</p></article>
+      <article class="stk-card" style="--i:3"><div class="stk-icon">👥</div><h3>250+ Affiliates Served</h3><p>Experience across niches.</p></article>
+      <article class="stk-card" style="--i:4"><div class="stk-icon">🏆</div><h3>50+ Top Affiliates Monthly</h3><p>Consistent results for top performers.</p></article>
+      <article class="stk-card" style="--i:5"><div class="stk-icon">🔎</div><h3>Verified Results</h3><p>Transparent reporting & outcomes.</p></article>
+    </div>
+  </div>
+</section>
 
-    document.getElementById("mainForm").addEventListener("submit", function(e){
-      e.preventDefault();
+<!-- EXPERT -->
+<section id="expert" class="exp1">
+  <div class="ex-wrap">
+    <div class="ex-photo"><div class="ex-frame"><img src="https://i.postimg.cc/FzTFp82v/mee-mentor-pic.avif" alt="Rahman — Meta Ads Expert"/></div></div>
+    <div class="ex-copy">
+      <h2>Meet Your Expert</h2>
+      <p class="ex-sub">Hey! I'm <b class="name-grad">Rahman</b>. With 3+ years in affiliate marketing &amp; Meta ads, I’ve helped 250+ affiliates scale. I don’t do theory — I run your campaigns end-to-end so you can focus on converting leads into sales.</p>
+      <div class="ex-stats">
+        <div class="ex-stat"><div class="num" data-count="3">0</div><div class="lbl">Years Experience</div></div>
+        <div class="ex-stat"><div class="num" data-count="250">0</div><div class="lbl">Affiliates Served</div></div>
+      </div>
+      <a class="ex-btn" href="https://wa.me/919743140915?text=Hi%20Rahman%2C%20I%27m%20interested%20in%20your%20Affiliate%20Ad%20Service!" target="_blank" rel="noopener">Let’s talk with <span class="name-grad">Rahman</span> on WhatsApp</a>
+    </div>
+  </div>
+</section>
 
-      const name = document.getElementById("name").value;
-      const phone = document.getElementById("phone").value;
-      const age = document.getElementById("age").value;
-      const language = document.getElementById("language").value;
-      const gender = document.getElementById("gender").value;
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="tcarousel">
+  <div class="tc-wrap">
+    <h2 class="tc-title">Client <span class="hl">Testimonials</span></h2>
+    <p class="tc-sub">WhatsApp se mile huye real screenshots</p>
 
-      const data = {
-        name,
-        phone,
-        age,
-        language,
-        gender,
-        profession: selectedProfession
-      };
+    <div class="tc-window">
+      <div class="tc-track">
+        <!-- set 1 -->
+        <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/PJtN2tcP/nasreen-mam-finel.jpg" alt="Nasreen"/></div></div>
+        <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/G3qpbnVx/Rukkaya-appi-finel.jpg" alt="Rukkaya"/></div></div>
+        <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/LXSzFFwM/Farheen-mam.jpg" alt="Farheen"/></div></div>
+        <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/vBDGBcp7/Firdous-finel.jpg" alt="Firdous"/></div></div>
+        <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/CxF50LL7/Ahemadi-mam-finel.jpg" alt="Ahemadi"/></div></div>
+        <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/nhcF5R0w/balvinder-finel.jpg" alt="Balvinder"/></div></div>
+        <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/rFhXd8NQ/faizeen-finel.jpg" alt="Faizeen"/></div></div>
+        <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/FRbwhmKb/Nadeem-finel.jpg" alt="Nadeem"/></div></div>
+        <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/pL97pKTL/Rukhsaar-finel.jpg" alt="Rukhsar"/></div></div>
+        <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/vBv2pzP3/sagufta-finel.jpg" alt="Sagufta"/></div></div>
+        <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/1tzD3rmW/Amreen.jpg" alt="Amreen"/></div></div>
+        <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/76bTkP9d/rukkaya-6lakh.jpg" alt="Rukkaya 6 lakh"/></div></div>
+        <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/hvdM1RJz/zohra.jpg" alt="Zohra"/></div></div>
+        <!-- duplicate loop for seamless scroll -->
+        <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/PJtN2tcP/nasreen-mam-finel.jpg" alt="Nasreen 2"/></div></div>
+        <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/G3qpbnVx/Rukkaya-appi-finel.jpg" alt="Rukkaya 2"/></div></div>
+        <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/LXSzFFwM/Farheen-mam.jpg" alt="Farheen 2"/></div></div>
+        <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/vBDGBcp7/Firdous-finel.jpg" alt="Firdous 2"/></div></div>
+        <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/CxF50LL7/Ahemadi-mam-finel.jpg" alt="Ahemadi 2"/></div></div>
+        <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/nhcF5R0w/balvinder-finel.jpg" alt="Balvinder 2"/></div></div>
+        <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/rFhXd8NQ/faizeen-finel.jpg" alt="Faizeen 2"/></div></div>
+        <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/FRbwhmKb/Nadeem-finel.jpg" alt="Nadeem 2"/></div></div>
+        <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/pL97pKTL/Rukhsaar-finel.jpg" alt="Rukhsar 2"/></div></div>
+        <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/vBv2pzP3/sagufta-finel.jpg" alt="Sagufta 2"/></div></div>
+        <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/1tzD3rmW/Amreen.jpg" alt="Amreen 2"/></div></div>
+        <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/76bTkP9d/rukkaya-6lakh.jpg" alt="Rukkaya 2"/></div></div>
+        <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/hvdM1RJz/zohra.jpg" alt="Zohra 2"/></div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbysM4M6TxXh8FruLw0oI7ka-Uo4q_5kh4W9g-KL29Bhst6DkXRewSnEMwMCt8OKYdaLLg/exec';
+<!-- FAQ -->
+<section id="faq" class="faq">
+  <div class="faq-wrap">
+    <h2>Frequently Asked Questions</h2>
+    <p class="faq-sub">Answers to the most common questions we get.</p>
 
-      fetch(scriptURL, {
-        method: 'POST',
-        body: JSON.stringify(data)
-      })
-      .then(response => {
-        if (response.ok) {
-          const message = `Hello Rahman Sir, I am interested in this work.%0A%0AThis is my details:%0AName: ${name}%0APhone: ${phone}%0AProfession: ${selectedProfession}%0AGender: ${gender}%0ALanguage: ${language}%0AAge: ${age}%0A%0APlease share me work details.`;
-          const whatsappURL = `https://wa.me/919743140915?text=${message}`;
-          window.location.href = whatsappURL;
-        } else {
-          alert("Something went wrong. Try again.");
-        }
-      })
-      .catch(error => {
-        alert("Error! Try again.");
-        console.error("Error!", error.message);
-      });
-    });
-  </script>
+    <div class="faq-item"><div class="faq-q"><span>Which platforms do you work with?</span><div class="faq-toggle">▸</div></div><div class="faq-a">We manage Meta ads (Facebook & Instagram) for platforms like IDP, Bizgurukul, LeadsGuru, GyaanGrowth, RichIND, Forever, etc.</div></div>
+    <div class="faq-item"><div class="faq-q"><span>Minimum budget required?</span><div class="faq-toggle">▸</div></div><div class="faq-a">Best to start with ₹500–₹1,000/day for testing. We scale only after profitable signals.</div></div>
+    <div class="faq-item"><div class="faq-q"><span>Do you provide copy & creative guidance?</span><div class="faq-toggle">▸</div></div><div class="faq-a">Yes. Monthly converting ad copy + creative direction tailored to your offer.</div></div>
+    <div class="faq-item"><div class="faq-q"><span>How quickly can I see results?</span><div class="faq-toggle">▸</div></div><div class="faq-a">Usually 3–7 days to see qualified leads; scaling depends on product-market fit + budget.</div></div>
+    <div class="faq-item"><div class="faq-q"><span>What kind of support do you provide?</span><div class="faq-toggle">▸</div></div><div class="faq-a">WhatsApp support, weekly check-ins, and transparent reporting (spend, CPL, leads).</div></div>
+  </div>
+</section>
 
-  <!-- Meta Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1323195878793934');
-    fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1323195878793934&ev=PageView&noscript=1"/>
-  </noscript>
+<!-- PLANS -->
+<section id="plans" class="plans">
+  <div class="plans-wrap">
+    <h2 class="plans-title">Choose Your <span class="hl">Plan</span></h2>
+    <p class="plans-sub">Select the package that fits your goals & budget</p>
+
+    <div class="plans-grid">
+      <!-- Starter -->
+      <div class="plan-card">
+        <h3 class="plan-name">Starter Plan <span class="badge">1 Month</span></h3>
+        <p class="plan-price"><span class="strike">₹6,000</span> ₹4,999</p>
+        <ul class="plan-features">
+          <li>Meta Ads Management (1 Month)</li>
+          <li>Ad Creative (By Our Team)</li>
+          <li>1 High-Converting Landing Page (Worth ₹2,000 – included)</li>
+          <li>Daily Ad Management</li>
+          <li>24/7 WhatsApp Support</li>
+        </ul>
+        <a class="plan-btn" href="https://wa.me/919743140915?text=Hi%2C%20I%20want%20to%20start%20with%20Starter%20Plan" target="_blank">Get Started</a>
+      </div>
+
+      <!-- Boost -->
+      <div class="plan-card highlight">
+        <h3 class="plan-name">Boost Plan <span class="badge">2 Months</span></h3>
+        <p class="plan-price"><span class="strike">₹9,000</span> ₹7,999</p>
+        <ul class="plan-features">
+          <li>All Starter Plan Benefits 24×7</li>
+          <li>WhatsApp & Call Support 2×</li>
+          <li>Optimization Cycle Improved</li>
+          <li>Detailed Targeting</li>
+        </ul>
+        <a class="plan-btn" href="https://wa.me/919743140915?text=Hi%2C%20I%20want%20to%20start%20with%20Boost%20Plan" target="_blank">Get Started</a>
+      </div>
+
+      <!-- Growth -->
+      <div class="plan-card">
+        <h3 class="plan-name">Growth Plan <span class="badge">3 Months</span></h3>
+        <p class="plan-price"><span class="strike">₹15,000</span> ₹11,998</p>
+        <ul class="plan-features">
+          <li>All Starter + Boost Plan Benefits 24×7</li>
+          <li>WhatsApp, Call & 1:1 Support</li>
+          <li>Deep Scaling Strategy</li>
+          <li>90-Days Growth Framework</li>
+        </ul>
+        <a class="plan-btn" href="https://wa.me/919743140915?text=Hi%2C%20I%20want%20to%20start%20with%20Growth%20Plan" target="_blank">Get Started</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GET STARTED -->
+<section id="start" class="gs">
+  <div class="gs-wrap">
+    <div class="gs-form">
+      <h2 class="gs-title">Get Started with AdHabits</h2>
+      <p class="gs-sub">Select your platform and details, then ping us on WhatsApp 👇</p>
+
+      <label class="gs-lbl">Platform</label>
+      <select id="platform" class="gs-input">
+        <option value="IDP" selected>IDP</option>
+        <option value="Bizgurukul">Bizgurukul</option>
+        <option value="LeadsGuru">LeadsGuru</option>
+        <option value="Gyaan Growth">Gyaan Growth</option>
+        <option value="RichIND">RichIND</option>
+        <option value="Forever">Forever</option>
+        <option value="Exam Predict">Exam Predict</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <div class="gs-row">
+        <div class="col">
+          <label class="gs-lbl">Your Name</label>
+          <input id="name" class="gs-input" placeholder="Your name" />
+        </div>
+        <div class="col">
+          <label class="gs-lbl">Phone (required)</label>
+          <input id="phone" class="gs-input" placeholder="+91 98765 43210" inputmode="numeric" />
+        </div>
+      </div>
+
+      <button id="waBtn" class="gs-btn" disabled>Send on WhatsApp</button>
+      <p class="gs-help">Auto-opens WhatsApp with your selected details.</p>
+    </div>
+
+    <aside class="gs-proof">
+      <h3>Ready to Get Daily Leads?</h3>
+      <p>Click the button and message us to get your professional ad setup today.</p>
+      <div class="gs-stats">
+        <div class="stat"><div class="num" data-count="3">0</div><div class="lbl">Years</div></div>
+        <div class="stat"><div class="num" data-count="250">0</div><div class="lbl">Affiliates</div></div>
+        <div class="stat"><div class="num" data-count="50">0</div><div class="lbl">₹ L+<br>Ad Budget</div></div>
+      </div>
+    </aside>
+  </div>
+
+  <div class="gs-footer">
+    <img src="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png" alt="AdHabits"><span>AdHabits — Professional Meta Ads</span>
+    <div class="spacer"></div>
+    <a href="#" class="link">Privacy Policy</a><span>·</span>
+    <a href="#" class="link">Terms of Service</a>
+    <a class="ig-link" href="https://www.instagram.com/adhabits.in/" target="_blank" rel="noopener" aria-label="AdHabits Instagram">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#ffb454" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2.5" y="2.5" width="19" height="19" rx="5"></rect>
+        <path d="M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"></path>
+        <circle cx="18.5" cy="5.5" r="1.2" fill="#ffb454" stroke="none"></circle>
+      </svg>
+    </a>
+  </div>
+</section>
+
+<script>
+// FAQ toggle
+document.querySelectorAll('.faq-item .faq-q').forEach(q=>q.addEventListener('click',()=>q.parentElement.classList.toggle('open')));
+
+// Start form -> WhatsApp
+(() => {
+  const platform = document.getElementById('platform');
+  const nameEl   = document.getElementById('name');
+  const phoneEl  = document.getElementById('phone');
+  const btn      = document.getElementById('waBtn');
+  const digits = s => (s||'').replace(/\D+/g,'');
+  const valid = () => digits(phoneEl.value).length>=10;
+
+  function buildMsg(){
+    const header="helle Rahman sir i am intrested in u are ad servise this is my detels";
+    const footer="ples shere me payement detels";
+    return [
+      header,"",
+      `Platform: ${platform.value}`,
+      `Name: ${nameEl.value||'-'}`,
+      `Phone: ${phoneEl.value.trim()||'-'}`,"",
+      footer
+    ].join("\n");
+  }
+  function update(){ btn.disabled=!valid(); }
+  btn.addEventListener('click', ()=>{ if(!valid()) return; window.open(`https://wa.me/919743140915?text=${encodeURIComponent(buildMsg())}`,'_blank'); });
+  [platform,nameEl,phoneEl].forEach(el=>{ el.addEventListener('input',update,{passive:true}); el.addEventListener('change',update); });
+  update();
+
+  // animate right counters
+  const nums=document.querySelectorAll('.gs-proof .num'); let played=false;
+  const io2=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting&&!played){played=true;nums.forEach(n=>animateNum(n,+n.dataset.count,1100));io2.disconnect();}})},{threshold:.3});
+  io2.observe(document.querySelector('.gs-proof'));
+})();
+</script>
 
 </body>
 </html>
