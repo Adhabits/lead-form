@@ -3,159 +3,182 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>AdHabits — Professional Meta Ads for Affiliates</title>
+<title>AdHabits — Professional Meta Ads</title>
+<meta name="description" content="We run high-ROI Meta ads for affiliates. You close, we handle strategy, copy, targeting & optimization." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
 <style>
 :root{
-  --bg:#0a0f1b; --text:#e7eaf0; --muted:#a6b0c3; --stroke:#1d273b; --card:#101726;
+  --bg:#0a0f1b; --text:#e7eaf0; --muted:#a6b0c3;
+  --stroke:#1d273b; --card:#101726;
   --grad:linear-gradient(135deg,#8b5cf6 0%, #22d3ee 55%, #34d399 100%);
-  --accent:#ffb454; --accent2:#ff914d;
+  --accent:#ff914d; --accent2:#ffb454;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+html,body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
 a{color:inherit;text-decoration:none}
 .container{max-width:1150px;margin:auto;padding:0 18px}
 
-/* NAV */
-.nav{position:sticky;top:0;z-index:50;background:rgba(8,12,22,.75);
-     border-bottom:1px solid var(--stroke);backdrop-filter:saturate(160%) blur(10px)}
-.nav-inner{height:68px;display:flex;align-items:center;justify-content:space-between}
+/* NAV + HAMBURGER */
+.nav{position:sticky;top:0;z-index:50;background:rgba(8,12,22,.78);border-bottom:1px solid var(--stroke);backdrop-filter:saturate(160%) blur(10px)}
+.nav-inner{height:64px;display:flex;align-items:center;justify-content:space-between}
 .brand{display:flex;align-items:center;gap:10px;font-weight:800}
-.logo{width:28px;height:28px}
+.logo{width:28px;height:28px;display:grid;place-items:center}
 .logo img{width:100%;height:100%;object-fit:contain}
-.nav a{margin-left:18px;color:#c9d3e6;font-weight:700}
-.nav a:hover{color:#fff}
-.nav .btn.secondary{padding:10px 14px;border-radius:12px;background:#0f1526;border:1px solid #303a57}
+.menu{display:flex;gap:18px;align-items:center}
+.menu a{color:#c9d3e6;font-weight:700}
+.menu a:hover{color:#fff}
+.wa-mini{padding:10px 14px;border-radius:12px;background:#0f1526;border:1px solid #303a57;font-weight:700}
+.burger{display:none;gap:8px;flex-direction:column;cursor:pointer;margin-left:8px}
+.burger span{width:22px;height:2px;background:#c9d3e6;border-radius:2px}
+@media (max-width:900px){
+  .menu{display:none}
+  .burger{display:flex}
+}
+/* Drawer */
+.drawer{position:fixed;inset:0 0 auto auto;height:100vh;width:min(84vw,340px);background:#0f1526;border-left:1px solid #273047;transform:translateX(100%);transition:transform .25s ease;z-index:60;display:flex;flex-direction:column;padding:18px}
+.drawer.open{transform:translateX(0)}
+.drawer a{padding:14px 10px;border-radius:10px;color:#d6def2;border:1px solid transparent}
+.drawer a:hover{border-color:#2b3a63;background:#0c1424}
+.drawer .close{align-self:flex-end;margin:-6px -4px 6px 0;font-size:26px;line-height:1;cursor:pointer}
 
 /* HERO */
-.hero{
-  padding:82px 0 70px;
-  background:
-    radial-gradient(1200px 600px at 80% -10%, rgba(167,139,250,.20), transparent 60%),
-    radial-gradient(900px 500px at -10% 10%, rgba(34,211,238,.18), transparent 60%);
-}
-.eyebrow{display:inline-block;padding:8px 14px;border:1px solid #2a344f;border-radius:999px;color:#b5c1d8;margin-bottom:18px}
-h1{font-family:"Poppins",system-ui,Arial;font-weight:800;font-size:clamp(32px, 6vw, 56px);
-  line-height:1.08;letter-spacing:-0.02em;margin:0 0 10px;text-wrap:balance}
-.hl2{color:var(--accent2)}
-.video-card{margin:18px 0}
+.hero{padding:80px 0 56px;background:
+  radial-gradient(1100px 560px at 80% -10%, rgba(167,139,250,.18), transparent 60%),
+  radial-gradient(900px 480px at -10% 10%, rgba(34,211,238,.15), transparent 60%)}
+.eyebrow{display:inline-block;padding:7px 12px;border:1px solid #2a344f;border-radius:999px;color:#b5c1d8;margin-bottom:16px}
+h1{font-family:"Poppins",system-ui,Arial;font-weight:800;font-size:clamp(30px,6.6vw,56px);line-height:1.08;letter-spacing:-.02em;margin:0 0 10px}
+.hl2{color:var(--accent)}
+.kpis{color:#cfd7e9;margin:12px 0 18px;font-size:clamp(14px,3.2vw,18px);line-height:1.45}
+.video-card{margin:14px 0 14px}
 .yt-embed{position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid #25304a}
 .yt-embed iframe{position:absolute;inset:0;width:100%;height:100%}
-.kpis{color:#cfd7e9;margin:18px 0 22px;font-size:clamp(16px, 2.6vw, 19px);line-height:1.45}
-.cta{display:flex;gap:14px;flex-wrap:wrap;margin:6px 0 18px}
-.btn{padding:14px 20px;border-radius:14px;font-weight:800;transition:transform .2s ease, box-shadow .2s ease}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 14px}
+.btn{padding:13px 16px;border-radius:12px;font-weight:800;transition:transform .18s ease, box-shadow .18s ease}
 .btn.primary{background:var(--grad);border:none;color:#08121f;text-shadow:0 1px 0 rgba(255,255,255,.3)}
-.btn.primary:hover{transform:scale(1.05);box-shadow:0 0 18px rgba(139,92,246,.6)}
+.btn.primary:hover{transform:scale(1.04);box-shadow:0 0 16px rgba(139,92,246,.5)}
 .btn.secondary{background:#0f1526;border:1px solid #303a57;color:#d7def0}
-.btn.secondary:hover{transform:scale(1.05);box-shadow:0 0 18px rgba(34,211,238,.4)}
-.panel{border:1px solid var(--stroke);background:#0f1628;border-radius:18px;padding:14px;color:#aeb9ce;font-size:15px}
+.btn.secondary:hover{transform:scale(1.03);box-shadow:0 0 16px rgba(34,211,238,.35)}
+.panel{border:1px solid var(--stroke);background:#0f1628;border-radius:14px;padding:12px;color:#aeb9ce;font-size:14px}
 
-/* BRANDS (colored scroller) */
-.brand-names.colored{padding:32px 0 18px}
-.bnc-container{max-width:1150px;margin:auto;padding:0 18px}
-.bnc-title{margin:0 0 12px;font:600 22px/1.3 Inter;color:#aeb8cc}
-.bnc-band{position:relative;overflow:hidden;padding:10px 6px;border-radius:22px;border:1px solid #273047;background:linear-gradient(180deg,#0f172a,#0b0f1a)}
-.bnc-track{display:flex;align-items:center;gap:14px;animation:bnc-scroll 14s linear infinite}
-.bnc-item{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 18px;min-width:140px;border-radius:14px;border:1px solid transparent;font:800 14px/1 Inter;white-space:nowrap}
+/* BRAND NAMES STRIP */
+.brandstrip{padding:28px 0 12px}
+.bs-wrap{max-width:1150px;margin:auto;padding:0 18px}
+.bs-title{margin:0 0 12px;font:600 20px/1.3 Inter;color:#aeb8cc}
+.bs-band{position:relative;overflow:hidden;padding:10px 6px;border-radius:22px;border:1px solid #273047;background:linear-gradient(180deg,#0f172a,#0b0f1a)}
+.bs-track{display:flex;align-items:center;gap:14px;animation:bs-scroll 12s linear infinite}
+.bs-band:hover .bs-track{animation-play-state:paused}
+.bs-item{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 16px;min-width:120px;border-radius:12px;border:1px solid transparent;text-align:center;white-space:nowrap;font:800 13px/1 Inter;letter-spacing:.2px}
 .brand-idp{background:#2597d3;color:#011421;border-color:#2aa7f0}
 .brand-mt{background:linear-gradient(135deg,#ff7a1f,#ff5a00);color:#190a02;border-color:#ff7a1f}
 .brand-biz{background:linear-gradient(135deg,#b5141b,#d4a017);color:#1b0b03;border-color:#d07b1e}
-.brand-leadsguru{background:#fed100;color:#0a0c18;border-color:#f6c200}
-.brand-gyangrowth{background:#fe9d63;color:#140903;border-color:#ffb07f}
-.brand-richind{background:linear-gradient(135deg,#995fbc,#95d4f2);color:#0c0a18;border-color:#a887d0}
+.brand-leads{background:#fed100;color:#0a0c18;border-color:#f6c200}
+.brand-gyan{background:#fe9d63;color:#140903;border-color:#ffb07f}
+.brand-rich{background:linear-gradient(135deg,#995fbc,#95d4f2);color:#0c0a18;border-color:#a887d0}
 .brand-forever{background:#fec500;color:#0e0c06;border-color:#f1b800}
-@keyframes bnc-scroll{from{transform:translateX(0)} to{transform:translateX(-50%)}}
+@keyframes bs-scroll {from{transform:translateX(0)} to{transform:translateX(-50%)}}
 
-/* FEATURES (stacked) */
-.stacked{padding:60px 0}
+/* FEATURES (stacked on scroll) */
+.stacked{padding:56px 0}
 .stk-wrap{max-width:900px;margin:auto;padding:0 18px}
-.stk-title{margin:0 0 8px;font:800 34px/1.15 Inter;color:#e8edf7}
+.stk-title{margin:0 0 8px;font:800 32px/1.15 Inter;color:#e8edf7}
 .stk-sub{margin:0 0 22px;color:#9fb0c9}
-.stk-stack{position:relative;height: calc(520px + 220px * 6)}
-.stk-card{--gap:18px;--topBase:84px;position:sticky;top:calc(var(--topBase) + var(--i)*var(--gap));z-index:calc(1 + var(--i));
-  margin:0;padding:22px;border-radius:22px;border:1px solid #273047;background:linear-gradient(180deg,#0f172a,#0b0f1a);
+.stk-stack{position:relative;height:calc(520px + 220px * 6)}
+.stk-card{--gap:18px;--topBase:82px;position:sticky;top:calc(var(--topBase) + var(--i)*var(--gap));z-index:calc(100 - var(--i));
+  padding:20px;border-radius:20px;border:1px solid #273047;background:linear-gradient(180deg,#0f172a,#0b0f1a);
   box-shadow:0 6px 14px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.02)}
-.stk-icon{font-size:22px;margin-bottom:10px;display:inline-grid;place-items:center;width:38px;height:38px;border-radius:12px;background:rgba(148,163,184,.08);border:1px solid #2a3657}
-.stk-card h3{margin:6px 0 6px;font:800 20px/1.25 Inter;color:#eaf1ff}
+.stk-icon{font-size:20px;display:inline-grid;place-items:center;width:36px;height:36px;border-radius:10px;background:rgba(148,163,184,.08);border:1px solid #2a3657;margin-bottom:8px}
+.stk-card h3{margin:4px 0 6px;font:800 19px/1.25 Inter;color:#eaf1ff}
 .stk-card p{margin:0;color:#9fb0c9}
+@media (max-width:640px){.stk-title{font-size:26px}.stk-stack{height:calc(480px + 200px * 6)}.stk-card{--gap:16px;--topBase:70px}}
 
 /* EXPERT */
-.exp1{padding:60px 0}
+.exp{padding:56px 0}
 .ex-wrap{max-width:1150px;margin:auto;padding:0 18px;display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center}
-@media (max-width:980px){.ex-wrap{grid-template-columns:1fr;gap:20px}}
-.ex-copy h2{margin:0 0 8px;font:800 36px/1.15 Inter;color:#e8edf7}
-.ex-sub{margin:0 0 18px;color:#9fb0c9}
-.name-grad{background:linear-gradient(135deg,#8b5cf6,#22d3ee 60%,#34d399);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800}
-.name-strong{font-weight:900;color:#000;background:#fff;padding:0 .3rem;border-radius:6px}
+@media (max-width:980px){.ex-wrap{grid-template-columns:1fr;gap:18px}}
+.ex-copy h2{margin:0 0 8px;font:800 34px/1.15 Inter;color:#e8edf7}
+.ex-sub{margin:0 0 16px;color:#9fb0c9}
+.name-grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800}
 .ex-frame{position:relative;border-radius:24px;overflow:hidden;border:1px solid #273047;background:#0b0f1a;box-shadow:0 14px 36px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.03)}
 .ex-frame img{width:100%;display:block;transform-origin:center;animation:ken 18s ease-in-out infinite alternate, floaty 8s ease-in-out infinite}
-@keyframes ken{from{transform:scale(1.04)} to{transform:scale(1.12)}} 
-@keyframes floaty{0%{transform:translateY(0) scale(1.08)}50%{transform:translateY(-6px) scale(1.10)}100%{transform:translateY(0) scale(1.08)}}
-.ex-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0 20px}
-.ex-stat{border:1px solid #273047;border-radius:16px;padding:18px;background:linear-gradient(180deg,#0f172a,#0b0f1a);box-shadow:inset 0 0 0 1px rgba(255,255,255,.02)}
-.ex-stat .num{font:800 40px/1 Inter;color:#fff}
+@keyframes ken{from{transform:scale(1.04)} to{transform:scale(1.12)}}
+@keyframes floaty{0%{transform:translateY(0) scale(1.08)}50%{transform:translateY(-6px) scale(1.1)}100%{transform:translateY(0) scale(1.08)}}
+.ex-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0 18px}
+@media (max-width:520px){.ex-stats{grid-template-columns:1fr}}
+.ex-stat{border:1px solid #273047;border-radius:14px;padding:16px;background:linear-gradient(180deg,#0f172a,#0b0f1a)}
+.ex-stat .num{font:800 38px/1 Inter;color:#fff}
 .ex-stat .lbl{margin-top:6px;color:#9fb0c9}
-.ex-btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;border-radius:14px;background:linear-gradient(135deg,#8b5cf6,#22d3ee 55%,#34d399);color:#08121f;font:800 15px/1.1 Inter}
+.ex-btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;border-radius:14px;background:var(--grad);color:#08121f;font:900 15px/1.1 Inter;border:none;box-shadow:0 8px 22px rgba(34,211,238,.25)}
+.ex-btn strong{font-weight:900;color:#000} /* Rahman bolder & black */
 
-/* TESTIMONIALS (auto left) */
-.tcarousel{padding:60px 0}
-.tc-wrap{max-width:1150px;margin:auto;padding:0 18px}
+/* TESTIMONIALS — horizontal auto-scroll */
+.tcarousel{padding:56px 0}
+.tc-wrap{max-width:1100px;margin:auto;padding:0 18px}
 .tc-title{margin:0 0 6px;font:800 32px/1.15 Inter;color:#e8edf7}
-.tc-title .hl{color:var(--accent)}
+.tc-title .hl{color:var(--accent2)}
 .tc-sub{margin:0 0 16px;color:#9fb0c9}
-.tc-viewport{overflow:hidden;border:1px solid #273047;border-radius:18px;background:linear-gradient(180deg,#0f172a,#0b0f1a);padding:12px}
-.tc-track{display:flex;gap:10px;animation:tc-left 24s linear infinite}
-.tc-card{flex:0 0 auto;width:210px;border-radius:12px;border:1px solid #273047;background:#0d1322;padding:8px}
-.tc-shot{aspect-ratio:9/19.5;border-radius:8px;overflow:hidden;border:1px solid #273047;background:#0b0f1a}
+.tc-view{overflow:hidden;border:1px solid #273047;border-radius:16px;background:#0f1628;padding:10px}
+.tc-track{display:flex;gap:12px;animation:tc-left 18s linear infinite}
+.tc-card{flex:0 0 auto;width:200px;padding:8px;border-radius:12px;border:1px solid #273047;background:linear-gradient(180deg,#0f172a,#0b0f1a)}
+.tc-shot{aspect-ratio:9/19.5;border-radius:10px;overflow:hidden;border:1px solid #273047;background:#0d1322}
 .tc-shot img{width:100%;height:100%;object-fit:contain}
 @keyframes tc-left{from{transform:translateX(0)} to{transform:translateX(-50%)}}
+@media (max-width:520px){.tc-card{width:180px}.tc-track{animation-duration:16s}}
 
-/* PLANS (stacked, upper-on-top) */
-.plans{padding:60px 0}
-.plans-wrap{max-width:980px;margin:auto;padding:0 18px}
-.plans-title{font:800 32px/1.2 Inter;color:#e8edf7;margin-bottom:6px}
-.plans-title .hl{color:var(--accent)}
-.plans-sub{color:#9fb0c9;margin-bottom:12px}
-.plan-stack{position:relative;height:calc(420px + 260px * 3)}
-.plan-card{--gap:20px;--topBase:90px;position:sticky;top:calc(var(--topBase) + var(--i)*var(--gap));z-index:calc(10 + var(--i)); /* later card ABOVE earlier */
-  margin:0 auto;border-radius:18px;border:1px solid #273047;background:linear-gradient(180deg,#0f172a,#0b0f1a);
-  box-shadow:0 12px 20px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.02);padding:24px}
-.plan-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
-.plan-name{font:700 22px/1.2 Inter;color:#eaf1ff}
-.plan-price{font:800 28px/1.2 Inter;color:var(--accent)}
-.strike{color:#a07a7a;text-decoration:line-through;margin-right:10px;font-weight:700}
-.plan-features{list-style:none;margin:14px 0 16px;padding:0;color:#9fb0c9}
-.plan-features li{margin:8px 0;padding-left:18px;position:relative}
-.plan-features li:before{content:"✔";position:absolute;left:0;color:var(--accent)}
-.plan-btn{display:inline-block;padding:12px 18px;border-radius:12px;background:var(--accent);color:#0b0f1a;font-weight:800}
-@media (max-width:640px){.plan-stack{height:calc(400px + 260px * 3)}}
-
-/* FAQ */
-.faq{padding:60px 0}
+/* FAQ (accordion) */
+.faq{padding:56px 0}
 .faq-wrap{max-width:900px;margin:auto;padding:0 18px}
-.faq-title{font:800 32px/1.2 Inter;color:#e8edf7;margin-bottom:12px}
-.faq-item{border:1px solid #273047;background:#0f172a;border-radius:14px;margin:10px 0;overflow:hidden}
-.faq-q{padding:16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
-.faq-a{padding:0 16px 16px;color:#aeb9ce;display:none}
+.faq-title{margin:0 0 10px;font:800 32px/1.15 Inter;color:#e8edf7}
+.faq-item{border:1px solid #273047;border-radius:14px;margin:10px 0;background:linear-gradient(180deg,#0f172a,#0b0f1a);overflow:hidden}
+.faq-q{width:100%;text-align:left;padding:14px 16px;color:#e7eaf0;font-weight:700;border:none;background:none;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+.faq-a{padding:0 16px 14px;color:#aeb9ce;display:none}
 .faq-item.open .faq-a{display:block}
 
-/* Modal Form (only 3 fields + terms) */
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;z-index:100}
-.modal.on{display:flex}
-.form-card{width:min(520px,92vw);background:#0f172a;border:1px solid #273047;border-radius:16px;padding:18px}
-.form-card h3{margin-bottom:8px}
-.form-grid{display:grid;gap:10px}
-select, input{width:100%;padding:12px;border-radius:10px;border:1px solid #2d3a57;background:#0c1426;color:#e8edf7}
-.form-actions{display:flex;gap:10px;justify-content:space-between;margin-top:8px}
-.form-actions .btn{flex:1;text-align:center}
-.tiny{font-size:12px;color:#9fb0c9}
+/* PLANS (stacked on scroll for “overlap” feel) */
+.plans{padding:56px 0}
+.pl-wrap{max-width:980px;margin:auto;padding:0 18px}
+.pl-title{margin:0 0 10px;font:800 32px/1.15 Inter;color:#e8edf7}
+.pl-sub{margin:0 0 18px;color:#9fb0c9}
+.pl-stack{position:relative;height:calc(520px + 240px * 3)}
+.plan{--i:0;--gap:20px;--top:80px;position:sticky;top:calc(var(--top) + var(--i)*var(--gap));z-index:calc(100 - var(--i));
+  border:1px solid #273047;border-radius:18px;padding:22px;background:linear-gradient(180deg,#0f172a,#0b0f1a);
+  box-shadow:0 10px 26px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.02);margin-bottom:24px}
+.plan .p-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.plan .name{font:800 22px/1.2 Inter}
+.plan .price{font:800 28px/1.1 Inter;color:var(--accent2)}
+.strike{color:#a28e7a;text-decoration:line-through;margin-right:8px;font-weight:700}
+.plan ul{margin:10px 0 16px 18px;color:#aeb9ce}
+.plan li{margin:6px 0}
+.plan .btn{background:var(--accent2);color:#0b0f1a;border:none}
+.plan .btn:hover{background:#ff9a1f}
 
-/* Floating Instagram */
-.ig-float{position:fixed;right:14px;bottom:14px;z-index:60}
-.ig-float a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#11172a;border:1px solid #2e3a56;box-shadow:0 6px 14px rgba(0,0,0,.35)}
-.ig-float svg{width:22px;height:22px;fill:#e8edf7}
+/* CONTACT / FORM */
+.contact{padding:56px 0}
+.c-wrap{max-width:1100px;margin:auto;padding:0 18px;display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+@media (max-width:980px){.c-wrap{grid-template-columns:1fr}}
+.card{border:1px solid #273047;background:#0f1628;border-radius:16px;padding:18px}
+.form-title{font:800 26px/1.2 Inter;margin-bottom:8px}
+.label{font-weight:700;margin:10px 0 6px;display:block}
+.input,select{width:100%;padding:12px 12px;border:1px solid #2b3551;border-radius:10px;background:#0c1426;color:#e7eaf0}
+input::placeholder{color:#7e8aa5}
+.actions{display:flex;gap:10px;align-items:center;margin-top:12px}
+.submit{padding:12px 16px;border-radius:12px;background:var(--grad);color:#08121f;font-weight:800;border:none}
+.small{color:#9fb0c9;font-size:13px}
+
+/* FOOTER */
+.footer{border-top:1px solid #273047;padding:18px 0;margin-top:18px}
+.f-wrap{max-width:1100px;margin:auto;padding:0 18px;display:flex;gap:12px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.copy{color:#aeb9ce}
+.f-links{display:flex;gap:14px;align-items:center}
+.insta{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid #2b3551;border-radius:10px;background:#0c1426;color:#e7eaf0}
+.insta svg{width:18px;height:18px}
+.terms{color:#c9d3e6;text-decoration:underline}
+@media (max-width:520px){.btn{flex:1}}
+/* Reveal */
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .55s ease, transform .55s ease}
+.reveal.on{opacity:1;transform:none}
 </style>
 </head>
 <body>
@@ -164,58 +187,85 @@ select, input{width:100%;padding:12px;border-radius:10px;border:1px solid #2d3a5
 <header class="nav">
   <div class="container nav-inner">
     <div class="brand">
-      <span class="logo"><img src="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png" alt="AdHabits"></span>
+      <span class="logo"><img src="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png" alt="AdHabits" /></span>
       <span>AdHabits</span>
     </div>
-    <nav>
+    <nav class="menu">
       <a href="#features">Features</a>
       <a href="#expert">Expert</a>
       <a href="#testimonials">Testimonials</a>
       <a href="#plans">Plans</a>
       <a href="#faq">FAQ</a>
-      <a class="btn secondary" href="javascript:waOpen()">WhatsApp</a>
+      <a class="wa-mini" href="javascript:waOpen()">WhatsApp</a>
     </nav>
+    <div class="burger" id="burger" aria-label="Menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
   </div>
 </header>
+
+<!-- Drawer -->
+<aside class="drawer" id="drawer">
+  <div class="close" id="closeDrawer">✕</div>
+  <a href="#features">Features</a>
+  <a href="#expert">Expert</a>
+  <a href="#testimonials">Testimonials</a>
+  <a href="#plans">Plans</a>
+  <a href="#faq">FAQ</a>
+  <a href="javascript:waOpen()">WhatsApp</a>
+</aside>
 
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <span class="eyebrow">Affiliate Marketer?</span>
-    <h1>Let Us Run Your <span class="hl2">Meta Ads</span><br>&amp; Get You More Leads</h1>
+    <div class="reveal">
+      <span class="eyebrow">Affiliate Marketer?</span>
+      <h1>Let Us Run Your <span class="hl2">Meta Ads</span><br/>&amp; Get You More Leads</h1>
 
-    <div class="video-card">
-      <div class="yt-embed">
-        <iframe src="https://www.youtube.com/embed/ornKwN73i5U?autoplay=1&mute=1&loop=1&playlist=ornKwN73i5U&playsinline=1"
-          title="AdHabits Intro" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>
+      <div class="video-card">
+        <div class="yt-embed">
+          <iframe src="https://www.youtube.com/embed/ornKwN73i5U?autoplay=1&mute=1&loop=1&playlist=ornKwN73i5U&playsinline=1"
+            title="AdHabits Intro" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
       </div>
-    </div>
 
-    <div class="kpis">
-      <b class="num" data-count="3">0</b>+ Years Experience •
-      <b class="num" data-count="350">0</b>+ Affiliates Served •
-      Trusted by <b>50+</b> Top Performers
-    </div>
+      <div class="kpis">
+        <b class="reveal" data-count="3">0</b>+ Years Experience •
+        <b class="reveal" data-count="250">0</b>+ Affiliates Served •
+        Trusted by <b class="reveal" data-count="50">0</b>+ Top Performers
+      </div>
 
-    <div class="cta">
-      <a href="#plans" class="btn primary">Yes, I want ad setup help!</a>
-      <a href="#features" class="btn secondary">See How It Works</a>
+      <div class="cta">
+        <a href="#contact" class="btn primary">Yes, I want ad setup help!</a>
+        <a href="#features" class="btn secondary">See How It Works</a>
+      </div>
+      <div class="panel">⚡ Fast onboarding • ✅ Verified results available • 💬 WhatsApp support</div>
     </div>
-
-    <div class="panel">⚡ Fast onboarding • ✅ Verified results available • 💬 WhatsApp support</div>
   </div>
 </section>
 
-<!-- BRANDS -->
-<section id="platforms-names" class="brand-names colored">
-  <div class="bnc-container">
-    <h2 class="bnc-title">Trusted by top affiliates from these platforms</h2>
-    <div class="bnc-band">
-      <div class="bnc-track">
-        <span class="bnc-item brand-idp">IDP</span><span class="bnc-item brand-mt">MillionaireTrack</span><span class="bnc-item brand-biz">Bizgurukul</span><span class="bnc-item brand-leadsguru">LeadsGuru</span><span class="bnc-item brand-gyangrowth">GyaanGrowth</span><span class="bnc-item brand-richind">RichIND</span><span class="bnc-item brand-forever">Forever</span>
-        <span class="bnc-item brand-idp">IDP</span><span class="bnc-item brand-mt">MillionaireTrack</span><span class="bnc-item brand-biz">Bizgurukul</span><span class="bnc-item brand-leadsguru">LeadsGuru</span><span class="bnc-item brand-gyangrowth">GyaanGrowth</span><span class="bnc-item brand-richind">RichIND</span><span class="bnc-item brand-forever">Forever</span>
+<!-- BRAND STRIP -->
+<section class="brandstrip">
+  <div class="bs-wrap">
+    <p class="bs-title">Trusted by top affiliates from these platforms</p>
+    <div class="bs-band">
+      <div class="bs-track">
+        <span class="bs-item brand-idp">IDP</span>
+        <span class="bs-item brand-mt">MillionaireTrack</span>
+        <span class="bs-item brand-biz">Bizgurukul</span>
+        <span class="bs-item brand-leads">LeadsGuru</span>
+        <span class="bs-item brand-gyan">GyaanGrowth</span>
+        <span class="bs-item brand-rich">RichIND</span>
+        <span class="bs-item brand-forever">Forever</span>
+        <!-- repeat for seamless loop -->
+        <span class="bs-item brand-idp">IDP</span>
+        <span class="bs-item brand-mt">MillionaireTrack</span>
+        <span class="bs-item brand-biz">Bizgurukul</span>
+        <span class="bs-item brand-leads">LeadsGuru</span>
+        <span class="bs-item brand-gyan">GyaanGrowth</span>
+        <span class="bs-item brand-rich">RichIND</span>
+        <span class="bs-item brand-forever">Forever</span>
       </div>
     </div>
   </div>
@@ -226,6 +276,7 @@ select, input{width:100%;padding:12px;border-radius:10px;border:1px solid #2d3a5
   <div class="stk-wrap">
     <h2 class="stk-title">Why Choose AdHabits</h2>
     <p class="stk-sub">We deliver results that matter to your affiliate business</p>
+
     <div class="stk-stack">
       <article class="stk-card" style="--i:0"><div class="stk-icon">💼</div><h3>100% Affiliate Focus</h3><p>Specialized in affiliate campaigns only.</p></article>
       <article class="stk-card" style="--i:1"><div class="stk-icon">✍️</div><h3>Custom Ad Copy Monthly</h3><p>Fresh, converting copy delivered every month.</p></article>
@@ -238,19 +289,23 @@ select, input{width:100%;padding:12px;border-radius:10px;border:1px solid #2d3a5
 </section>
 
 <!-- EXPERT -->
-<section id="expert" class="exp1">
+<section id="expert" class="exp">
   <div class="ex-wrap">
-    <div class="ex-photo"><div class="ex-frame"><img src="https://i.postimg.cc/FzTFp82v/mee-mentor-pic.avif" alt="Rahman — Meta Ads Expert"></div></div>
+    <div class="ex-photo">
+      <div class="ex-frame">
+        <img src="https://i.postimg.cc/FzTFp82v/mee-mentor-pic.avif" alt="Rahman — Meta Ads Expert"/>
+      </div>
+    </div>
     <div class="ex-copy">
       <h2>Meet Your Expert</h2>
-      <p class="ex-sub">Hey! I'm <b class="name-grad">Rahman</b>. With 3+ years in affiliate marketing &amp; Meta ads, I’ve helped 350+ affiliates scale. I don’t do theory — I run your campaigns end-to-end so you can focus on converting leads into sales.</p>
+      <p class="ex-sub">Hey! I'm <b class="name-grad">Rahman</b>. With 3+ years in affiliate marketing & Meta ads,
+        I’ve helped 250+ affiliates scale. I don’t do theory — I run your campaigns end-to-end so you can
+        focus on converting leads into sales.</p>
       <div class="ex-stats">
         <div class="ex-stat"><div class="num" data-count="3">0</div><div class="lbl">Years Experience</div></div>
-        <div class="ex-stat"><div class="num" data-count="350">0</div><div class="lbl">Affiliates Served</div></div>
+        <div class="ex-stat"><div class="num" data-count="250">0</div><div class="lbl">Affiliates Served</div></div>
       </div>
-      <a class="ex-btn" href="https://wa.me/919743140915?text=Hi%20Rahman%2C%20I%27m%20interested%20in%20your%20Affiliate%20Ad%20Service!" target="_blank" rel="noopener">
-        Let’s talk with <span class="name-strong">Rahman</span> on WhatsApp
-      </a>
+      <a class="ex-btn" href="#contact">Let’s talk with <strong>Rahman</strong> on WhatsApp</a>
     </div>
   </div>
 </section>
@@ -259,9 +314,11 @@ select, input{width:100%;padding:12px;border-radius:10px;border:1px solid #2d3a5
 <section id="testimonials" class="tcarousel">
   <div class="tc-wrap">
     <h2 class="tc-title">Client <span class="hl">Testimonials</span></h2>
-    <p class="tc-sub">WhatsApp se mile huye real screenshots</p>
-    <div class="tc-viewport">
+    <p class="tc-sub">Real WhatsApp screenshots from happy clients</p>
+    <div class="tc-view">
       <div class="tc-track">
+        <!-- repeat block twice for seamless loop -->
+        <!-- BLOCK -->
         <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/PJtN2tcP/nasreen-mam-finel.jpg" alt=""></div></div>
         <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/G3qpbnVx/Rukkaya-appi-finel.jpg" alt=""></div></div>
         <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/LXSzFFwM/Farheen-mam.jpg" alt=""></div></div>
@@ -271,7 +328,8 @@ select, input{width:100%;padding:12px;border-radius:10px;border:1px solid #2d3a5
         <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/rFhXd8NQ/faizeen-finel.jpg" alt=""></div></div>
         <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/FRbwhmKb/Nadeem-finel.jpg" alt=""></div></div>
         <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/pL97pKTL/Rukhsaar-finel.jpg" alt=""></div></div>
-
+        <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/vBv2pzP3/sagufta-finel.jpg" alt=""></div></div>
+        <!-- DUP -->
         <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/PJtN2tcP/nasreen-mam-finel.jpg" alt=""></div></div>
         <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/G3qpbnVx/Rukkaya-appi-finel.jpg" alt=""></div></div>
         <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/LXSzFFwM/Farheen-mam.jpg" alt=""></div></div>
@@ -281,59 +339,8 @@ select, input{width:100%;padding:12px;border-radius:10px;border:1px solid #2d3a5
         <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/rFhXd8NQ/faizeen-finel.jpg" alt=""></div></div>
         <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/FRbwhmKb/Nadeem-finel.jpg" alt=""></div></div>
         <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/pL97pKTL/Rukhsaar-finel.jpg" alt=""></div></div>
+        <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/vBv2pzP3/sagufta-finel.jpg" alt=""></div></div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- PLANS (stacked) -->
-<section id="plans" class="plans">
-  <div class="plans-wrap">
-    <h2 class="plans-title">Choose Your <span class="hl">Plan</span></h2>
-    <p class="plans-sub">Select the package that fits your goals & budget</p>
-    <div class="plan-stack">
-      <article class="plan-card" style="--i:0">
-        <div class="plan-head">
-          <h3 class="plan-name">Starter Plan</h3>
-          <div><span class="strike">₹6,000</span><span class="plan-price">₹4,999</span> <small>/ 1 Month</small></div>
-        </div>
-        <ul class="plan-features">
-          <li>Meta Ads Management (1 Month)</li>
-          <li>Ad Creative (By Our Team)</li>
-          <li>1 High-Converting Landing Page (₹2,000 value – included)</li>
-          <li>Daily Ad Management</li>
-          <li>24/7 WhatsApp Support</li>
-        </ul>
-        <a href="#" class="plan-btn" data-plan="Starter Plan">Get Started</a>
-      </article>
-
-      <article class="plan-card" style="--i:1">
-        <div class="plan-head">
-          <h3 class="plan-name">Boost Plan</h3>
-          <div><span class="strike">₹9,000</span><span class="plan-price">₹7,999</span> <small>/ 2 Months</small></div>
-        </div>
-        <ul class="plan-features">
-          <li>All Starter Plan Benefits 24×7</li>
-          <li>WhatsApp & Call Support 2×</li>
-          <li>Optimization Cycle Improved</li>
-          <li>Detailed Targeting</li>
-        </ul>
-        <a href="#" class="plan-btn" data-plan="Boost Plan">Get Started</a>
-      </article>
-
-      <article class="plan-card" style="--i:2">
-        <div class="plan-head">
-          <h3 class="plan-name">Growth Plan</h3>
-          <div><span class="strike">₹15,000</span><span class="plan-price">₹11,998</span> <small>/ 3 Months</small></div>
-        </div>
-        <ul class="plan-features">
-          <li>All Starter + Boost Plan Benefits 24×7</li>
-          <li>WhatsApp, Call & 1:1 Support</li>
-          <li>Deep Scaling Strategy</li>
-          <li>90-Days Growth Framework</li>
-        </ul>
-        <a href="#" class="plan-btn" data-plan="Growth Plan">Get Started</a>
-      </article>
     </div>
   </div>
 </section>
@@ -342,146 +349,229 @@ select, input{width:100%;padding:12px;border-radius:10px;border:1px solid #2d3a5
 <section id="faq" class="faq">
   <div class="faq-wrap">
     <h2 class="faq-title">Frequently Asked Questions</h2>
-    <div class="faq-item"><div class="faq-q">Which platforms do you work with? <span>▾</span></div><div class="faq-a">Meta (Facebook & Instagram) with WhatsApp integration.</div></div>
-    <div class="faq-item"><div class="faq-q">Minimum budget required? <span>▾</span></div><div class="faq-a">Start small (₹300–₹1000/day) and scale as results come.</div></div>
-    <div class="faq-item"><div class="faq-q">Copy & creatives? <span>▾</span></div><div class="faq-a">Yes, we deliver fresh, converting copies & creatives monthly.</div></div>
-    <div class="faq-item"><div class="faq-q">How fast are results? <span>▾</span></div><div class="faq-a">Typically 3–7 days to start seeing qualified leads.</div></div>
-    <div class="faq-item"><div class="faq-q">Support type? <span>▾</span></div><div class="faq-a">24/7 WhatsApp support + weekly optimization reports.</div></div>
+
+    <div class="faq-item">
+      <button class="faq-q">Which platforms do you work with? <span>▾</span></button>
+      <div class="faq-a">We manage Meta (Facebook & Instagram) ads for affiliate products across IDP, Bizgurukul, LeadsGuru, MillionaireTrack, RichIND, etc.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Minimum budget required? <span>▾</span></button>
+      <div class="faq-a">Start with a sensible daily budget based on your niche. We’ll suggest an amount after a quick call.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Do you provide copy & creative guidance? <span>▾</span></button>
+      <div class="faq-a">Yes—monthly fresh ad copy and converting creatives are included in higher plans. We help you test & scale.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How quickly can I see results? <span>▾</span></button>
+      <div class="faq-a">Usually within the first 7–14 days as we start testing, optimize targeting, and refine creatives.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What kind of support do you provide? <span>▾</span></button>
+      <div class="faq-a">WhatsApp support, call touchpoints, and transparent reporting. We’re focused on your outcomes.</div>
+    </div>
   </div>
 </section>
 
-<!-- ===== Modal (only 3 fields + terms) ===== -->
-<div id="leadModal" class="modal" aria-hidden="true">
-  <div class="form-card">
-    <h3>Get Started with AdHabits</h3>
-    <p class="tiny">Hello Rahman sir, I am interested in your ad service — these are my details:</p>
-    <div class="form-grid">
-      <label>Your Name<input id="f-name" placeholder="Your name"></label>
-      <label>Phone Number<input id="f-phone" placeholder="Your WhatsApp number"></label>
-      <label>Platform
-        <select id="f-platform">
-          <option>IDP</option>
-          <option>MillionaireTrack</option>
-          <option>Bizgurukul</option>
-          <option>LeadsGuru</option>
-          <option>GyaanGrowth</option>
-          <option>RichIND</option>
-          <option>Forever</option>
-        </select>
-      </label>
-      <input type="hidden" id="f-plan">
-      <label style="display:flex;gap:8px;align-items:flex-start">
-        <input type="checkbox" id="f-terms" style="width:auto;margin-top:3px">
-        <span class="tiny">I agree to the <a href="#terms">Terms</a> & <a href="#privacy">Privacy Policy</a>.</span>
-      </label>
-    </div>
-    <div class="form-actions">
-      <a class="btn secondary" href="#" id="closeModal">Cancel</a>
-      <a class="btn primary" href="#" id="submitLead">Send on WhatsApp</a>
-    </div>
-    <p class="tiny" style="margin-top:6px">After submit, WhatsApp will open. Please share payment details.</p>
-  </div>
-</div>
+<!-- PLANS (stacked) -->
+<section id="plans" class="plans">
+  <div class="pl-wrap">
+    <h2 class="pl-title">Choose Your <span style="color:var(--accent2)">Plan</span></h2>
+    <p class="pl-sub">Select the package that fits your goals & budget</p>
 
-<!-- Floating Instagram -->
-<div class="ig-float">
-  <a href="https://www.instagram.com/adhabits.in/" target="_blank" rel="noopener" aria-label="Instagram @adhabits.in">
-    <svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2.2a2.8 2.8 0 1 0 0 5.6 2.8 2.8 0 0 0 0-5.6zM18 6.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
-  </a>
-</div>
+    <div class="pl-stack">
+      <!-- Starter -->
+      <article class="plan" style="--i:0">
+        <div class="p-head">
+          <div class="name">Starter Plan</div>
+          <div class="price"><span class="strike">₹6,000</span> ₹4,999</div>
+        </div>
+        <ul>
+          <li>Meta Ads Management (1 Month)</li>
+          <li>Ad Creative (By Our Team)</li>
+          <li>1 High-Converting Landing Page (worth ₹2,000 – Included)</li>
+          <li>Daily Ad Management</li>
+          <li>24/7 WhatsApp Support</li>
+        </ul>
+        <button class="btn" onclick="pickPlan('Starter Plan')">Get Started</button>
+      </article>
+
+      <!-- Boost -->
+      <article class="plan" style="--i:1">
+        <div class="p-head">
+          <div class="name">Boost Plan</div>
+          <div class="price"><span class="strike">₹9,000</span> ₹7,999</div>
+        </div>
+        <ul>
+          <li>All Starter Plan Benefits 24×7</li>
+          <li>WhatsApp & Call Support ×2</li>
+          <li>Optimization Cycle Improved</li>
+          <li>Detailed Targeting</li>
+        </ul>
+        <button class="btn" onclick="pickPlan('Boost Plan')">Get Started</button>
+      </article>
+
+      <!-- Growth -->
+      <article class="plan" style="--i:2">
+        <div class="p-head">
+          <div class="name">Growth Plan</div>
+          <div class="price"><span class="strike">₹15,000</span> ₹11,998</div>
+        </div>
+        <ul>
+          <li>All Starter + Boost Plan Benefits 24×7</li>
+          <li>WhatsApp, Call & 1:1 Support</li>
+          <li>Deep Scaling Strategy</li>
+          <li>90-Days Growth Framework</li>
+        </ul>
+        <button class="btn" onclick="pickPlan('Growth Plan')">Get Started</button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / FORM -->
+<section id="contact" class="contact">
+  <div class="c-wrap">
+    <!-- Form -->
+    <div class="card">
+      <div class="form-title">Get Started with AdHabits</div>
+      <p class="small" style="margin-bottom:10px">Hello Rahman sir, I am interested in your ad service. This is my detail 👇</p>
+
+      <label class="label" for="platform">Platform</label>
+      <select id="platform" required>
+        <option value="IDP">IDP</option>
+        <option value="Bizgurukul">Bizgurukul</option>
+        <option value="LeadsGuru">LeadsGuru</option>
+        <option value="MillionaireTrack">MillionaireTrack</option>
+        <option value="RichIND">RichIND</option>
+        <option value="Forever">Forever</option>
+        <option value="GyaanGrowth">GyaanGrowth</option>
+      </select>
+
+      <label class="label" for="name">Your Name</label>
+      <input id="name" class="input" placeholder="Your full name" required />
+
+      <label class="label" for="phone">Phone Number</label>
+      <input id="phone" class="input" inputmode="tel" placeholder="WhatsApp number" required />
+
+      <input id="plan" type="hidden" value="" />
+
+      <div class="actions">
+        <button class="submit" id="submitBtn">Send on WhatsApp</button>
+        <span class="small">Auto-opens WhatsApp with your details after saving.</span>
+      </div>
+    </div>
+
+    <!-- Counters box (right) -->
+    <div class="card">
+      <div style="font:800 20px/1.2 Inter;margin-bottom:8px">Ready to Get Daily Leads?</div>
+      <p class="small" style="margin-bottom:14px">Click the button and message us to get your professional ad setup today.</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+        <div class="ex-stat"><div class="num" data-count="3">0</div><div class="lbl">Years</div></div>
+        <div class="ex-stat"><div class="num" data-count="250">0</div><div class="lbl">Affiliates</div></div>
+        <div class="ex-stat"><div class="num" data-count="50">0</div><div class="lbl">₹50 L+ Budget</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="f-wrap">
+    <div class="copy">© <span id="yr"></span> AdHabits. All rights reserved.</div>
+    <div class="f-links">
+      <a class="insta" href="https://www.instagram.com/adhabits.in/" target="_blank" rel="noopener" aria-label="AdHabits Instagram">
+        <!-- simple insta icon -->
+        <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="6" stroke="#dbe4ff"/><circle cx="12" cy="12" r="4.2" stroke="#dbe4ff"/><circle cx="17.5" cy="6.5" r="1.4" fill="#dbe4ff"/></svg>
+        Instagram
+      </a>
+      <a class="terms" href="#terms">Terms</a>
+    </div>
+  </div>
+  <div id="terms" class="container" style="padding:10px 18px 0 18px;color:#9fb0c9;font-size:13px">
+    <strong>Terms & Conditions:</strong> Services are provided as-is. Due to the nature of digital ad services, all payments are <u>Non-Refundable</u>.
+  </div>
+</footer>
 
 <script>
-/* ===== Config ===== */
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxCgG30UNqJEEzyzizyv4Mi84GB6-AZDR3ANL8zsolzauDHbLgGoCqcD064pIzj4iBquQ/exec";
-const WA_NUMBER = "919743140915";
+/* ---- CONFIG ---- */
+const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbywjIgMdtPEAivpZvwvpLqQX1trtYkKON1whFUZB9g7wS0Zf9Ov9ngnIDcuN2wsWNTz/exec';
+const WA_NUMBER = '919743140915';
 
-/* ===== Counters (any .num animates) ===== */
-function animateNum(el, to, dur=1200){
-  const start = performance.now();
+/* ---- Burger / Drawer ---- */
+const burger = document.getElementById('burger');
+const drawer = document.getElementById('drawer');
+const closeDrawer = document.getElementById('closeDrawer');
+burger.onclick = () => drawer.classList.add('open');
+closeDrawer.onclick = () => drawer.classList.remove('open');
+drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>drawer.classList.remove('open')));
+
+/* ---- WhatsApp helper ---- */
+function waOpen(){
+  window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Hello Rahman sir, I am interested in your ad service.')}`,'_blank');
+}
+
+/* ---- Reveal & Counters ---- */
+function animateNum(el,to,dur=1200){
+  const start=performance.now();
   function step(t){
-    const p = Math.min(1,(t-start)/dur), ease = 1-Math.pow(1-p,3);
-    el.textContent = Math.floor(ease * to);
+    const p=Math.min(1,(t-start)/dur), ease=1-Math.pow(1-p,3);
+    el.textContent = Math.floor(ease*to);
     if(p<1) requestAnimationFrame(step);
   }
   requestAnimationFrame(step);
 }
-const nums = document.querySelectorAll('.num');
-const ioNums = new IntersectionObserver(es=>{
-  es.forEach(e=>{
-    if(e.isIntersecting){ animateNum(e.target, parseInt(e.target.dataset.count,10)); ioNums.unobserve(e.target); }
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('on');
+      if(e.target.dataset.count){ animateNum(e.target, parseInt(e.target.dataset.count,10)); }
+      io.unobserve(e.target);
+    }
   });
-},{threshold:.35});
-nums.forEach(n=>ioNums.observe(n));
+},{threshold:0.25});
+document.querySelectorAll('.reveal, .ex-stat .num').forEach(el=>io.observe(el));
 
-/* ===== FAQ toggle ===== */
-document.querySelectorAll('.faq-q').forEach(q=>{
-  q.addEventListener('click',()=>q.parentElement.classList.toggle('open'));
-});
-
-/* ===== WhatsApp quick ===== */
-function waOpen(){
-  const text="Hello, I’m interested in your Affiliate Ad Service!";
-  window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`,'_blank');
+/* ---- Plans -> set selected plan & scroll to form ---- */
+function pickPlan(name){
+  document.getElementById('plan').value = name;
+  document.getElementById('contact').scrollIntoView({behavior:'smooth'});
 }
 
-/* ===== Plan → open modal ===== */
-const modal = document.getElementById('leadModal');
-const closeModalBtn = document.getElementById('closeModal');
-document.querySelectorAll('.plan-btn').forEach(btn=>{
-  btn.addEventListener('click',(e)=>{
-    e.preventDefault();
-    document.getElementById('f-plan').value = btn.dataset.plan || 'Plan';
-    modal.classList.add('on');
-  });
-});
-closeModalBtn.addEventListener('click',(e)=>{ e.preventDefault(); modal.classList.remove('on'); });
-modal.addEventListener('click',(e)=>{ if(e.target===modal) modal.classList.remove('on'); });
+/* ---- Submit form -> Apps Script -> WhatsApp ---- */
+document.getElementById('submitBtn').addEventListener('click', async ()=>{
+  const name  = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const platform = document.getElementById('platform').value;
+  const plan  = document.getElementById('plan').value || 'Not selected';
 
-/* ===== Save to Google Sheet (URL-encoded + no-cors for Apps Script) =====
-   Your Apps Script (doPost) should read e.parameter.name / phone / platform / plan
-*/
-async function saveToSheet({name, phone, platform, plan}){
-  const body = new URLSearchParams({ name, phone, platform, plan }).toString();
+  if(!name || !phone || !platform){
+    alert('Please fill Name, Phone, and Platform.');
+    return;
+  }
+
+  // Save to Google Sheet (Apps Script)
   try{
-    await fetch(APPS_SCRIPT_URL, {
+    const res = await fetch(FORM_ENDPOINT, {
       method:'POST',
-      mode:'no-cors',
-      headers:{'Content-Type':'application/x-www-form-urlencoded'},
-      body
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ name, phone, platform, plan })
     });
-  }catch(_){}
-}
+    const json = await res.json();
+    if(!json.ok){ throw new Error(json.error || 'Failed'); }
+  }catch(err){
+    console.error(err);
+    alert('Could not save your details. Please try again.');
+    return;
+  }
 
-/* ===== Submit ===== */
-document.getElementById('submitLead').addEventListener('click', async (e)=>{
-  e.preventDefault();
-  const name = document.getElementById('f-name').value.trim();
-  const phone = document.getElementById('f-phone').value.trim();
-  const platform = document.getElementById('f-platform').value;
-  const plan = document.getElementById('f-plan').value || 'Plan';
-  const terms = document.getElementById('f-terms').checked;
-
-  if(!name || !phone){ alert('Please enter your name and phone number.'); return; }
-  if(!terms){ alert('Please agree to the Terms & Privacy.'); return; }
-
-  // save -> sheet
-  saveToSheet({name, phone, platform, plan});
-
-  // open WhatsApp
-  const text = [
-    `Hello Rahman sir, I am interested in your ad service — these are my details:`,
-    ``,
-    `Name: ${name}`,
-    `Phone: ${phone}`,
-    `Platform: ${platform}`,
-    `Selected Plan: ${plan}`,
-    ``,
-    `Please share payment details.`
-  ].join('\n');
-
-  window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`,'_blank');
-  modal.classList.remove('on');
+  // Open WhatsApp with pre-filled message
+  const msg = `Hello Rahman sir, I am interested in your ad service.%0A%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0APlatform: ${encodeURIComponent(platform)}%0APlan: ${encodeURIComponent(plan)}%0A%0APlease share payment details.`;
+  window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`,'_blank');
 });
+
+/* ---- Year ---- */
+document.getElementById('yr').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
