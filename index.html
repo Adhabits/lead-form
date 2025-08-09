@@ -494,7 +494,8 @@ document.querySelectorAll('.plan-btn').forEach(btn=>{
 });
 
 // ===== Form submit → Google Sheets → WhatsApp
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbywjIgMdtPEAivpZvwvpLqQX1trtYkKON1whFUZB9g7wS0Zf9Ov9ngnIDcuN2wsWNTz/exec";
+<script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwgD7v8pC_hxXWXrF2PPpxHQdXY4vBPOVeEN53uwwumzeSYenFQcwWda0_vrXTNELcb/exec";
 
 document.getElementById('sendBtn').addEventListener('click', async (e)=>{
   e.preventDefault();
@@ -507,11 +508,10 @@ document.getElementById('sendBtn').addEventListener('click', async (e)=>{
 
   const payload = new URLSearchParams({ name, phone, platform, plan });
 
-  try{
-    const res = await fetch(SCRIPT_URL, { method:'POST', mode:'no-cors', body: payload });
-    // mode:no-cors returns opaque, so assume success:
+  try {
+    await fetch(SCRIPT_URL, { method:'POST', body: payload }); // simple POST (no headers)
     openWhatsApp({name, phone, platform, plan});
-  }catch(err){
+  } catch (err) {
     alert("Could not save your details. Please try again.");
     console.error(err);
   }
@@ -530,5 +530,3 @@ Please share payment details.`;
   window.open(`https://wa.me/${to}?text=${encodeURIComponent(msg)}`,'_blank');
 }
 </script>
-</body>
-</html>
