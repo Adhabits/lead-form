@@ -12,7 +12,7 @@
 <style>
 :root{
   --bg:#0a0f1b; --text:#e7eaf0; --muted:#a6b0c3; --stroke:#1e2a42;
-  --card:#0f172a; --grad:linear-gradient(135deg,#8b5cf6,#22d3ee 55%,#34d399);
+  --card:#0f172a; --grad:linear-gradient(135deg,#8b5cf6, #22d3ee 55%, #34d399);
   --accent:#ffb454; --accent2:#ff914d;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -26,12 +26,19 @@ a{color:inherit;text-decoration:none}
 .brand{display:flex;align-items:center;gap:10px;font-weight:800}
 .logo{width:28px;height:28px}
 .logo img{width:100%;height:100%;object-fit:contain}
+
 .nav-links{display:flex;align-items:center;gap:18px}
 .nav-links a{color:#c9d3e6;font-weight:700}
 .nav-links a:hover{color:#fff}
+
 .hamb{display:none;cursor:pointer;border:1px solid #2b3652;border-radius:10px;padding:8px 10px}
 .hamb span{display:block;width:22px;height:2px;background:#c9d3e6;margin:5px 0;border-radius:2px}
-@media (max-width:860px){.nav-links{display:none}.hamb{display:block}}
+@media (max-width:860px){
+  .nav-links{display:none}
+  .hamb{display:block}
+}
+
+/* Mobile menu */
 .mobile-menu{position:fixed;inset:64px 0 auto 0;background:rgba(9,14,24,.98);border-top:1px solid var(--stroke);display:none;z-index:39}
 .mobile-menu.on{display:block}
 .mobile-menu a{display:block;padding:16px 18px;border-bottom:1px solid #142036;color:#d5def1;font-weight:700}
@@ -39,7 +46,7 @@ a{color:inherit;text-decoration:none}
 /* HERO */
 .hero{padding:70px 0;background:
  radial-gradient(1200px 600px at 80% -10%, rgba(167,139,250,.20), transparent 60%),
- radial-gradient(900px 500px at -10% 10%, rgba(34,211,238,.18), transparent 60%);}
+ radial-gradient(900px 500px at -10% 10%, rgba(34,211,238,.18), transparent 60%);} 
 .eyebrow{display:inline-block;padding:7px 12px;border:1px solid #2a344f;border-radius:999px;color:#b5c1d8;margin-bottom:14px}
 h1{font-family:Poppins,system-ui,Arial;font-weight:800;font-size:clamp(30px,6.2vw,56px);line-height:1.06;letter-spacing:-.02em;margin-bottom:10px}
 .hl2{color:var(--accent2)}
@@ -77,7 +84,7 @@ h1{font-family:Poppins,system-ui,Arial;font-weight:800;font-size:clamp(30px,6.2v
 .stk-stack{position:relative;height:calc(520px + 220px * 6)}
 .stk-card{--gap:18px;--topBase:84px;position:sticky;top:calc(var(--topBase) + var(--i)*var(--gap));z-index:calc(100 - var(--i));
   margin:0;padding:20px;border-radius:22px;border:1px solid #273047;background:linear-gradient(180deg,#0f172a,#0b0f1a);
-  box-shadow:0 6px 14px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.02);}
+  box-shadow:0 6px 14px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.02);} 
 .stk-icon{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:rgba(148,163,184,.08);border:1px solid #2a3657;font-size:20px;margin-bottom:10px}
 .stk-card h3{margin:4px 0 6px;font:800 20px/1.2 Inter}
 .stk-card p{margin:0;color:#9fb0c9}
@@ -103,7 +110,7 @@ h1{font-family:Poppins,system-ui,Arial;font-weight:800;font-size:clamp(30px,6.2v
   font:800 15px/1.1 Inter;border:none;box-shadow:0 8px 22px rgba(34,211,238,.25)}
 .ex-btn .name-grad{color:#000;background:none;-webkit-background-clip:initial}
 
-/* TESTIMONIALS */
+/* TESTIMONIALS (horizontal cards) */
 .tcarousel{padding:50px 0}
 .tc-title{font:800 32px/1.2 Inter;margin-bottom:6px}
 .tc-sub{color:#9fb0c9;margin-bottom:14px}
@@ -112,7 +119,7 @@ h1{font-family:Poppins,system-ui,Arial;font-weight:800;font-size:clamp(30px,6.2v
 .tc-shot{border-radius:10px;overflow:hidden;border:1px solid #273047;aspect-ratio:9/19.5}
 .tc-shot img{width:100%;height:100%;object-fit:contain}
 
-/* PLANS — stacked sticky (one above another) */
+/* PLANS — stacked sticky */
 .plans{padding:60px 0}
 .plans-title{font:800 32px/1.2 Inter;margin-bottom:6px}
 .plans-sub{color:#9fb0c9;margin-bottom:22px}
@@ -129,7 +136,7 @@ h1{font-family:Poppins,system-ui,Arial;font-weight:800;font-size:clamp(30px,6.2v
 .plan-btn{padding:11px 16px;border-radius:10px;background:#ffb454;color:#0b0f1a;font-weight:800;border:none;cursor:pointer}
 @media (max-width:640px){.plan-stack{height:calc(560px + 320px * 3)}}
 
-/* FAQ */
+/* FAQ (native details) */
 .faq{padding:60px 0}
 .faq h2{font:800 32px/1.2 Inter;margin-bottom:12px}
 details{border:1px solid #273047;border-radius:12px;padding:14px 16px;margin:10px 0;background:#0f172a}
@@ -149,7 +156,7 @@ select:focus,input:focus{border-color:#3a8bd8}
 .form-btn{margin-top:12px;display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:12px;background:#25d366;color:#061016;font-weight:800;border:none;cursor:pointer}
 .form-hint{color:#93a4c6;margin-left:8px}
 
-/* STATS box */
+/* STATS box on right */
 .right-box{border:1px solid #273047;background:#0f172a;border-radius:16px;padding:18px}
 .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
 .stat{border:1px solid #273047;border-radius:14px;padding:16px;text-align:center;background:#0d1527}
@@ -168,6 +175,22 @@ small{color:#8292b6}
 .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease, transform .6s ease}
 .reveal.on{opacity:1;transform:none}
 </style>
+
+<!-- ✅ Meta Pixel Code (ID: 905585234905857) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)
+}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','905585234905857');
+fbq('track','PageView');
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=905585234905857&ev=PageView&noscript=1"/>
+</noscript>
+<!-- /Meta Pixel -->
+
 </head>
 <body>
 
@@ -238,6 +261,7 @@ small{color:#8292b6}
         <span class="bnc-item brand-gyangrowth">GyaanGrowth</span>
         <span class="bnc-item brand-richind">RichIND</span>
         <span class="bnc-item brand-forever">Forever</span>
+        <!-- duplicate for seamless loop -->
         <span class="bnc-item brand-idp">IDP</span>
         <span class="bnc-item brand-mt">MillionaireTrack</span>
         <span class="bnc-item brand-biz">Bizgurukul</span>
@@ -317,6 +341,7 @@ small{color:#8292b6}
     <p class="plans-sub">Select the package that fits your goals &amp; budget</p>
 
     <div class="plan-stack">
+      <!-- Starter -->
       <article class="plan-card">
         <div class="row">
           <div><div class="plan-name">Starter Plan</div></div>
@@ -329,9 +354,12 @@ small{color:#8292b6}
           <li>Daily Ad Management</li>
           <li>24/7 WhatsApp Support</li>
         </ul>
-        <div class="plan-actions"><button class="plan-btn" data-plan="Starter">Get Started</button></div>
+        <div class="plan-actions">
+          <button class="plan-btn" data-plan="Starter">Get Started</button>
+        </div>
       </article>
 
+      <!-- Boost -->
       <article class="plan-card">
         <div class="row">
           <div><div class="plan-name">Boost Plan</div></div>
@@ -343,9 +371,12 @@ small{color:#8292b6}
           <li>Optimization Cycle Improved</li>
           <li>Detailed Targeting</li>
         </ul>
-        <div class="plan-actions"><button class="plan-btn" data-plan="Boost">Get Started</button></div>
+        <div class="plan-actions">
+          <button class="plan-btn" data-plan="Boost">Get Started</button>
+        </div>
       </article>
 
+      <!-- Growth -->
       <article class="plan-card">
         <div class="row">
           <div><div class="plan-name">Growth Plan</div></div>
@@ -357,7 +388,9 @@ small{color:#8292b6}
           <li>Deep Scaling Strategy</li>
           <li>90-Days Growth Framework</li>
         </ul>
-        <div class="plan-actions"><button class="plan-btn" data-plan="Growth">Get Started</button></div>
+        <div class="plan-actions">
+          <button class="plan-btn" data-plan="Growth">Get Started</button>
+        </div>
       </article>
     </div>
   </div>
@@ -367,6 +400,7 @@ small{color:#8292b6}
 <section id="faq" class="faq">
   <div class="container">
     <h2>Frequently Asked Questions</h2>
+
     <details><summary>Which platforms do you work with?</summary><p>IDP, Bizgurukul, MillionaireTrack, LeadsGuru, GyaanGrowth, RichIND, Forever, and custom.</p></details>
     <details><summary>Minimum budget required?</summary><p>We recommend starting at ₹8–10k/month for testing & optimization.</p></details>
     <details><summary>Do you provide copy & creative guidance?</summary><p>Yes — ad copy & creatives are provided/optimized by our team.</p></details>
@@ -384,19 +418,24 @@ small{color:#8292b6}
 
       <label for="platform">Platform</label>
       <select id="platform">
-        <option>IDP</option><option>Bizgurukul</option><option>MillionaireTrack</option>
-        <option>LeadsGuru</option><option>GyaanGrowth</option><option>RichIND</option><option>Forever</option>
+        <option>IDP</option>
+        <option>Bizgurukul</option>
+        <option>MillionaireTrack</option>
+        <option>LeadsGuru</option>
+        <option>GyaanGrowth</option>
+        <option>RichIND</option>
+        <option>Forever</option>
       </select>
 
       <label for="name">Your Name</label>
       <input id="name" type="text" placeholder="Your name" required>
 
       <label for="phone">Phone Number</label>
-      <input id="phone" type="tel" placeholder="10-digit number" pattern="\\d{10}" required>
+      <input id="phone" type="tel" placeholder="10-digit number" required>
 
       <div style="margin-top:10px">
         <button id="sendBtn" class="form-btn">Send on WhatsApp</button>
-        <span class="form-hint">Auto-saves to Google Sheet then opens WhatsApp.</span>
+        <span class="form-hint">Auto-opens WhatsApp after saving.</span>
       </div>
     </div>
 
@@ -432,8 +471,6 @@ small{color:#8292b6}
 
 <script>
 // ===== Mobile menu
-const hamb = document.getElementById('hamb');
-const mnav = document.getElementById('mnav');
 hamb.onclick = () => mnav.classList.toggle('on');
 document.querySelectorAll('#mnav a').forEach(a=>a.addEventListener('click',()=>mnav.classList.remove('on')));
 
@@ -460,58 +497,92 @@ const io = new IntersectionObserver((entries)=>{
 },{threshold:0.25});
 document.querySelectorAll('.reveal, .knum').forEach(el=>io.observe(el));
 
-// ===== Plan buttons -> prefill plan + scroll to form
+// ===== Plan buttons -> remember chosen plan & scroll to form (Pixel tracked below)
 document.querySelectorAll('.plan-btn').forEach(btn=>{
   btn.addEventListener('click',()=>{
     const plan = btn.dataset.plan || 'Starter';
     sessionStorage.setItem('adh_plan', plan);
+    document.getElementById('name').focus({preventScroll:true});
     location.hash = '#getstart';
-    document.getElementById('name').focus();
   });
 });
+</script>
 
-// ===== Form submit → Google Sheets → WhatsApp
+<!-- ===== FAST submit + Pixel tracking ===== -->
+<script>
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbznR1Wk3Gn2jztC1ZXnBW4jr52146ctHC3phfdn8Ve3zuwKvCflNIOy_sxfPZNhQbbf/exec";
+const WHATSAPP_TO = "919743140915";
 
+// UTM capture
+(function persistUTM(){
+  const p = new URLSearchParams(location.search);
+  const fields = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid'];
+  const hasAny = fields.some(k=>p.get(k));
+  if(hasAny){
+    const bag = {};
+    fields.forEach(k=>{ if(p.get(k)) bag[k]=p.get(k); });
+    bag.landing_url = location.href;
+    bag.referrer = document.referrer || '';
+    bag.ts = new Date().toISOString();
+    sessionStorage.setItem('adh_utm', JSON.stringify(bag));
+  } else if(!sessionStorage.getItem('adh_utm')){
+    sessionStorage.setItem('adh_utm', JSON.stringify({
+      landing_url: location.href, referrer: document.referrer || '', ts: new Date().toISOString()
+    }));
+  }
+})();
+
+function saveLeadFast(params){
+  try{
+    const utm = sessionStorage.getItem('adh_utm');
+    if(utm) params.append('utm', utm);
+    if(navigator.sendBeacon){
+      const blob = new Blob([params.toString()], {type:'application/x-www-form-urlencoded'});
+      navigator.sendBeacon(SCRIPT_URL, blob);
+    }else{
+      fetch(SCRIPT_URL, { method:'POST', body: params, mode:'no-cors', keepalive:true }).catch(()=>{});
+    }
+  }catch(_){ }
+}
+function track(e,d){ try{ fbq && fbq('track', e, d||{}); }catch(_){}}
+function trackCustom(n,d){ try{ fbq && fbq('trackCustom', n, d||{}); }catch(_){}}
+
+function openWhatsApp({name, phone, platform, plan}){
+  trackCustom('WhatsAppOpen', {plan, platform});
+  const msg = `Hello Rahman sir, I am interested in your ad service.\nThis is my detail:\nName: ${name}\nPhone: ${phone}\nPlatform: ${platform}\nPlan: ${plan}\n\nPlease share payment details.`;
+  window.open(`https://wa.me/${WHATSAPP_TO}?text=${encodeURIComponent(msg)}`,'_blank');
+}
+
+// Extra: track any WhatsApp links
+function bindWhatsAppLinks(){
+  document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com"]').forEach(a=>{
+    a.addEventListener('click', ()=> trackCustom('WhatsAppLinkClick'));
+  });
+}
+bindWhatsAppLinks();
+
+// Form submit
 const sendBtn = document.getElementById('sendBtn');
-sendBtn.addEventListener('click', async (e)=>{
+sendBtn.addEventListener('click',(e)=>{
   e.preventDefault();
   const platform = document.getElementById('platform').value.trim();
   const name = document.getElementById('name').value.trim();
   const phone = document.getElementById('phone').value.trim();
   const plan = sessionStorage.getItem('adh_plan') || 'Starter';
 
-  if(!name || !phone){ alert("Please enter your Name and Phone."); return; }
-  if(!/^\d{10}$/.test(phone)){ alert("Enter 10-digit phone number."); return; }
+  if(!name || !phone){ alert('Please enter your Name and Phone.'); return; }
+  if(!/^\d{10}$/.test(phone)){ alert('Enter 10-digit phone number.'); return; }
 
-  // disable to avoid double-click
-  sendBtn.disabled = true; sendBtn.textContent = "Saving...";
+  const old = sendBtn.textContent; sendBtn.disabled=true; sendBtn.textContent='Opening WhatsApp...';
 
   const payload = new URLSearchParams({ name, phone, platform, plan });
+  saveLeadFast(payload);                 // fire-and-forget
+  track('Lead', { content_name: plan, content_category: platform });
+  openWhatsApp({name, phone, platform, plan});
 
-  try{
-    await fetch(SCRIPT_URL, { method:'POST', body: payload }); // simple POST
-    openWhatsApp({name, phone, platform, plan});
-  }catch(err){
-    alert("Could not save your details. Please try again.");
-    console.error(err);
-  }finally{
-    sendBtn.disabled = false; sendBtn.textContent = "Send on WhatsApp";
-  }
+  setTimeout(()=>{ sendBtn.disabled=false; sendBtn.textContent=old; }, 1200);
 });
-
-function openWhatsApp({name, phone, platform, plan}){
-  const to = "919743140915"; // change yaha if needed
-  const msg = `Hello Rahman sir, I am interested in your ad service.
-This is my detail:
-Name: ${name}
-Phone: ${phone}
-Platform: ${platform}
-Plan: ${plan}
-
-Please share payment details.`;
-  window.open(`https://wa.me/${to}?text=${encodeURIComponent(msg)}`,'_blank');
-}
 </script>
+
 </body>
 </html>
