@@ -4,16 +4,14 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>AdHabits — Professional Meta Ads for Affiliates</title>
-<meta name="description" content="We run high-ROI Meta (FB/IG) ads for affiliates. You focus on closing; we handle strategy, copy, targeting and optimization." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
-
 <style>
 :root{
   --bg:#0a0f1b; --text:#e7eaf0; --muted:#a6b0c3; --stroke:#1d273b; --card:#101726;
   --grad:linear-gradient(135deg,#8b5cf6 0%, #22d3ee 55%, #34d399 100%);
-  --accent:#ffb454; --accent2:#ff914d; --green:#22d3ee;
+  --accent:#ffb454; --accent2:#ff914d;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
@@ -39,42 +37,28 @@ a{color:inherit;text-decoration:none}
     radial-gradient(900px 500px at -10% 10%, rgba(34,211,238,.18), transparent 60%);
 }
 .eyebrow{display:inline-block;padding:8px 14px;border:1px solid #2a344f;border-radius:999px;color:#b5c1d8;margin-bottom:18px}
-h1{font-family:"Poppins",system-ui,Arial,Helvetica,sans-serif;font-weight:800;
-  font-size:clamp(32px, 6vw, 56px);line-height:1.08;letter-spacing:-0.02em;margin:0 0 10px;text-wrap:balance}
-.hl2{color:#ff914d}
-
-/* Video */
+h1{font-family:"Poppins",system-ui,Arial;font-weight:800;font-size:clamp(32px, 6vw, 56px);
+  line-height:1.08;letter-spacing:-0.02em;margin:0 0 10px;text-wrap:balance}
+.hl2{color:var(--accent2)}
 .video-card{margin:18px 0}
 .yt-embed{position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid #25304a}
 .yt-embed iframe{position:absolute;inset:0;width:100%;height:100%}
-
-/* KPIs */
 .kpis{color:#cfd7e9;margin:18px 0 22px;font-size:clamp(16px, 2.6vw, 19px);line-height:1.45}
-
-/* Buttons */
 .cta{display:flex;gap:14px;flex-wrap:wrap;margin:6px 0 18px}
 .btn{padding:14px 20px;border-radius:14px;font-weight:800;transition:transform .2s ease, box-shadow .2s ease}
 .btn.primary{background:var(--grad);border:none;color:#08121f;text-shadow:0 1px 0 rgba(255,255,255,.3)}
 .btn.primary:hover{transform:scale(1.05);box-shadow:0 0 18px rgba(139,92,246,.6)}
 .btn.secondary{background:#0f1526;border:1px solid #303a57;color:#d7def0}
 .btn.secondary:hover{transform:scale(1.05);box-shadow:0 0 18px rgba(34,211,238,.4)}
-
-/* Info chip */
 .panel{border:1px solid var(--stroke);background:#0f1628;border-radius:18px;padding:14px;color:#aeb9ce;font-size:15px}
 
-/* Reveal */
-.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
-.reveal.on{opacity:1;transform:none}
-
-/* ==== Brand Names (colored) ==== */
+/* BRANDS (colored scroller) */
 .brand-names.colored{padding:32px 0 18px}
 .bnc-container{max-width:1150px;margin:auto;padding:0 18px}
-.bnc-title{margin:0 0 12px;font:600 22px/1.3 Inter,system-ui,Arial;color:#aeb8cc}
+.bnc-title{margin:0 0 12px;font:600 22px/1.3 Inter;color:#aeb8cc}
 .bnc-band{position:relative;overflow:hidden;padding:10px 6px;border-radius:22px;border:1px solid #273047;background:linear-gradient(180deg,#0f172a,#0b0f1a)}
-.bnc-track{display:flex;align-items:center;gap:14px;animation:bnc-scroll 14s linear infinite;will-change:transform}
-.bnc-band:hover .bnc-track{animation-play-state:paused}
-.bnc-item{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 18px;min-width:140px;border-radius:14px;border:1px solid transparent;text-align:center;white-space:nowrap;font:800 14px/1 Inter,system-ui,Arial;letter-spacing:.2px;transition:transform .25s ease, box-shadow .25s ease, filter .25s ease, background .25s ease, color .25s ease, border-color .25s ease}
-.bnc-item:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 12px 22px rgba(0,0,0,.35);filter:saturate(1.1) brightness(1.05)}
+.bnc-track{display:flex;align-items:center;gap:14px;animation:bnc-scroll 14s linear infinite}
+.bnc-item{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;height:56px;padding:0 18px;min-width:140px;border-radius:14px;border:1px solid transparent;font:800 14px/1 Inter;white-space:nowrap}
 .brand-idp{background:#2597d3;color:#011421;border-color:#2aa7f0}
 .brand-mt{background:linear-gradient(135deg,#ff7a1f,#ff5a00);color:#190a02;border-color:#ff7a1f}
 .brand-biz{background:linear-gradient(135deg,#b5141b,#d4a017);color:#1b0b03;border-color:#d07b1e}
@@ -82,47 +66,40 @@ h1{font-family:"Poppins",system-ui,Arial,Helvetica,sans-serif;font-weight:800;
 .brand-gyangrowth{background:#fe9d63;color:#140903;border-color:#ffb07f}
 .brand-richind{background:linear-gradient(135deg,#995fbc,#95d4f2);color:#0c0a18;border-color:#a887d0}
 .brand-forever{background:#fec500;color:#0e0c06;border-color:#f1b800}
-.bnc-fade{pointer-events:none;position:absolute;top:0;bottom:0;width:70px;background:linear-gradient(to right,#0b0f1a,transparent)}
-.bnc-left{left:0}.bnc-right{right:0;transform:scaleX(-1)}
 @keyframes bnc-scroll{from{transform:translateX(0)} to{transform:translateX(-50%)}}
 
-/* ==== FEATURES Stacked ==== */
+/* FEATURES (stacked) */
 .stacked{padding:60px 0}
 .stk-wrap{max-width:900px;margin:auto;padding:0 18px}
-.stk-title{margin:0 0 8px;font:800 34px/1.15 Inter,system-ui,Arial;color:#e8edf7}
+.stk-title{margin:0 0 8px;font:800 34px/1.15 Inter;color:#e8edf7}
 .stk-sub{margin:0 0 22px;color:#9fb0c9}
 .stk-stack{position:relative;height: calc(520px + 220px * 6)}
-.stk-card{--gap:18px;--topBase:84px;position:sticky;top:calc(var(--topBase) + var(--i)*var(--gap));z-index:calc(100 - var(--i));
+.stk-card{--gap:18px;--topBase:84px;position:sticky;top:calc(var(--topBase) + var(--i)*var(--gap));z-index:calc(1 + var(--i));
   margin:0;padding:22px;border-radius:22px;border:1px solid #273047;background:linear-gradient(180deg,#0f172a,#0b0f1a);
-  box-shadow:0 6px 14px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.02);transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease}
-.stk-card::before{content:"";position:absolute;inset:-1px;pointer-events:none;opacity:.85;background:
-  radial-gradient(900px 300px at -10% -10%, rgba(139,92,246,.12), transparent 40%),
-  radial-gradient(800px 260px at 110% 120%, rgba(34,211,238,.10), transparent 42%)}
+  box-shadow:0 6px 14px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.02)}
 .stk-icon{font-size:22px;margin-bottom:10px;display:inline-grid;place-items:center;width:38px;height:38px;border-radius:12px;background:rgba(148,163,184,.08);border:1px solid #2a3657}
-.stk-card h3{margin:6px 0 6px;font:800 20px/1.25 Inter,system-ui,Arial;color:#eaf1ff}
+.stk-card h3{margin:6px 0 6px;font:800 20px/1.25 Inter;color:#eaf1ff}
 .stk-card p{margin:0;color:#9fb0c9}
-.stk-card:hover{transform:translateY(-3px) scale(1.015) rotate3d(1,-1,0,5deg);border-color:#385184;box-shadow:0 18px 40px rgba(0,0,0,.45)}
-@media (max-width:640px){.stk-title{font-size:26px}.stk-stack{height: calc(480px + 200px * 6)}.stk-card{--gap:16px; --topBase:72px; padding:18px}}
 
-/* ==== EXPERT ==== */
+/* EXPERT */
 .exp1{padding:60px 0}
 .ex-wrap{max-width:1150px;margin:auto;padding:0 18px;display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center}
 @media (max-width:980px){.ex-wrap{grid-template-columns:1fr;gap:20px}}
-.ex-copy h2{margin:0 0 8px;font:800 36px/1.15 Inter,system-ui,Arial;color:#e8edf7}
+.ex-copy h2{margin:0 0 8px;font:800 36px/1.15 Inter;color:#e8edf7}
 .ex-sub{margin:0 0 18px;color:#9fb0c9}
 .name-grad{background:linear-gradient(135deg,#8b5cf6,#22d3ee 60%,#34d399);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800}
 .name-strong{font-weight:900;color:#000;background:#fff;padding:0 .3rem;border-radius:6px}
 .ex-frame{position:relative;border-radius:24px;overflow:hidden;border:1px solid #273047;background:#0b0f1a;box-shadow:0 14px 36px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.03)}
 .ex-frame img{width:100%;display:block;transform-origin:center;animation:ken 18s ease-in-out infinite alternate, floaty 8s ease-in-out infinite}
-@keyframes ken{from{transform:scale(1.04)} to{transform:scale(1.12)}} @keyframes floaty{0%{transform:translateY(0) scale(1.08)}50%{transform:translateY(-6px) scale(1.10)}100%{transform:translateY(0) scale(1.08)}}
+@keyframes ken{from{transform:scale(1.04)} to{transform:scale(1.12)}} 
+@keyframes floaty{0%{transform:translateY(0) scale(1.08)}50%{transform:translateY(-6px) scale(1.10)}100%{transform:translateY(0) scale(1.08)}}
 .ex-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0 20px}
-@media (max-width:520px){.ex-stats{grid-template-columns:1fr}}
 .ex-stat{border:1px solid #273047;border-radius:16px;padding:18px;background:linear-gradient(180deg,#0f172a,#0b0f1a);box-shadow:inset 0 0 0 1px rgba(255,255,255,.02)}
-.ex-stat .num{font:800 40px/1 Inter,system-ui,Arial;color:#fff}
+.ex-stat .num{font:800 40px/1 Inter;color:#fff}
 .ex-stat .lbl{margin-top:6px;color:#9fb0c9}
-.ex-btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;border-radius:14px;background:linear-gradient(135deg,#8b5cf6,#22d3ee 55%,#34d399);color:#08121f;font:800 15px/1.1 Inter;box-shadow:0 8px 22px rgba(34,211,238,.25)}
+.ex-btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;border-radius:14px;background:linear-gradient(135deg,#8b5cf6,#22d3ee 55%,#34d399);color:#08121f;font:800 15px/1.1 Inter}
 
-/* ==== TESTIMONIALS CAROUSEL ==== */
+/* TESTIMONIALS (auto left) */
 .tcarousel{padding:60px 0}
 .tc-wrap{max-width:1150px;margin:auto;padding:0 18px}
 .tc-title{margin:0 0 6px;font:800 32px/1.15 Inter;color:#e8edf7}
@@ -135,16 +112,16 @@ h1{font-family:"Poppins",system-ui,Arial,Helvetica,sans-serif;font-weight:800;
 .tc-shot img{width:100%;height:100%;object-fit:contain}
 @keyframes tc-left{from{transform:translateX(0)} to{transform:translateX(-50%)}}
 
-/* ==== PLANS (Stacked) ==== */
+/* PLANS (stacked, upper-on-top) */
 .plans{padding:60px 0}
 .plans-wrap{max-width:980px;margin:auto;padding:0 18px}
 .plans-title{font:800 32px/1.2 Inter;color:#e8edf7;margin-bottom:6px}
 .plans-title .hl{color:var(--accent)}
 .plans-sub{color:#9fb0c9;margin-bottom:12px}
 .plan-stack{position:relative;height:calc(420px + 260px * 3)}
-.plan-card{--gap:20px;--topBase:90px;position:sticky;top:calc(var(--topBase) + var(--i)*var(--gap));z-index:calc(100 - var(--i));
-  margin:0 auto 0;border-radius:18px;border:1px solid #273047;background:linear-gradient(180deg,#0f172a,#0b0f1a);
-  box-shadow:0 8px 18px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.02);padding:24px}
+.plan-card{--gap:20px;--topBase:90px;position:sticky;top:calc(var(--topBase) + var(--i)*var(--gap));z-index:calc(10 + var(--i)); /* later card ABOVE earlier */
+  margin:0 auto;border-radius:18px;border:1px solid #273047;background:linear-gradient(180deg,#0f172a,#0b0f1a);
+  box-shadow:0 12px 20px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.02);padding:24px}
 .plan-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
 .plan-name{font:700 22px/1.2 Inter;color:#eaf1ff}
 .plan-price{font:800 28px/1.2 Inter;color:var(--accent)}
@@ -153,10 +130,9 @@ h1{font-family:"Poppins",system-ui,Arial,Helvetica,sans-serif;font-weight:800;
 .plan-features li{margin:8px 0;padding-left:18px;position:relative}
 .plan-features li:before{content:"✔";position:absolute;left:0;color:var(--accent)}
 .plan-btn{display:inline-block;padding:12px 18px;border-radius:12px;background:var(--accent);color:#0b0f1a;font-weight:800}
-.plan-btn:hover{filter:brightness(1.05)}
 @media (max-width:640px){.plan-stack{height:calc(400px + 260px * 3)}}
 
-/* ==== FAQ ==== */
+/* FAQ */
 .faq{padding:60px 0}
 .faq-wrap{max-width:900px;margin:auto;padding:0 18px}
 .faq-title{font:800 32px/1.2 Inter;color:#e8edf7;margin-bottom:12px}
@@ -165,17 +141,18 @@ h1{font-family:"Poppins",system-ui,Arial,Helvetica,sans-serif;font-weight:800;
 .faq-a{padding:0 16px 16px;color:#aeb9ce;display:none}
 .faq-item.open .faq-a{display:block}
 
-/* ==== Modal Form ==== */
+/* Modal Form (only 3 fields + terms) */
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;z-index:100}
 .modal.on{display:flex}
-.form-card{width:min(560px,92vw);background:#0f172a;border:1px solid #273047;border-radius:16px;padding:18px}
+.form-card{width:min(520px,92vw);background:#0f172a;border:1px solid #273047;border-radius:16px;padding:18px}
 .form-card h3{margin-bottom:8px}
 .form-grid{display:grid;gap:10px}
 select, input{width:100%;padding:12px;border-radius:10px;border:1px solid #2d3a57;background:#0c1426;color:#e8edf7}
 .form-actions{display:flex;gap:10px;justify-content:space-between;margin-top:8px}
 .form-actions .btn{flex:1;text-align:center}
+.tiny{font-size:12px;color:#9fb0c9}
 
-/* ==== Floating Instagram Icon ==== */
+/* Floating Instagram */
 .ig-float{position:fixed;right:14px;bottom:14px;z-index:60}
 .ig-float a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#11172a;border:1px solid #2e3a56;box-shadow:0 6px 14px rgba(0,0,0,.35)}
 .ig-float svg{width:22px;height:22px;fill:#e8edf7}
@@ -204,69 +181,51 @@ select, input{width:100%;padding:12px;border-radius:10px;border:1px solid #2d3a5
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <div class="reveal">
-      <span class="eyebrow">Affiliate Marketer?</span>
-      <h1>Let Us Run Your <span class="hl2">Meta Ads</span><br>&amp; Get You More Leads</h1>
+    <span class="eyebrow">Affiliate Marketer?</span>
+    <h1>Let Us Run Your <span class="hl2">Meta Ads</span><br>&amp; Get You More Leads</h1>
 
-      <div class="video-card">
-        <div class="yt-embed">
-          <iframe src="https://www.youtube.com/embed/ornKwN73i5U?autoplay=1&mute=1&loop=1&playlist=ornKwN73i5U&playsinline=1"
-            title="AdHabits Intro" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
-        </div>
+    <div class="video-card">
+      <div class="yt-embed">
+        <iframe src="https://www.youtube.com/embed/ornKwN73i5U?autoplay=1&mute=1&loop=1&playlist=ornKwN73i5U&playsinline=1"
+          title="AdHabits Intro" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
       </div>
-
-      <div class="kpis">
-        <b class="reveal" data-count="3">0</b>+ Years Experience •
-        <b class="reveal" data-count="250">0</b>+ Affiliates Served •
-        Trusted by <b class="reveal" data-count="50">0</b>+ Top Performers
-      </div>
-
-      <div class="cta">
-        <a href="#plans" class="btn primary">Yes, I want ad setup help!</a>
-        <a href="#features" class="btn secondary">See How It Works</a>
-      </div>
-
-      <div class="panel">⚡ Fast onboarding • ✅ Verified results available • 💬 WhatsApp support</div>
     </div>
+
+    <div class="kpis">
+      <b class="num" data-count="3">0</b>+ Years Experience •
+      <b class="num" data-count="350">0</b>+ Affiliates Served •
+      Trusted by <b>50+</b> Top Performers
+    </div>
+
+    <div class="cta">
+      <a href="#plans" class="btn primary">Yes, I want ad setup help!</a>
+      <a href="#features" class="btn secondary">See How It Works</a>
+    </div>
+
+    <div class="panel">⚡ Fast onboarding • ✅ Verified results available • 💬 WhatsApp support</div>
   </div>
 </section>
 
-<!-- BRANDS (colored buttons) -->
+<!-- BRANDS -->
 <section id="platforms-names" class="brand-names colored">
   <div class="bnc-container">
     <h2 class="bnc-title">Trusted by top affiliates from these platforms</h2>
     <div class="bnc-band">
       <div class="bnc-track">
-        <span class="bnc-item brand-idp">IDP</span>
-        <span class="bnc-item brand-mt">MillionaireTrack</span>
-        <span class="bnc-item brand-biz">Bizgurukul</span>
-        <span class="bnc-item brand-leadsguru">LeadsGuru</span>
-        <span class="bnc-item brand-gyangrowth">GyaanGrowth</span>
-        <span class="bnc-item brand-richind">RichIND</span>
-        <span class="bnc-item brand-forever">Forever</span>
-        <!-- duplicate to create loop -->
-        <span class="bnc-item brand-idp">IDP</span>
-        <span class="bnc-item brand-mt">MillionaireTrack</span>
-        <span class="bnc-item brand-biz">Bizgurukul</span>
-        <span class="bnc-item brand-leadsguru">LeadsGuru</span>
-        <span class="bnc-item brand-gyangrowth">GyaanGrowth</span>
-        <span class="bnc-item brand-richind">RichIND</span>
-        <span class="bnc-item brand-forever">Forever</span>
+        <span class="bnc-item brand-idp">IDP</span><span class="bnc-item brand-mt">MillionaireTrack</span><span class="bnc-item brand-biz">Bizgurukul</span><span class="bnc-item brand-leadsguru">LeadsGuru</span><span class="bnc-item brand-gyangrowth">GyaanGrowth</span><span class="bnc-item brand-richind">RichIND</span><span class="bnc-item brand-forever">Forever</span>
+        <span class="bnc-item brand-idp">IDP</span><span class="bnc-item brand-mt">MillionaireTrack</span><span class="bnc-item brand-biz">Bizgurukul</span><span class="bnc-item brand-leadsguru">LeadsGuru</span><span class="bnc-item brand-gyangrowth">GyaanGrowth</span><span class="bnc-item brand-richind">RichIND</span><span class="bnc-item brand-forever">Forever</span>
       </div>
-      <div class="bnc-fade bnc-left"></div>
-      <div class="bnc-fade bnc-right"></div>
     </div>
   </div>
 </section>
 
-<!-- FEATURES STACK -->
+<!-- FEATURES -->
 <section id="features" class="stacked">
   <div class="stk-wrap">
     <h2 class="stk-title">Why Choose AdHabits</h2>
     <p class="stk-sub">We deliver results that matter to your affiliate business</p>
-
     <div class="stk-stack">
       <article class="stk-card" style="--i:0"><div class="stk-icon">💼</div><h3>100% Affiliate Focus</h3><p>Specialized in affiliate campaigns only.</p></article>
       <article class="stk-card" style="--i:1"><div class="stk-icon">✍️</div><h3>Custom Ad Copy Monthly</h3><p>Fresh, converting copy delivered every month.</p></article>
@@ -281,25 +240,14 @@ select, input{width:100%;padding:12px;border-radius:10px;border:1px solid #2d3a5
 <!-- EXPERT -->
 <section id="expert" class="exp1">
   <div class="ex-wrap">
-    <div class="ex-photo">
-      <div class="ex-frame">
-        <img src="https://i.postimg.cc/FzTFp82v/mee-mentor-pic.avif" alt="Rahman — Meta Ads Expert" />
-      </div>
-    </div>
-
+    <div class="ex-photo"><div class="ex-frame"><img src="https://i.postimg.cc/FzTFp82v/mee-mentor-pic.avif" alt="Rahman — Meta Ads Expert"></div></div>
     <div class="ex-copy">
       <h2>Meet Your Expert</h2>
-      <p class="ex-sub">
-        Hey! I'm <b class="name-grad">Rahman</b>. With 3+ years in affiliate marketing &amp; Meta ads,
-        I’ve helped 250+ affiliates scale. I don’t do theory — I run your campaigns end-to-end so you can
-        focus on converting leads into sales.
-      </p>
-
+      <p class="ex-sub">Hey! I'm <b class="name-grad">Rahman</b>. With 3+ years in affiliate marketing &amp; Meta ads, I’ve helped 350+ affiliates scale. I don’t do theory — I run your campaigns end-to-end so you can focus on converting leads into sales.</p>
       <div class="ex-stats">
         <div class="ex-stat"><div class="num" data-count="3">0</div><div class="lbl">Years Experience</div></div>
-        <div class="ex-stat"><div class="num" data-count="250">0</div><div class="lbl">Affiliates Served</div></div>
+        <div class="ex-stat"><div class="num" data-count="350">0</div><div class="lbl">Affiliates Served</div></div>
       </div>
-
       <a class="ex-btn" href="https://wa.me/919743140915?text=Hi%20Rahman%2C%20I%27m%20interested%20in%20your%20Affiliate%20Ad%20Service!" target="_blank" rel="noopener">
         Let’s talk with <span class="name-strong">Rahman</span> on WhatsApp
       </a>
@@ -307,15 +255,13 @@ select, input{width:100%;padding:12px;border-radius:10px;border:1px solid #2d3a5
   </div>
 </section>
 
-<!-- TESTIMONIALS (auto left) -->
+<!-- TESTIMONIALS -->
 <section id="testimonials" class="tcarousel">
   <div class="tc-wrap">
     <h2 class="tc-title">Client <span class="hl">Testimonials</span></h2>
     <p class="tc-sub">WhatsApp se mile huye real screenshots</p>
-
     <div class="tc-viewport">
       <div class="tc-track">
-        <!-- loop 1 -->
         <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/PJtN2tcP/nasreen-mam-finel.jpg" alt=""></div></div>
         <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/G3qpbnVx/Rukkaya-appi-finel.jpg" alt=""></div></div>
         <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/LXSzFFwM/Farheen-mam.jpg" alt=""></div></div>
@@ -325,7 +271,7 @@ select, input{width:100%;padding:12px;border-radius:10px;border:1px solid #2d3a5
         <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/rFhXd8NQ/faizeen-finel.jpg" alt=""></div></div>
         <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/FRbwhmKb/Nadeem-finel.jpg" alt=""></div></div>
         <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/pL97pKTL/Rukhsaar-finel.jpg" alt=""></div></div>
-        <!-- duplicate to loop -->
+
         <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/PJtN2tcP/nasreen-mam-finel.jpg" alt=""></div></div>
         <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/G3qpbnVx/Rukkaya-appi-finel.jpg" alt=""></div></div>
         <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/LXSzFFwM/Farheen-mam.jpg" alt=""></div></div>
@@ -345,9 +291,7 @@ select, input{width:100%;padding:12px;border-radius:10px;border:1px solid #2d3a5
   <div class="plans-wrap">
     <h2 class="plans-title">Choose Your <span class="hl">Plan</span></h2>
     <p class="plans-sub">Select the package that fits your goals & budget</p>
-
     <div class="plan-stack">
-      <!-- Starter -->
       <article class="plan-card" style="--i:0">
         <div class="plan-head">
           <h3 class="plan-name">Starter Plan</h3>
@@ -363,7 +307,6 @@ select, input{width:100%;padding:12px;border-radius:10px;border:1px solid #2d3a5
         <a href="#" class="plan-btn" data-plan="Starter Plan">Get Started</a>
       </article>
 
-      <!-- Boost -->
       <article class="plan-card" style="--i:1">
         <div class="plan-head">
           <h3 class="plan-name">Boost Plan</h3>
@@ -378,7 +321,6 @@ select, input{width:100%;padding:12px;border-radius:10px;border:1px solid #2d3a5
         <a href="#" class="plan-btn" data-plan="Boost Plan">Get Started</a>
       </article>
 
-      <!-- Growth -->
       <article class="plan-card" style="--i:2">
         <div class="plan-head">
           <h3 class="plan-name">Growth Plan</h3>
@@ -400,37 +342,22 @@ select, input{width:100%;padding:12px;border-radius:10px;border:1px solid #2d3a5
 <section id="faq" class="faq">
   <div class="faq-wrap">
     <h2 class="faq-title">Frequently Asked Questions</h2>
-
-    <div class="faq-item">
-      <div class="faq-q">Which platforms do you work with? <span>▾</span></div>
-      <div class="faq-a">We run Meta (Facebook & Instagram) ads for affiliate offers. We also integrate WhatsApp flows for faster conversions.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Minimum budget required? <span>▾</span></div>
-      <div class="faq-a">You can start with a small test budget; most affiliates begin around ₹300–₹1000/day depending on goals and niche.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Do you provide copy & creative guidance? <span>▾</span></div>
-      <div class="faq-a">Yes — each month we deliver converting copies and creatives tailored to your niche and compliance.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">How quickly can I see results? <span>▾</span></div>
-      <div class="faq-a">Most see qualified leads within the first 3–7 days as we collect data and scale efficiently.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">What kind of support do you provide? <span>▾</span></div>
-      <div class="faq-a">24/7 WhatsApp support for quick tweaks, plus weekly optimization & transparent reporting.</div>
-    </div>
+    <div class="faq-item"><div class="faq-q">Which platforms do you work with? <span>▾</span></div><div class="faq-a">Meta (Facebook & Instagram) with WhatsApp integration.</div></div>
+    <div class="faq-item"><div class="faq-q">Minimum budget required? <span>▾</span></div><div class="faq-a">Start small (₹300–₹1000/day) and scale as results come.</div></div>
+    <div class="faq-item"><div class="faq-q">Copy & creatives? <span>▾</span></div><div class="faq-a">Yes, we deliver fresh, converting copies & creatives monthly.</div></div>
+    <div class="faq-item"><div class="faq-q">How fast are results? <span>▾</span></div><div class="faq-a">Typically 3–7 days to start seeing qualified leads.</div></div>
+    <div class="faq-item"><div class="faq-q">Support type? <span>▾</span></div><div class="faq-a">24/7 WhatsApp support + weekly optimization reports.</div></div>
   </div>
 </section>
 
-<!-- Modal Form -->
+<!-- ===== Modal (only 3 fields + terms) ===== -->
 <div id="leadModal" class="modal" aria-hidden="true">
   <div class="form-card">
     <h3>Get Started with AdHabits</h3>
-    <p style="color:#aeb9ce;margin-bottom:8px">Hello Rahman sir, I am interested in your ad service — these are my details:</p>
-
+    <p class="tiny">Hello Rahman sir, I am interested in your ad service — these are my details:</p>
     <div class="form-grid">
+      <label>Your Name<input id="f-name" placeholder="Your name"></label>
+      <label>Phone Number<input id="f-phone" placeholder="Your WhatsApp number"></label>
       <label>Platform
         <select id="f-platform">
           <option>IDP</option>
@@ -442,46 +369,17 @@ select, input{width:100%;padding:12px;border-radius:10px;border:1px solid #2d3a5
           <option>Forever</option>
         </select>
       </label>
-
-      <label>Message
-        <input id="f-msg" placeholder="I'm ready to start this week. Please share next steps." />
+      <input type="hidden" id="f-plan">
+      <label style="display:flex;gap:8px;align-items:flex-start">
+        <input type="checkbox" id="f-terms" style="width:auto;margin-top:3px">
+        <span class="tiny">I agree to the <a href="#terms">Terms</a> & <a href="#privacy">Privacy Policy</a>.</span>
       </label>
-
-      <label>Your Name
-        <input id="f-name" placeholder="Your name" />
-      </label>
-
-      <label>Phone Number
-        <input id="f-phone" placeholder="Your WhatsApp number" />
-      </label>
-
-      <label>Since when are you working?
-        <select id="f-since">
-          <option>0–3 months</option>
-          <option>3–6 months</option>
-          <option>6–12 months</option>
-          <option>1+ year</option>
-        </select>
-      </label>
-
-      <label>Current earning?
-        <select id="f-earning">
-          <option>Not yet</option>
-          <option>₹1k–₹10k</option>
-          <option>₹10k–₹50k</option>
-          <option>₹50k+</option>
-        </select>
-      </label>
-
-      <input type="hidden" id="f-plan" />
     </div>
-
     <div class="form-actions">
       <a class="btn secondary" href="#" id="closeModal">Cancel</a>
       <a class="btn primary" href="#" id="submitLead">Send on WhatsApp</a>
     </div>
-
-    <p style="color:#94a3b8;font-size:13px;margin-top:8px">After submit, WhatsApp will open. Please share payment details.</p>
+    <p class="tiny" style="margin-top:6px">After submit, WhatsApp will open. Please share payment details.</p>
   </div>
 </div>
 
@@ -493,92 +391,90 @@ select, input{width:100%;padding:12px;border-radius:10px;border:1px solid #2d3a5
 </div>
 
 <script>
-// ===== Config =====
+/* ===== Config ===== */
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxCgG30UNqJEEzyzizyv4Mi84GB6-AZDR3ANL8zsolzauDHbLgGoCqcD064pIzj4iBquQ/exec";
 const WA_NUMBER = "919743140915";
 
-// ===== Helpers =====
-function animateNum(el, to, dur=1300){
-  const start=performance.now();
+/* ===== Counters (any .num animates) ===== */
+function animateNum(el, to, dur=1200){
+  const start = performance.now();
   function step(t){
-    const p=Math.min(1,(t-start)/dur), ease=1-Math.pow(1-p,3);
-    el.textContent = Math.floor(ease*to);
+    const p = Math.min(1,(t-start)/dur), ease = 1-Math.pow(1-p,3);
+    el.textContent = Math.floor(ease * to);
     if(p<1) requestAnimationFrame(step);
   }
   requestAnimationFrame(step);
 }
-const io = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add('on');
-      if(e.target.dataset.count){ animateNum(e.target, parseInt(e.target.dataset.count), 1400); }
-      io.unobserve(e.target);
-    }
+const nums = document.querySelectorAll('.num');
+const ioNums = new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){ animateNum(e.target, parseInt(e.target.dataset.count,10)); ioNums.unobserve(e.target); }
   });
-},{threshold:0.2});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+},{threshold:.35});
+nums.forEach(n=>ioNums.observe(n));
 
+/* ===== FAQ toggle ===== */
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>q.parentElement.classList.toggle('open'));
+});
+
+/* ===== WhatsApp quick ===== */
 function waOpen(){
   const text="Hello, I’m interested in your Affiliate Ad Service!";
   window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`,'_blank');
 }
 
-// ===== FAQ toggle =====
-document.querySelectorAll('.faq-q').forEach(q=>{
-  q.addEventListener('click',()=>q.parentElement.classList.toggle('open'));
-});
-
-// ===== Modal handling =====
+/* ===== Plan → open modal ===== */
 const modal = document.getElementById('leadModal');
 const closeModalBtn = document.getElementById('closeModal');
 document.querySelectorAll('.plan-btn').forEach(btn=>{
   btn.addEventListener('click',(e)=>{
     e.preventDefault();
-    document.getElementById('f-plan').value = btn.dataset.plan;
+    document.getElementById('f-plan').value = btn.dataset.plan || 'Plan';
     modal.classList.add('on');
   });
 });
 closeModalBtn.addEventListener('click',(e)=>{ e.preventDefault(); modal.classList.remove('on'); });
 modal.addEventListener('click',(e)=>{ if(e.target===modal) modal.classList.remove('on'); });
 
-// ===== Submit flow: send to Sheet + open WhatsApp =====
-async function saveToSheet(payload){
+/* ===== Save to Google Sheet (URL-encoded + no-cors for Apps Script) =====
+   Your Apps Script (doPost) should read e.parameter.name / phone / platform / plan
+*/
+async function saveToSheet({name, phone, platform, plan}){
+  const body = new URLSearchParams({ name, phone, platform, plan }).toString();
   try{
     await fetch(APPS_SCRIPT_URL, {
       method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body: JSON.stringify(payload)
+      mode:'no-cors',
+      headers:{'Content-Type':'application/x-www-form-urlencoded'},
+      body
     });
-  }catch(e){
-    // ignore errors; still continue to WhatsApp
-  }
+  }catch(_){}
 }
-const submitBtn = document.getElementById('submitLead');
-submitBtn.addEventListener('click', async (e)=>{
+
+/* ===== Submit ===== */
+document.getElementById('submitLead').addEventListener('click', async (e)=>{
   e.preventDefault();
   const name = document.getElementById('f-name').value.trim();
   const phone = document.getElementById('f-phone').value.trim();
   const platform = document.getElementById('f-platform').value;
-  const since = document.getElementById('f-since').value;
-  const earning = document.getElementById('f-earning').value;
-  const msg = document.getElementById('f-msg').value.trim();
   const plan = document.getElementById('f-plan').value || 'Plan';
+  const terms = document.getElementById('f-terms').checked;
 
-  // Save to Google Sheet
-  const payload = { name, phone, platform, since, earning, plan, source:'adhabits-landing' };
-  saveToSheet(payload);
+  if(!name || !phone){ alert('Please enter your name and phone number.'); return; }
+  if(!terms){ alert('Please agree to the Terms & Privacy.'); return; }
 
-  // Build WhatsApp text
+  // save -> sheet
+  saveToSheet({name, phone, platform, plan});
+
+  // open WhatsApp
   const text = [
-    `Hello Rahman sir, I am interested in your ad service — these are my details:` ,
+    `Hello Rahman sir, I am interested in your ad service — these are my details:`,
     ``,
-    `Name: ${name || '-'} `,
-    `Phone: ${phone || '-'} `,
+    `Name: ${name}`,
+    `Phone: ${phone}`,
     `Platform: ${platform}`,
-    `Since: ${since}`,
-    `Earning: ${earning}`,
     `Selected Plan: ${plan}`,
-    msg ? `Message: ${msg}` : ``,
     ``,
     `Please share payment details.`
   ].join('\n');
