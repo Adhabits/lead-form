@@ -727,23 +727,19 @@ function showToast(msg){
 function openSpin(){ spinOverlay.classList.add('on'); spinOverlay.setAttribute('aria-hidden','false'); }
 function hideSpin(){ spinOverlay.classList.remove('on'); spinOverlay.setAttribute('aria-hidden','true'); }
 
-// Show on first visit (per session)
-if(!sessionStorage.getItem('adh_spin_done')){
-  setTimeout(openSpin, 700);
-} else {
-  // If already spun before, enforce 10% visuals and pricing on load
-  couponPercent = 10; couponCode = 'IND10';
-  document.getElementById('couponCode').textContent = couponCode;
-  applyFixedDiscount(10);
-}
+// Always show spin popup shortly after load (ensure user sees it)
+setTimeout(openSpin, 700);
+
+// Pre-apply 10% pricing on load as default visual
+applyFixedDiscount(10);
 
 // Fixed result: ALWAYS land on 10%
-spinBtn.addEventListener('click', ()=>{
-  spinBtn.disabled = true;
+let spinning = false;
+function doSpin(){
+  if(spinning) return; spinning = true; spinBtn.disabled = true;
   const segments = [10,15,20,25,30,35,40];
   const step = 360/segments.length; // ≈51.4286
   const idx = 0; // 🔒 force 10%
-  // spin 3–4 full rounds for realism
   const fullRounds = (Math.floor(Math.random()*2) + 3) * 360; // 3 or 4 rounds
   const angle = -90 + idx*step; // align chosen segment to top pointer
   const jitter = (Math.random()*4 - 2); // tiny jitter
@@ -758,9 +754,16 @@ spinBtn.addEventListener('click', ()=>{
     applyFixedDiscount(10);
     showToast(`🎉 Congrats! You unlocked <b>${couponPercent}% OFF</b> — coupon <b>${couponCode}</b>.`);
     hideSpin();
-    spinBtn.disabled = false;
+    spinBtn.disabled = false; spinning = false;
   }, 4200);
-});
+}
+
+spinBtn && spinBtn.addEventListener('click', doSpin);
+// Extra: allow clicking anywhere on wheel to spin
+wheel && wheel.addEventListener('click', doSpin);
+// Offer strip opens modal too
+const offerStrip = document.querySelector('.offer-strip');
+offerStrip && offerStrip.addEventListener('click', openSpin);
 
 closeSpin.addEventListener('click', hideSpin);
 spinOverlay.addEventListener('click', (e)=>{ if(e.target===spinOverlay) hideSpin(); });
