@@ -709,8 +709,8 @@ sendBtn.addEventListener('click',(e)=>{
 });
 </script>
 
-<!-- ===== Spin Logic (FORCE 10%) ===== -->
-<!-- ===== Spin Logic (FORCE 10%) ===== -->
+<!-- ===== Spin Logic (FORCE 20%) ===== -->
+<!-- ===== Spin Logic (FORCE 20 %) ===== -->
 <script>
 const spinOverlay = document.getElementById('spinOverlay');
 const wheel = document.getElementById('wheel');
@@ -731,19 +731,19 @@ function hideSpin(){ spinOverlay.classList.remove('on'); spinOverlay.setAttribut
 // Popup thoda delay se
 setTimeout(openSpin, 700);
 
-// 10% prices pehle se hi dikhado
+// 20% prices pehle se hi dikhado
 applyFixedDiscount(10);
 
 // ---- IMPORTANT: spin se pehle wheel ko hard reset 0deg par karo ----
 function resetWheelToZero(){
   if(!wheel) return;
   wheel.style.transition = 'none';
-  wheel.style.transform = 'rotate(0deg)'; // l0 (10%) top pointer par hai
+  wheel.style.transform = 'rotate(0deg)'; // l0 (20%) top pointer par hai
   void wheel.offsetHeight; // reflow, taaki reset turant apply ho
   wheel.style.transition = 'transform 4s cubic-bezier(.22,.9,.16,1)';
 }
 
-// 🔒 HAMESHA 10%: sirf pure rounds ghumao (3 ya 4)
+// 🔒 HAMESHA 20%: sirf pure rounds ghumao (3 ya 4)
 let spinning = false;
 function doSpin(){
   if(spinning) return;
@@ -755,13 +755,13 @@ function doSpin(){
   wheel.style.transform = `rotate(${fullRounds}deg)`;
 
   setTimeout(() => {
-    couponPercent = 10;
-    couponCode = 'IND10';
+    couponPercent = 20;
+    couponCode = 'IND20';
     const codeEl = document.getElementById('couponCode');
     if (codeEl) codeEl.textContent = couponCode;
     sessionStorage.setItem('adh_spin_done','1');
     sessionStorage.setItem('adh_coupon', couponCode);
-    applyFixedDiscount(10);
+    applyFixedDiscount(20);
     showToast(`🎉 Congrats! You unlocked <b>${couponPercent}% OFF</b> — coupon <b>${couponCode}</b>.`);
     hideSpin();
     if (spinBtn) spinBtn.disabled = false;
