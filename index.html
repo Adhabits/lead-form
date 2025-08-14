@@ -710,6 +710,7 @@ sendBtn.addEventListener('click',(e)=>{
 </script>
 
 <!-- ===== Spin Logic (FORCE 10%) ===== -->
+<!-- ===== Spin Logic (FORCE 10%) ===== -->
 <script>
 const spinOverlay = document.getElementById('spinOverlay');
 const wheel = document.getElementById('wheel');
@@ -727,46 +728,52 @@ function showToast(msg){
 function openSpin(){ spinOverlay.classList.add('on'); spinOverlay.setAttribute('aria-hidden','false'); }
 function hideSpin(){ spinOverlay.classList.remove('on'); spinOverlay.setAttribute('aria-hidden','true'); }
 
-// Always show spin popup shortly after load (ensure user sees it)
+// Popup thoda delay se
 setTimeout(openSpin, 700);
 
-// Pre-apply 10% pricing on load as default visual
+// 10% prices pehle se hi dikhado
 applyFixedDiscount(10);
 
-// Fixed result: ALWAYS land on 10%
+// ---- IMPORTANT: spin se pehle wheel ko hard reset 0deg par karo ----
+function resetWheelToZero(){
+  if(!wheel) return;
+  wheel.style.transition = 'none';
+  wheel.style.transform = 'rotate(0deg)'; // l0 (10%) top pointer par hai
+  void wheel.offsetHeight; // reflow, taaki reset turant apply ho
+  wheel.style.transition = 'transform 4s cubic-bezier(.22,.9,.16,1)';
+}
+
+// 🔒 HAMESHA 10%: sirf pure rounds ghumao (3 ya 4)
 let spinning = false;
 function doSpin(){
-  if(spinning) return; spinning = true; spinBtn.disabled = true;
-  const segments = [10,15,20,25,30,35,40];
-  const step = 360/segments.length; // ≈51.4286
-  const idx = 0; // 🔒 force 10%
-  const fullRounds = (Math.floor(Math.random()*2) + 3) * 360; // 3 or 4 rounds
-  const angle = -90 + idx*step; // align chosen segment to top pointer
-  const jitter = (Math.random()*4 - 2); // tiny jitter
-  const final = fullRounds + angle + jitter;
-  wheel.style.transform = `rotate(${final}deg)`;
-  setTimeout(()=>{
+  if(spinning) return;
+  spinning = true;
+  if (spinBtn) spinBtn.disabled = true;
+
+  resetWheelToZero();
+  const fullRounds = (Math.floor(Math.random() * 2) + 3) * 360; // 3 ya 4 rounds
+  wheel.style.transform = `rotate(${fullRounds}deg)`;
+
+  setTimeout(() => {
     couponPercent = 10;
     couponCode = 'IND10';
-    document.getElementById('couponCode').textContent = couponCode;
+    const codeEl = document.getElementById('couponCode');
+    if (codeEl) codeEl.textContent = couponCode;
     sessionStorage.setItem('adh_spin_done','1');
     sessionStorage.setItem('adh_coupon', couponCode);
     applyFixedDiscount(10);
     showToast(`🎉 Congrats! You unlocked <b>${couponPercent}% OFF</b> — coupon <b>${couponCode}</b>.`);
     hideSpin();
-    spinBtn.disabled = false; spinning = false;
+    if (spinBtn) spinBtn.disabled = false;
+    spinning = false;
   }, 4200);
 }
 
 spinBtn && spinBtn.addEventListener('click', doSpin);
-// Extra: allow clicking anywhere on wheel to spin
 wheel && wheel.addEventListener('click', doSpin);
-// Offer strip opens modal too
-const offerStrip = document.querySelector('.offer-strip');
-offerStrip && offerStrip.addEventListener('click', openSpin);
-
-closeSpin.addEventListener('click', hideSpin);
-spinOverlay.addEventListener('click', (e)=>{ if(e.target===spinOverlay) hideSpin(); });
+document.querySelector('.offer-strip')?.addEventListener('click', openSpin);
+closeSpin?.addEventListener('click', hideSpin);
+spinOverlay?.addEventListener('click', (e)=>{ if(e.target===spinOverlay) hideSpin(); });
 </script>
 
 </body>
