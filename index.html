@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>AdHabits — Professional Meta Ads</title>
+<title>AdHabits — Independence Day Offer 🎉</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +14,7 @@
   --bg:#0a0f1b; --text:#e7eaf0; --muted:#a6b0c3; --stroke:#1e2a42;
   --card:#0f172a; --grad:linear-gradient(135deg,#8b5cf6, #22d3ee 55%, #34d399);
   --accent:#ffb454; --accent2:#ff914d;
+  --india-grad:linear-gradient(90deg,#ff671f 0%, #ffffff 50%, #046a38 100%);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
@@ -43,6 +44,10 @@ a{color:inherit;text-decoration:none}
 .mobile-menu.on{display:block}
 .mobile-menu a{display:block;padding:16px 18px;border-bottom:1px solid #142036;color:#d5def1;font-weight:700}
 
+/* Top Offer strip */
+.offer-strip{background:var(--india-grad);color:#081018;text-align:center;font-weight:800;padding:6px 10px}
+.offer-strip b{display:inline-block;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,.55)}
+
 /* HERO */
 .hero{padding:70px 0;background:
  radial-gradient(1200px 600px at 80% -10%, rgba(167,139,250,.20), transparent 60%),
@@ -51,13 +56,15 @@ a{color:inherit;text-decoration:none}
 h1{font-family:Poppins,system-ui,Arial;font-weight:800;font-size:clamp(30px,6.2vw,56px);line-height:1.06;letter-spacing:-.02em;margin-bottom:10px}
 .hl2{color:var(--accent2)}
 .video-card{margin:16px 0}
+.watch-first{display:inline-flex;align-items:center;gap:8px;font-weight:800;color:#ffecb3;background:#251c08;border:1px solid #59431a;padding:6px 10px;border-radius:10px;margin-bottom:8px}
 .yt-embed{position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid #25304a}
+.yt-embed::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 0 2px rgba(255,255,255,.02)}
 .yt-embed iframe{position:absolute;inset:0;width:100%;height:100%}
 .kpis{color:#cfd7e9;margin:10px 0 18px;font-size:clamp(14px, 3vw, 18px)}
 .cta{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0 16px}
 .btn{padding:13px 18px;border-radius:12px;font-weight:800;transition:transform .18s ease, box-shadow .18s ease}
-.btn.primary{background:var(--grad);color:#06101d;border:none}
-.btn.primary:hover{transform:scale(1.04);box-shadow:0 0 16px rgba(139,92,246,.45)}
+.btn.primary{background:var(--india-grad);color:#06101d;border:none}
+.btn.primary:hover{transform:scale(1.04);box-shadow:0 0 18px rgba(255,103,31,.25),0 0 18px rgba(4,106,56,.25) inset}
 .btn.secondary{background:#0f1526;border:1px solid #303a57;color:#d7def0}
 .btn.secondary:hover{transform:scale(1.03);box-shadow:0 0 16px rgba(34,211,238,.35)}
 .panel{border:1px solid var(--stroke);background:#0f1628;border-radius:14px;padding:12px;color:#aeb9ce;font-size:14px}
@@ -106,8 +113,8 @@ h1{font-family:Poppins,system-ui,Arial;font-weight:800;font-size:clamp(30px,6.2v
 .ex-stat{border:1px solid #273047;border-radius:16px;padding:16px;background:linear-gradient(180deg,#0f172a,#0b0f1a);box-shadow:inset 0 0 0 1px rgba(255,255,255,.02)}
 .ex-stat .num{font:800 40px/1 Inter}
 .ex-stat .lbl{margin-top:6px;color:#9fb0c9}
-.ex-btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;border-radius:14px;background:var(--grad);color:#000;
-  font:800 15px/1.1 Inter;border:none;box-shadow:0 8px 22px rgba(34,211,238,.25)}
+.ex-btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;border-radius:14px;background:var(--india-grad);color:#000;
+  font:800 15px/1.1 Inter;border:none;box-shadow:0 8px 22px rgba(4,106,56,.25)}
 .ex-btn .name-grad{color:#000;background:none;-webkit-background-clip:initial}
 
 /* TESTIMONIALS (horizontal cards) */
@@ -123,18 +130,21 @@ h1{font-family:Poppins,system-ui,Arial;font-weight:800;font-size:clamp(30px,6.2v
 .plans{padding:60px 0}
 .plans-title{font:800 32px/1.2 Inter;margin-bottom:6px}
 .plans-sub{color:#9fb0c9;margin-bottom:22px}
-.plan-stack{position:relative;height:calc(620px + 280px * 3)}
+.plan-stack{position:relative;height:calc(660px + 320px * 3)}
 .plan-card{position:sticky;top:90px;margin:0 auto 22px;max-width:880px;border-radius:18px;border:1px solid #273047;background:radial-gradient(1200px 500px at 10% -10%, rgba(255,180,84,.06), transparent 45%),linear-gradient(180deg,#0f172a,#0b0f1a);box-shadow:0 10px 28px rgba(0,0,0,.42), 0 0 0 1px rgba(255,255,255,.02) inset;padding:26px 20px}
 .plan-card .row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.plan-name{font:800 22px/1.2 Inter}
+.plan-name{font:800 22px/1.2 Inter;display:flex;align-items:center;gap:10px}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid #2b394f;font-size:12px}
+.badge .dot{width:8px;height:8px;border-radius:50%;background:conic-gradient(from 0deg, #ff671f 0 33%, #fff 33% 66%, #046a38 66% 100%);border:1px solid #1a2438}
 .strike{color:#8aa0c6;text-decoration:line-through;margin-right:8px}
 .price{font:800 30px/1.1 Inter;color:#ffcf8a}
+.small{color:#9fb0c9;font-weight:700}
 .plan-list{margin:14px 0 16px;color:#b7c3da}
 .plan-list li{margin:6px 0;list-style:none;position:relative;padding-left:18px}
 .plan-list li::before{content:"✔";position:absolute;left:0;color:#ffcf8a}
 .plan-actions{display:flex;gap:10px;flex-wrap:wrap}
 .plan-btn{padding:11px 16px;border-radius:10px;background:#ffb454;color:#0b0f1a;font-weight:800;border:none;cursor:pointer}
-@media (max-width:640px){.plan-stack{height:calc(560px + 320px * 3)}}
+@media (max-width:640px){.plan-stack{height:calc(600px + 360px * 3)}}
 
 /* FAQ (native details) */
 .faq{padding:60px 0}
@@ -174,6 +184,45 @@ footer{border-top:1px solid #233149;margin-top:40px}
 small{color:#8292b6}
 .reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease, transform .6s ease}
 .reveal.on{opacity:1;transform:none}
+
+/* ==== SPIN MODAL ==== */
+.spin-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;z-index:999}
+.spin-overlay.on{display:flex}
+.spin-modal{width:min(96vw,720px);border-radius:20px;border:1px solid #2a3854;overflow:hidden;background:linear-gradient(180deg,#0f172a,#0b0f1a);box-shadow:0 18px 60px rgba(0,0,0,.55)}
+.spin-head{padding:12px 16px;background:var(--india-grad);color:#071019;font:800 16px/1 Inter;display:flex;align-items:center;justify-content:space-between}
+.spin-body{padding:18px;display:grid;grid-template-columns:1fr 260px;gap:16px;align-items:center}
+@media (max-width:720px){.spin-body{grid-template-columns:1fr}}
+.close-x{cursor:pointer;border:1px solid #1d2a44;border-radius:10px;background:#0c1425;color:#cbd6ec;padding:6px 10px;font-weight:800}
+
+.wheel-wrap{position:relative;display:grid;place-items:center}
+.pointer{position:absolute;top:-10px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:12px solid transparent;border-right:12px solid transparent;border-bottom:18px solid #ffd166;filter:drop-shadow(0 2px 6px rgba(0,0,0,.5))}
+.wheel{width:min(75vw,360px);height:min(75vw,360px);border-radius:50%;border:8px solid #0d1a32;background:
+  conic-gradient(#18314f 0deg 360deg);
+  display:grid;place-items:center;position:relative;overflow:hidden;transition:transform 4s cubic-bezier(.22,.9,.16,1)}
+/* segments using pseudo elements to keep DOM light */
+.wheel::before{content:"";position:absolute;inset:0;border-radius:50%;background:
+  conic-gradient(#0e2a3f 0 51.43deg,#123b59 0 102.86deg,#0e2a3f 0 154.29deg,#123b59 0 205.72deg,#0e2a3f 0 257.15deg,#123b59 0 308.58deg,#0e2a3f 0 360deg)}
+.labels{position:absolute;inset:0}
+.label{position:absolute;left:50%;top:50%;transform-origin:0 0;font:800 16px/1 Inter;color:#ffe29a;text-shadow:0 2px 6px rgba(0,0,0,.5)}
+/* place 7 labels (10,15,20,25,30,35,40) */
+/* angle step = 360/7 ≈ 51.4286 */
+.label.l0{transform:rotate(-90deg) translate(0,-125px)}
+.label.l1{transform:rotate(-38.571deg) translate(0,-125px)}
+.label.l2{transform:rotate(12.857deg) translate(0,-125px)}
+.label.l3{transform:rotate(64.285deg) translate(0,-125px)}
+.label.l4{transform:rotate(115.714deg) translate(0,-125px)}
+.label.l5{transform:rotate(167.142deg) translate(0,-125px)}
+.label.l6{transform:rotate(218.571deg) translate(0,-125px)}
+.center-cap{width:92px;height:92px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fffbf0,#ffd166);border:6px solid #12233f;display:grid;place-items:center;font:900 18px/1 Inter;color:#1a2236;text-align:center}
+.spin-btn{margin-top:10px;padding:10px 14px;border-radius:10px;background:#ffd166;color:#0a1020;font-weight:900;border:none;cursor:pointer}
+
+.spin-copy{border:1px dashed #2a3958;border-radius:12px;padding:12px}
+.spin-copy h3{margin:0 0 6px;font:800 20px/1.2 Inter}
+.spin-copy p{color:#aab9d4}
+.coupon{display:inline-flex;align-items:center;gap:8px;margin-top:8px;padding:8px 12px;border-radius:10px;background:#111b2f;border:1px solid #25324e;font-weight:800}
+
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#102039;border:1px solid #2a3958;color:#dce7ff;padding:10px 14px;border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,.45);display:none;z-index:1000}
+.toast.on{display:block}
 </style>
 
 <!-- ✅ Meta Pixel Code (ID: 905585234905857) -->
@@ -193,6 +242,8 @@ fbq('track','PageView');
 
 </head>
 <body>
+
+<div class="offer-strip">🇮🇳 <b>Independence Day Special</b> — Spin & unlock today’s coupon. All plans flat <b>10% OFF</b> when you talk to us on WhatsApp.</div>
 
 <header class="nav">
   <div class="container nav-inner">
@@ -227,8 +278,8 @@ fbq('track','PageView');
       <h1>Let Us Run Your <span class="hl2">Meta Ads</span><br>&amp; Get You More Leads</h1>
 
       <div class="video-card">
+        <div class="watch-first">🎥 Watch First — Full Video</div>
         <div class="yt-embed">
-          <!-- ✔ Proper YouTube embed -->
           <iframe
             src="https://www.youtube.com/embed/SG5MdFiP1zA?rel=0&modestbranding=1&playsinline=1"
             title="AdHabits Intro"
@@ -347,15 +398,16 @@ fbq('track','PageView');
 <section id="plans" class="plans">
   <div class="container">
     <h2 class="plans-title">Choose Your <span style="color:#ffb454">Plan</span></h2>
-    <p class="plans-sub">Select the package that fits your goals &amp; budget</p>
+    <p class="plans-sub">Independence Day Special: <b>Flat 10% OFF</b> with coupon <b>IND10</b></p>
 
     <div class="plan-stack">
       <!-- Starter -->
       <article class="plan-card">
         <div class="row">
-          <div><div class="plan-name">Starter Plan</div></div>
-          <div><span class="strike">₹6,000</span><span class="price">₹4,999</span><span style="color:#9fb0c9"> / 1 Month</span></div>
+          <div class="plan-name">Starter Plan <span class="badge"><span class="dot"></span> 10% OFF Today</span></div>
+          <div><span class="strike">₹6,000</span><span class="price">₹4,999</span> <span class="small">/ 1 Month</span></div>
         </div>
+        <div class="small">Independence Day Price: <b id="p1">₹4,499</b> (coupon IND10)</div>
         <ul class="plan-list">
           <li>Meta Ads Management (1 Month)</li>
           <li>Ad Creative (By Our Team)</li>
@@ -371,9 +423,10 @@ fbq('track','PageView');
       <!-- Boost -->
       <article class="plan-card">
         <div class="row">
-          <div><div class="plan-name">Boost Plan</div></div>
-          <div><span class="strike">₹9,000</span><span class="price">₹7,999</span><span style="color:#9fb0c9"> / 2 Months</span></div>
+          <div class="plan-name">Boost Plan <span class="badge"><span class="dot"></span> 10% OFF Today</span></div>
+          <div><span class="strike">₹9,000</span><span class="price">₹7,999</span> <span class="small">/ 2 Months</span></div>
         </div>
+        <div class="small">Independence Day Price: <b id="p2">₹7,199</b> (coupon IND10)</div>
         <ul class="plan-list">
           <li>All Starter Plan Benefits 24x7</li>
           <li>WhatsApp & Call Support 2X</li>
@@ -388,9 +441,10 @@ fbq('track','PageView');
       <!-- Growth -->
       <article class="plan-card">
         <div class="row">
-          <div><div class="plan-name">Growth Plan</div></div>
-          <div><span class="strike">₹15,000</span><span class="price">₹11,998</span><span style="color:#9fb0c9"> / 3 Months</span></div>
+          <div class="plan-name">Growth Plan <span class="badge"><span class="dot"></span> 10% OFF Today</span></div>
+          <div><span class="strike">₹15,000</span><span class="price">₹11,998</span> <span class="small">/ 3 Months</span></div>
         </div>
+        <div class="small">Independence Day Price: <b id="p3">₹10,798</b> (coupon IND10)</div>
         <ul class="plan-list">
           <li>All Starter + Boost Benefits 24x7</li>
           <li>WhatsApp, Call & 1:1 Support</li>
@@ -444,7 +498,7 @@ fbq('track','PageView');
 
       <div style="margin-top:10px">
         <button id="sendBtn" class="form-btn">Send on WhatsApp</button>
-        <span class="form-hint">Auto-opens WhatsApp after saving.</span>
+        <span class="form-hint">Use coupon <b>IND10</b> for today’s 10% OFF.</span>
       </div>
     </div>
 
@@ -478,8 +532,47 @@ fbq('track','PageView');
   </div>
 </footer>
 
+<!-- ===== Spin Modal Markup ===== -->
+<div class="spin-overlay" id="spinOverlay" aria-hidden="true">
+  <div class="spin-modal" role="dialog" aria-modal="true" aria-labelledby="spinTitle">
+    <div class="spin-head">
+      <div id="spinTitle">🇮🇳 Independence Day Spin — Win a Discount</div>
+      <button class="close-x" id="closeSpin">Close</button>
+    </div>
+    <div class="spin-body">
+      <div class="wheel-wrap">
+        <div class="pointer"></div>
+        <div class="wheel" id="wheel">
+          <div class="labels">
+            <div class="label l0">10%</div>
+            <div class="label l1">15%</div>
+            <div class="label l2">20%</div>
+            <div class="label l3">25%</div>
+            <div class="label l4">30%</div>
+            <div class="label l5">35%</div>
+            <div class="label l6">40%</div>
+          </div>
+          <div class="center-cap">
+            <div>SPIN</div>
+            <button id="spinBtn" class="spin-btn">Tap</button>
+          </div>
+        </div>
+      </div>
+      <div class="spin-copy">
+        <h3>Today’s Coupon</h3>
+        <p>All plans are eligible. Result is fixed to <b>10% OFF</b> for fairness and compliance.</p>
+        <div class="coupon">Code: <span id="couponCode">IND10</span></div>
+        <p style="margin-top:8px">Use on WhatsApp while booking your plan.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast">🎉 Congrats! You unlocked <b>10% OFF</b> — coupon <b>IND10</b>.</div>
+
 <script>
 // ===== Mobile menu
+const hamb = document.getElementById('hamb');
+const mnav = document.getElementById('mnav');
 hamb.onclick = () => mnav.classList.toggle('on');
 document.querySelectorAll('#mnav a').forEach(a=>a.addEventListener('click',()=>mnav.classList.remove('on')));
 
@@ -506,7 +599,19 @@ const io = new IntersectionObserver((entries)=>{
 },{threshold:0.25});
 document.querySelectorAll('.reveal, .knum').forEach(el=>io.observe(el));
 
-// ===== Plan buttons -> remember chosen plan & scroll to form (Pixel tracked below)
+// ===== Plan buttons -> remember chosen plan & scroll to form
+// (Pixel tracked below in track()/trackCustom())
+
+// Utility: currency formatter for INR
+const fmt = new Intl.NumberFormat('en-IN');
+
+// Update discounted price labels (ensure 10% off shown)
+(function updateDiscounts(){
+  const orig = [4999, 7999, 11998];
+  const els = [document.getElementById('p1'), document.getElementById('p2'), document.getElementById('p3')];
+  orig.forEach((o,i)=>{ const d=Math.round(o*0.9); if(els[i]) els[i].textContent = '₹'+fmt.format(d); });
+})();
+
 document.querySelectorAll('.plan-btn').forEach(btn=>{
   btn.addEventListener('click',()=>{
     const plan = btn.dataset.plan || 'Starter';
@@ -553,12 +658,12 @@ function saveLeadFast(params){
     }
   }catch(_){ }
 }
-function track(e,d){ try{ fbq && fbq('track', e, d||{}); }catch(_){}}
-function trackCustom(n,d){ try{ fbq && fbq('trackCustom', n, d||{}); }catch(_){}}
+function track(e,d){ try{ fbq && fbq('track', e, d||{}); }catch(_){} }
+function trackCustom(n,d){ try{ fbq && fbq('trackCustom', n, d||{}); }catch(_){} }
 
 function openWhatsApp({name, phone, platform, plan}){
   trackCustom('WhatsAppOpen', {plan, platform});
-  const msg = `Hello Rahman sir, I am interested in your ad service.\nThis is my detail:\nName: ${name}\nPhone: ${phone}\nPlatform: ${platform}\nPlan: ${plan}\n\nPlease share payment details.`;
+  const msg = `Hello Rahman sir, I am interested in your ad service.\nThis is my detail:\nName: ${name}\nPhone: ${phone}\nPlatform: ${platform}\nPlan: ${plan}\nCoupon: IND10\n\nPlease share payment details.`;
   window.open(`https://wa.me/${WHATSAPP_TO}?text=${encodeURIComponent(msg)}`,'_blank');
 }
 
@@ -584,13 +689,55 @@ sendBtn.addEventListener('click',(e)=>{
 
   const old = sendBtn.textContent; sendBtn.disabled=true; sendBtn.textContent='Opening WhatsApp...';
 
-  const payload = new URLSearchParams({ name, phone, platform, plan });
+  const payload = new URLSearchParams({ name, phone, platform, plan, coupon:'IND10' });
   saveLeadFast(payload);                 // fire-and-forget
   track('Lead', { content_name: plan, content_category: platform });
   openWhatsApp({name, phone, platform, plan});
 
   setTimeout(()=>{ sendBtn.disabled=false; sendBtn.textContent=old; }, 1200);
 });
+</script>
+
+<!-- ===== Spin Logic ===== -->
+<script>
+const spinOverlay = document.getElementById('spinOverlay');
+const wheel = document.getElementById('wheel');
+const spinBtn = document.getElementById('spinBtn');
+const closeSpin = document.getElementById('closeSpin');
+const toast = document.getElementById('toast');
+
+function showToast(msg){
+  toast.innerHTML = msg;
+  toast.classList.add('on');
+  setTimeout(()=>toast.classList.remove('on'), 3500);
+}
+
+function openSpin(){ spinOverlay.classList.add('on'); spinOverlay.setAttribute('aria-hidden','false'); }
+function hideSpin(){ spinOverlay.classList.remove('on'); spinOverlay.setAttribute('aria-hidden','true'); }
+
+// Show on first visit (per session)
+if(!sessionStorage.getItem('adh_spin_done')){
+  setTimeout(openSpin, 700);
+}
+
+// Always land on 10%
+spinBtn.addEventListener('click', ()=>{
+  spinBtn.disabled = true;
+  // 7 segments, 10% is segment index 0 centered at -90deg. We'll spin to -90deg plus multiple full turns + random jitter near center
+  const fullTurns = 6 * 360; // nice long spin
+  const targetDeg = -90; // pointer top
+  const jitter = (Math.random()*10 - 5); // small randomness within the 10% slice
+  const final = fullTurns + targetDeg + jitter;
+  wheel.style.transform = `rotate(${final}deg)`;
+  setTimeout(()=>{
+    sessionStorage.setItem('adh_spin_done','1');
+    showToast('🎉 Congrats! You unlocked <b>10% OFF</b> — coupon <b>IND10</b>.');
+    hideSpin();
+  }, 4200);
+});
+
+closeSpin.addEventListener('click', hideSpin);
+spinOverlay.addEventListener('click', (e)=>{ if(e.target===spinOverlay) hideSpin(); });
 </script>
 
 </body>
