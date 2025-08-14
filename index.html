@@ -719,7 +719,7 @@ function trackCustom(n,d){ try{ fbq && fbq('trackCustom', n, d||{}); }catch(_){}
 
 function openWhatsApp({name, phone, platform, plan}){
   trackCustom('WhatsAppOpen', {plan, platform});
-  const msg = `Hello Rahman sir, I am interested in your ad service.\nThis is my detail:\nName: ${name}\nPhone: ${phone}\nPlatform: ${platform}\nPlan: ${plan}\nCoupon: ${couponCode || '—'}\n\nPlease share payment details.`;
+  const msg = `Hello Rahman sir, I am interested in your ad service.\nThis is my detail:\nName: ${name}\nPhone: ${phone}\nPlatform: ${platform}\nPlan: ${plan}\nCoupon: ${couponCode || '—'}\n\nPlease share  details.`;
   window.open(`https://wa.me/${WHATSAPP_TO}?text=${encodeURIComponent(msg)}`,'_blank');
 }
 
