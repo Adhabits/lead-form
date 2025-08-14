@@ -243,7 +243,7 @@ fbq('track','PageView');
 </head>
 <body>
 
-<div class="offer-strip">🇮🇳 <b>Independence Day Special</b> — Spin & unlock <b>10–40% OFF</b>. Use your coupon on WhatsApp.</div>
+<div class="offer-strip">🇮🇳 <b>Independence Day Special</b> — Spin & unlock <b>10% OFF</b>. Use your coupon on WhatsApp.</div>
 
 <header class="nav">
   <div class="container nav-inner">
@@ -398,16 +398,16 @@ fbq('track','PageView');
 <section id="plans" class="plans">
   <div class="container">
     <h2 class="plans-title">Choose Your <span style="color:#ffb454">Plan</span></h2>
-    <p class="plans-sub">Independence Day Special: Spin to win <b>10–40% OFF</b> and apply your coupon.</p>
+    <p class="plans-sub" id="plansSub">Independence Day Special: Spin to win <b>10% OFF</b> and apply your coupon.</p>
 
     <div class="plan-stack">
       <!-- Starter -->
       <article class="plan-card">
         <div class="row">
-          <div class="plan-name">Starter Plan <span class="badge"><span class="dot"></span> Azaadi Offer — Up to 40% OFF</span></div>
-          <div><span class="strike">₹6,000</span><span class="price">₹4,999</span> <span class="small">/ 1 Month</span></div>
+          <div class="plan-name">Starter Plan <span class="badge"><span class="dot"></span> Azaadi Offer</span></div>
+          <div><span class="strike">₹6,000</span><span class="price" id="starterPrice" data-base="4999">₹4,999</span> <span class="small">/ 1 Month</span></div>
         </div>
-        <div class="small">Apply your spin coupon at checkout.</div>
+        <div class="small" id="starterNote">Apply your spin coupon at checkout.</div>
         <ul class="plan-list">
           <li>Meta Ads Management (1 Month)</li>
           <li>Ad Creative (By Our Team)</li>
@@ -423,10 +423,10 @@ fbq('track','PageView');
       <!-- Boost -->
       <article class="plan-card">
         <div class="row">
-          <div class="plan-name">Boost Plan <span class="badge"><span class="dot"></span> Azaadi Offer — Up to 40% OFF</span></div>
-          <div><span class="strike">₹9,000</span><span class="price">₹7,999</span> <span class="small">/ 2 Months</span></div>
+          <div class="plan-name">Boost Plan <span class="badge"><span class="dot"></span> Azaadi Offer</span></div>
+          <div><span class="strike">₹9,000</span><span class="price" id="boostPrice" data-base="7999">₹7,999</span> <span class="small">/ 2 Months</span></div>
         </div>
-        <div class="small">Apply your spin coupon at checkout.</div>
+        <div class="small" id="boostNote">Apply your spin coupon at checkout.</div>
         <ul class="plan-list">
           <li>All Starter Plan Benefits 24x7</li>
           <li>WhatsApp & Call Support 2X</li>
@@ -441,10 +441,10 @@ fbq('track','PageView');
       <!-- Growth -->
       <article class="plan-card">
         <div class="row">
-          <div class="plan-name">Growth Plan <span class="badge"><span class="dot"></span> Azaadi Offer — Up to 40% OFF</span></div>
-          <div><span class="strike">₹15,000</span><span class="price">₹11,998</span> <span class="small">/ 3 Months</span></div>
+          <div class="plan-name">Growth Plan <span class="badge"><span class="dot"></span> Azaadi Offer</span></div>
+          <div><span class="strike">₹15,000</span><span class="price" id="growthPrice" data-base="11998">₹11,998</span> <span class="small">/ 3 Months</span></div>
         </div>
-        <div class="small">Apply your spin coupon at checkout.</div>
+        <div class="small" id="growthNote">Apply your spin coupon at checkout.</div>
         <ul class="plan-list">
           <li>All Starter + Boost Benefits 24x7</li>
           <li>WhatsApp, Call & 1:1 Support</li>
@@ -498,7 +498,7 @@ fbq('track','PageView');
 
       <div style="margin-top:10px">
         <button id="sendBtn" class="form-btn">Send on WhatsApp</button>
-        <span class="form-hint">Use coupon <b>IND10</b> for today’s 10% OFF.</span>
+        <span class="form-hint">Use coupon <b id="hintCoupon">IND10</b> for today’s 10% OFF.</span>
       </div>
     </div>
 
@@ -600,13 +600,28 @@ const io = new IntersectionObserver((entries)=>{
 document.querySelectorAll('.reveal, .knum').forEach(el=>io.observe(el));
 
 // ===== Plan buttons -> remember chosen plan & scroll to form
-// (Pixel tracked below in track()/trackCustom())
+const fmtIN = new Intl.NumberFormat('en-IN');
 
-// Utility: currency formatter for INR
-const fmt = new Intl.NumberFormat('en-IN');
-
-// Update discounted price labels (ensure 10% off shown)
-
+function applyFixedDiscount(percent){
+  // Update three plan prices using data-base (current listed price as base)
+  const items = [
+    {priceEl: document.getElementById('starterPrice'), noteEl: document.getElementById('starterNote')},
+    {priceEl: document.getElementById('boostPrice'), noteEl: document.getElementById('boostNote')},
+    {priceEl: document.getElementById('growthPrice'), noteEl: document.getElementById('growthNote')},
+  ];
+  items.forEach(({priceEl, noteEl})=>{
+    const base = Number(priceEl.dataset.base || priceEl.textContent.replace(/[^0-9]/g,''));
+    const discounted = Math.round(base * (1 - percent/100));
+    priceEl.textContent = '₹' + fmtIN.format(discounted);
+    noteEl.textContent = `${percent}% OFF auto–applied (IND10)`;
+  });
+  // Headline note
+  const sub = document.getElementById('plansSub');
+  if(sub) sub.innerHTML = `Independence Day Special: <b>${percent}% OFF</b> auto–applied with coupon <b>IND10</b>.`;
+  // Update form hint
+  const hc = document.getElementById('hintCoupon');
+  if(hc) hc.textContent = 'IND10';
+}
 
 document.querySelectorAll('.plan-btn').forEach(btn=>{
   btn.addEventListener('click',()=>{
@@ -659,15 +674,7 @@ function trackCustom(n,d){ try{ fbq && fbq('trackCustom', n, d||{}); }catch(_){}
 
 function openWhatsApp({name, phone, platform, plan}){
   trackCustom('WhatsAppOpen', {plan, platform});
-  const msg = `Hello Rahman sir, I am interested in your ad service.
-This is my detail:
-Name: ${name}
-Phone: ${phone}
-Platform: ${platform}
-Plan: ${plan}
-Coupon: ${couponCode || 'SPIN-TO-UNLOCK'}
-
-Please share payment details.`;
+  const msg = `Hello Rahman sir, I am interested in your ad service.\nThis is my detail:\nName: ${name}\nPhone: ${phone}\nPlatform: ${platform}\nPlan: ${plan}\nCoupon: ${couponCode || 'IND10'}\n\nPlease share payment details.`;
   window.open(`https://wa.me/${WHATSAPP_TO}?text=${encodeURIComponent(msg)}`,'_blank');
 }
 
@@ -702,7 +709,7 @@ sendBtn.addEventListener('click',(e)=>{
 });
 </script>
 
-<!-- ===== Spin Logic ===== -->
+<!-- ===== Spin Logic (FORCE 10%) ===== -->
 <script>
 const spinOverlay = document.getElementById('spinOverlay');
 const wheel = document.getElementById('wheel');
@@ -723,32 +730,39 @@ function hideSpin(){ spinOverlay.classList.remove('on'); spinOverlay.setAttribut
 // Show on first visit (per session)
 if(!sessionStorage.getItem('adh_spin_done')){
   setTimeout(openSpin, 700);
+} else {
+  // If already spun before, enforce 10% visuals and pricing on load
+  couponPercent = 10; couponCode = 'IND10';
+  document.getElementById('couponCode').textContent = couponCode;
+  applyFixedDiscount(10);
 }
 
-// Random landing among 7 segments => 10,15,20,25,30,35,40
+// Fixed result: ALWAYS land on 10%
 spinBtn.addEventListener('click', ()=>{
   spinBtn.disabled = true;
   const segments = [10,15,20,25,30,35,40];
   const step = 360/segments.length; // ≈51.4286
-  const idx = Math.floor(Math.random()*segments.length);
+  const idx = 0; // 🔒 force 10%
+  // spin 3–4 full rounds for realism
+  const fullRounds = (Math.floor(Math.random()*2) + 3) * 360; // 3 or 4 rounds
   const angle = -90 + idx*step; // align chosen segment to top pointer
-  const fullTurns = 6*360;
-  const jitter = (Math.random()*8 - 4);
-  const final = fullTurns + angle + jitter;
+  const jitter = (Math.random()*4 - 2); // tiny jitter
+  const final = fullRounds + angle + jitter;
   wheel.style.transform = `rotate(${final}deg)`;
   setTimeout(()=>{
-    couponPercent = segments[idx];
-    couponCode = 'IND'+couponPercent;
+    couponPercent = 10;
+    couponCode = 'IND10';
     document.getElementById('couponCode').textContent = couponCode;
     sessionStorage.setItem('adh_spin_done','1');
     sessionStorage.setItem('adh_coupon', couponCode);
+    applyFixedDiscount(10);
     showToast(`🎉 Congrats! You unlocked <b>${couponPercent}% OFF</b> — coupon <b>${couponCode}</b>.`);
     hideSpin();
+    spinBtn.disabled = false;
   }, 4200);
 });
 
 closeSpin.addEventListener('click', hideSpin);
-spinOverlay.addEventListener('click', (e)=>{ if(e.target===spinOverlay) hideSpin(); });('click', hideSpin);
 spinOverlay.addEventListener('click', (e)=>{ if(e.target===spinOverlay) hideSpin(); });
 </script>
 
