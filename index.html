@@ -498,7 +498,7 @@ fbq('track','PageView');
 
       <div style="margin-top:10px">
         <button id="sendBtn" class="form-btn">Send on WhatsApp</button>
-        <span class="form-hint">Use coupon <b id="hintCoupon">IND10</b> for today’s 10% OFF.</span>
+        <span class="form-hint">Use coupon <b id="hintCoupon">IND20</b> for today’s 20% OFF.</span>
       </div>
     </div>
 
@@ -567,7 +567,7 @@ fbq('track','PageView');
     </div>
   </div>
 </div>
-<div class="toast" id="toast">🎉 Congrats! You unlocked <b>10% OFF</b> — coupon <b>IND10</b>.</div>
+<div class="toast" id="toast">🎉 Congrats! You unlocked <b>20% OFF</b> — coupon <b>IND20</b>.</div>
 
 <script>
 // ===== Mobile menu
@@ -613,14 +613,14 @@ function applyFixedDiscount(percent){
     const base = Number(priceEl.dataset.base || priceEl.textContent.replace(/[^0-9]/g,''));
     const discounted = Math.round(base * (1 - percent/100));
     priceEl.textContent = '₹' + fmtIN.format(discounted);
-    noteEl.textContent = `${percent}% OFF auto–applied (IND10)`;
+    noteEl.textContent = `${percent}% OFF auto–applied (IND20)`;
   });
   // Headline note
   const sub = document.getElementById('plansSub');
-  if(sub) sub.innerHTML = `Independence Day Special: <b>${percent}% OFF</b> auto–applied with coupon <b>IND10</b>.`;
+  if(sub) sub.innerHTML = `Independence Day Special: <b>${percent}% OFF</b> auto–applied with coupon <b>IND20</b>.`;
   // Update form hint
   const hc = document.getElementById('hintCoupon');
-  if(hc) hc.textContent = 'IND10';
+  if(hc) hc.textContent = 'IND20';
 }
 
 document.querySelectorAll('.plan-btn').forEach(btn=>{
