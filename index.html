@@ -51,15 +51,13 @@ a{color:inherit;text-decoration:none}
 h1{font-family:Poppins,system-ui,Arial;font-weight:800;font-size:clamp(30px,6.2vw,56px);line-height:1.06;letter-spacing:-.02em;margin-bottom:10px}
 .hl2{color:var(--accent2)}
 .video-card{margin:16px 0}
-.watch-first{display:inline-flex;align-items:center;gap:8px;font-weight:800;color:#ffecb3;background:#251c08;border:1px solid #59431a;padding:6px 10px;border-radius:10px;margin-bottom:8px}
 .yt-embed{position:relative;width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid #25304a}
-.yt-embed::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 0 2px rgba(255,255,255,.02)}
 .yt-embed iframe{position:absolute;inset:0;width:100%;height:100%}
 .kpis{color:#cfd7e9;margin:10px 0 18px;font-size:clamp(14px, 3vw, 18px)}
 .cta{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0 16px}
 .btn{padding:13px 18px;border-radius:12px;font-weight:800;transition:transform .18s ease, box-shadow .18s ease}
-.btn.primary{background:linear-gradient(90deg,#8b5cf6 0%, #22d3ee 60%, #34d399 100%);color:#06101d;border:none}
-.btn.primary:hover{transform:scale(1.04);box-shadow:0 0 18px rgba(139,92,246,.25),0 0 18px rgba(34,211,238,.25) inset}
+.btn.primary{background:var(--grad);color:#06101d;border:none}
+.btn.primary:hover{transform:scale(1.04);box-shadow:0 0 16px rgba(139,92,246,.45)}
 .btn.secondary{background:#0f1526;border:1px solid #303a57;color:#d7def0}
 .btn.secondary:hover{transform:scale(1.03);box-shadow:0 0 16px rgba(34,211,238,.35)}
 .panel{border:1px solid var(--stroke);background:#0f1628;border-radius:14px;padding:12px;color:#aeb9ce;font-size:14px}
@@ -108,7 +106,7 @@ h1{font-family:Poppins,system-ui,Arial;font-weight:800;font-size:clamp(30px,6.2v
 .ex-stat{border:1px solid #273047;border-radius:16px;padding:16px;background:linear-gradient(180deg,#0f172a,#0b0f1a);box-shadow:inset 0 0 0 1px rgba(255,255,255,.02)}
 .ex-stat .num{font:800 40px/1 Inter}
 .ex-stat .lbl{margin-top:6px;color:#9fb0c9}
-.ex-btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;border-radius:14px;background:linear-gradient(90deg,#8b5cf6 0%, #22d3ee 60%, #34d399 100%);color:#000;
+.ex-btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;border-radius:14px;background:var(--grad);color:#000;
   font:800 15px/1.1 Inter;border:none;box-shadow:0 8px 22px rgba(34,211,238,.25)}
 .ex-btn .name-grad{color:#000;background:none;-webkit-background-clip:initial}
 
@@ -125,20 +123,18 @@ h1{font-family:Poppins,system-ui,Arial;font-weight:800;font-size:clamp(30px,6.2v
 .plans{padding:60px 0}
 .plans-title{font:800 32px/1.2 Inter;margin-bottom:6px}
 .plans-sub{color:#9fb0c9;margin-bottom:22px}
-.plan-stack{position:relative;height:calc(660px + 320px * 3)}
+.plan-stack{position:relative;height:calc(620px + 280px * 3)}
 .plan-card{position:sticky;top:90px;margin:0 auto 22px;max-width:880px;border-radius:18px;border:1px solid #273047;background:radial-gradient(1200px 500px at 10% -10%, rgba(255,180,84,.06), transparent 45%),linear-gradient(180deg,#0f172a,#0b0f1a);box-shadow:0 10px 28px rgba(0,0,0,.42), 0 0 0 1px rgba(255,255,255,.02) inset;padding:26px 20px}
 .plan-card .row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.plan-name{font:800 22px/1.2 Inter;display:flex;align-items:center;gap:10px}
-.badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid #2b394f;font-size:12px}
+.plan-name{font:800 22px/1.2 Inter}
 .strike{color:#8aa0c6;text-decoration:line-through;margin-right:8px}
 .price{font:800 30px/1.1 Inter;color:#ffcf8a}
-.small{color:#9fb0c9;font-weight:700}
 .plan-list{margin:14px 0 16px;color:#b7c3da}
 .plan-list li{margin:6px 0;list-style:none;position:relative;padding-left:18px}
 .plan-list li::before{content:"✔";position:absolute;left:0;color:#ffcf8a}
 .plan-actions{display:flex;gap:10px;flex-wrap:wrap}
-.plan-btn{padding:11px 16px;border-radius:10px;background:linear-gradient(90deg,#8b5cf6 0%, #22d3ee 60%, #34d399 100%);color:#0b0f1a;font-weight:800;border:none;cursor:pointer;box-shadow:0 0 0 1px rgba(255,255,255,.04) inset}
-@media (max-width:640px){.plan-stack{height:calc(600px + 360px * 3)}}
+.plan-btn{padding:11px 16px;border-radius:10px;background:#ffb454;color:#0b0f1a;font-weight:800;border:none;cursor:pointer}
+@media (max-width:640px){.plan-stack{height:calc(560px + 320px * 3)}}
 
 /* FAQ (native details) */
 .faq{padding:60px 0}
@@ -183,7 +179,7 @@ small{color:#8292b6}
 <!-- ✅ Meta Pixel Code (ID: 905585234905857) -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(n)};if(!f._fbq)f._fbq=n;
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
   n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
   t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)
 }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
@@ -227,12 +223,12 @@ fbq('track','PageView');
 <section class="hero">
   <div class="container">
     <div class="reveal">
-      <span class="eyebrow">Performance Marketing for Affiliates</span>
+      <span class="eyebrow">Affiliate Marketer?</span>
       <h1>Let Us Run Your <span class="hl2">Meta Ads</span><br>&amp; Get You More Leads</h1>
 
       <div class="video-card">
-        <div class="watch-first">🎥 Watch First — Full Video</div>
         <div class="yt-embed">
+          <!-- ✔ Proper YouTube embed -->
           <iframe
             src="https://www.youtube.com/embed/SG5MdFiP1zA?rel=0&modestbranding=1&playsinline=1"
             title="AdHabits Intro"
@@ -347,20 +343,19 @@ fbq('track','PageView');
   </div>
 </section>
 
-<!-- PLANS (no seasonal offer) -->
+<!-- PLANS (stacked sticky) -->
 <section id="plans" class="plans">
   <div class="container">
     <h2 class="plans-title">Choose Your <span style="color:#ffb454">Plan</span></h2>
-    <p class="plans-sub" id="plansSub">Transparent pricing. No seasonal discounts.</p>
+    <p class="plans-sub">Select the package that fits your goals &amp; budget</p>
 
     <div class="plan-stack">
       <!-- Starter -->
       <article class="plan-card">
         <div class="row">
-          <div class="plan-name">Starter Plan <span class="badge">Best for Testing</span></div>
-          <div><span class="strike">₹6,000</span><span class="price" id="starterPrice" data-base="4999">₹4,999</span> <span class="small">/ 1 Month</span></div>
+          <div><div class="plan-name">Starter Plan</div></div>
+          <div><span class="strike">₹6,000</span><span class="price">₹4,999</span><span style="color:#9fb0c9"> / 1 Month</span></div>
         </div>
-        <div class="small" id="starterNote">Includes onboarding + 1 landing page.</div>
         <ul class="plan-list">
           <li>Meta Ads Management (1 Month)</li>
           <li>Ad Creative (By Our Team)</li>
@@ -376,10 +371,9 @@ fbq('track','PageView');
       <!-- Boost -->
       <article class="plan-card">
         <div class="row">
-          <div class="plan-name">Boost Plan <span class="badge">Growth Focus</span></div>
-          <div><span class="strike">₹9,000</span><span class="price" id="boostPrice" data-base="7999">₹7,999</span> <span class="small">/ 2 Months</span></div>
+          <div><div class="plan-name">Boost Plan</div></div>
+          <div><span class="strike">₹9,000</span><span class="price">₹7,999</span><span style="color:#9fb0c9"> / 2 Months</span></div>
         </div>
-        <div class="small" id="boostNote">More time, better optimization cycles.</div>
         <ul class="plan-list">
           <li>All Starter Plan Benefits 24x7</li>
           <li>WhatsApp & Call Support 2X</li>
@@ -394,10 +388,9 @@ fbq('track','PageView');
       <!-- Growth -->
       <article class="plan-card">
         <div class="row">
-          <div class="plan-name">Growth Plan <span class="badge">Scale Confidently</span></div>
-          <div><span class="strike">₹15,000</span><span class="price" id="growthPrice" data-base="11998">₹11,998</span> <span class="small">/ 3 Months</span></div>
+          <div><div class="plan-name">Growth Plan</div></div>
+          <div><span class="strike">₹15,000</span><span class="price">₹11,998</span><span style="color:#9fb0c9"> / 3 Months</span></div>
         </div>
-        <div class="small" id="growthNote">Full support + 90‑day growth framework.</div>
         <ul class="plan-list">
           <li>All Starter + Boost Benefits 24x7</li>
           <li>WhatsApp, Call & 1:1 Support</li>
@@ -416,6 +409,7 @@ fbq('track','PageView');
 <section id="faq" class="faq">
   <div class="container">
     <h2>Frequently Asked Questions</h2>
+
     <details><summary>Which platforms do you work with?</summary><p>IDP, Bizgurukul, MillionaireTrack, LeadsGuru, GyaanGrowth, RichIND, Forever, and custom.</p></details>
     <details><summary>Minimum budget required?</summary><p>We recommend starting at ₹8–10k/month for testing & optimization.</p></details>
     <details><summary>Do you provide copy & creative guidance?</summary><p>Yes — ad copy & creatives are provided/optimized by our team.</p></details>
@@ -450,7 +444,7 @@ fbq('track','PageView');
 
       <div style="margin-top:10px">
         <button id="sendBtn" class="form-btn">Send on WhatsApp</button>
-        <span class="form-hint">We’ll reply within a few minutes.</span>
+        <span class="form-hint">Auto-opens WhatsApp after saving.</span>
       </div>
     </div>
 
@@ -486,8 +480,6 @@ fbq('track','PageView');
 
 <script>
 // ===== Mobile menu
-const hamb = document.getElementById('hamb');
-const mnav = document.getElementById('mnav');
 hamb.onclick = () => mnav.classList.toggle('on');
 document.querySelectorAll('#mnav a').forEach(a=>a.addEventListener('click',()=>mnav.classList.remove('on')));
 
@@ -514,20 +506,7 @@ const io = new IntersectionObserver((entries)=>{
 },{threshold:0.25});
 document.querySelectorAll('.reveal, .knum').forEach(el=>io.observe(el));
 
-// ===== Plan buttons -> remember chosen plan & scroll to form
-const fmtIN = new Intl.NumberFormat('en-IN');
-function setInitialPrices(){
-  const items = [
-    {priceEl: document.getElementById('starterPrice'), noteEl: document.getElementById('starterNote')},
-    {priceEl: document.getElementById('boostPrice'), noteEl: document.getElementById('boostNote')},
-    {priceEl: document.getElementById('growthPrice'), noteEl: document.getElementById('growthNote')},
-  ];
-  items.forEach(({priceEl})=>{
-    const base = Number(priceEl.dataset.base || priceEl.textContent.replace(/[^0-9]/g,''));
-    priceEl.textContent = '₹' + fmtIN.format(base);
-  });
-}
-
+// ===== Plan buttons -> remember chosen plan & scroll to form (Pixel tracked below)
 document.querySelectorAll('.plan-btn').forEach(btn=>{
   btn.addEventListener('click',()=>{
     const plan = btn.dataset.plan || 'Starter';
@@ -536,11 +515,9 @@ document.querySelectorAll('.plan-btn').forEach(btn=>{
     location.hash = '#getstart';
   });
 });
-
-setInitialPrices();
 </script>
 
-<!-- ===== Lead submit + Pixel tracking ===== -->
+<!-- ===== FAST submit + Pixel tracking ===== -->
 <script>
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbznR1Wk3Gn2jztC1ZXnBW4jr52146ctHC3phfdn8Ve3zuwKvCflNIOy_sxfPZNhQbbf/exec";
 const WHATSAPP_TO = "919610580359";
@@ -576,8 +553,8 @@ function saveLeadFast(params){
     }
   }catch(_){ }
 }
-function track(e,d){ try{ fbq && fbq('track', e, d||{}); }catch(_){} }
-function trackCustom(n,d){ try{ fbq && fbq('trackCustom', n, d||{}); }catch(_){} }
+function track(e,d){ try{ fbq && fbq('track', e, d||{}); }catch(_){}}
+function trackCustom(n,d){ try{ fbq && fbq('trackCustom', n, d||{}); }catch(_){}}
 
 function openWhatsApp({name, phone, platform, plan}){
   trackCustom('WhatsAppOpen', {plan, platform});
@@ -618,3 +595,6 @@ sendBtn.addEventListener('click',(e)=>{
 
 </body>
 </html>
+
+
+
