@@ -595,105 +595,188 @@ sendBtn.addEventListener('click',(e)=>{
 
 </body>
 </html>
-<!-- Address (single-line + block) -->
+<!-- Compact Address (paste/replace your existing block) -->
 <style>
   .adh-address-wrap{
     max-width:900px;
-    margin:30px auto;
-    padding:18px;
+    margin:20px auto;
+    padding:12px;
     background:#fafafa;
-    border:1px solid #e0e0e0;
+    border:1px solid #e6e6e6;
     border-radius:8px;
     font-family: "Arial", sans-serif;
     color:#222;
-    line-height:1.5;
+    line-height:1.35;
   }
-  .adh-address-title{
-    font-size:16px;
-    margin-bottom:8px;
-    font-weight:700;
-  }
-  .adh-address-single{
-    font-size:14px;
-    margin-bottom:10px;
-    color:#444;
-  }
-  .adh-address-block{
+
+  .adh-address-top {
     display:flex;
+    align-items:center;
+    justify-content:space-between;
     gap:12px;
-    flex-wrap:wrap;
-    font-size:14px;
+    margin-bottom:8px;
   }
+
+  .adh-address-title{
+    font-size:15px;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+
+  .adh-address-single{
+    font-size:13px;
+    color:#444;
+    /* truncate to single line with ellipsis */
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    max-width:60%;
+    margin-right:8px;
+  }
+
+  /* compact "View details" button */
+  .adh-toggle-btn{
+    background:transparent;
+    border:0;
+    color:#0b76ef;
+    font-weight:600;
+    cursor:pointer;
+    font-size:13px;
+    padding:6px 8px;
+    border-radius:6px;
+  }
+
+  /* grid for items — compact */
+  .adh-address-block{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap:10px;
+    font-size:13px;
+  }
+
   .adh-address-item{
-    min-width: 220px;
-    flex:1 1 220px;
-    background: #fff;
-    padding:10px;
+    background:#fff;
+    padding:8px;
     border-radius:6px;
     border:1px solid #f0f0f0;
+    min-height:40px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
   }
-  .adh-address-item b{display:block; margin-bottom:6px; font-weight:700;}
+
+  .adh-address-item b{
+    display:block;
+    margin-bottom:4px;
+    font-weight:700;
+    font-size:12px;
+  }
+
+  .adh-address-item a{ color:#007bff; text-decoration:none; }
+
+  /* collapsed details area */
+  .adh-details-collapsed{
+    max-height:0;
+    overflow:hidden;
+    transition: max-height 260ms ease;
+  }
+  .adh-details-open{
+    max-height:1000px; /* large enough to show content */
+    transition: max-height 360ms ease;
+  }
+
+  /* smaller on narrow screens */
   @media (max-width:520px){
-    .adh-address-item{flex-basis:100%}
+    .adh-address-single{ max-width:48%; font-size:13px; }
+    .adh-address-wrap{ padding:10px; }
+    .adh-address-item{ padding:8px; min-height:46px; }
   }
 </style>
 
 <div class="adh-address-wrap" aria-label="Address">
-  <div class="adh-address-title">📍 Business / Contact Address</div>
+  <div class="adh-address-top">
+    <div class="adh-address-title">📍 Business / Contact Address</div>
 
-  <!-- Single-line (exact as you gave) -->
-  <div class="adh-address-single">
-    S/O Abdul Bari, banjaraha, banjaraha, no, jama masjid, motihari, PATNA, bihar, pin-code 845304
+    <!-- single-line truncated -->
+    <div class="adh-address-single" id="adh-single">
+      S/O Abdul Bari, banjaraha, banjaraha, no, jama masjid, motihari, PATNA, bihar, pin-code 845304
+    </div>
+
+    <button class="adh-toggle-btn" id="adh-toggle" aria-expanded="false" aria-controls="adh-details">
+      View details ▾
+    </button>
   </div>
 
-  <!-- Clean block version for display -->
-  <div class="adh-address-block">
-    <div class="adh-address-item">
-      <b>Owner</b>
-      S/O Abdul Bari
-    </div>
-    <div class="adh-address-item">
-      <b>Locality</b>
-      banjaraha
-    </div>
-    <div class="adh-address-item">
-      <b>Premises / Landmark</b>
-      jama masjid
-    </div>
-    <div class="adh-address-item">
-      <b>City / District</b>
-      motihari / PATNA
-    </div>
-    <div class="adh-address-item">
-      <b>State</b>
-      Bihar
-    </div>
-    <div class="adh-address-item">
-      <b>Pincode</b>
-      845304
-    </div>
-    <div class="adh-address-item">
-      <b>Mobile</b>
-      <a href="tel:+919743140914" style="color:#007bff; text-decoration:none;">9743140914</a>
-    </div>
-    <div class="adh-address-item">
-      <b>Email</b>
-      <a href="mailto:adhabits5@gmail.com" style="color:#007bff; text-decoration:none;">adhabits5@gmail.com</a>
+  <!-- Collapsible details (start closed) -->
+  <div id="adh-details" class="adh-details-collapsed" aria-hidden="true">
+    <div class="adh-address-block" id="adh-block">
+      <div class="adh-address-item">
+        <b>Owner</b>
+        S/O Abdul Bari
+      </div>
+      <div class="adh-address-item">
+        <b>Locality</b>
+        banjaraha
+      </div>
+      <div class="adh-address-item">
+        <b>Premises / Landmark</b>
+        jama masjid
+      </div>
+      <div class="adh-address-item">
+        <b>City / District</b>
+        motihari / PATNA
+      </div>
+      <div class="adh-address-item">
+        <b>State</b>
+        Bihar
+      </div>
+      <div class="adh-address-item">
+        <b>Pincode</b>
+        845304
+      </div>
+      <div class="adh-address-item">
+        <b>Mobile</b>
+        <a href="tel:+919743140914">9743140914</a>
+      </div>
+      <div class="adh-address-item">
+        <b>Email</b>
+        <a href="mailto:adhabits5@gmail.com">adhabits5@gmail.com</a>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- Optional: JSON-LD structured data (for search engines) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "PostalAddress",
-  "streetAddress": "S/O Abdul Bari, banjaraha, jama masjid",
-  "addressLocality": "motihari",
-  "addressRegion": "PATNA, bihar",
-  "postalCode": "845304",
-  "addressCountry": "IN",
-  "telephone": "+919743140914",
-  "email": "adhabits5@gmail.com"
-}
+<script>
+  (function(){
+    const btn = document.getElementById('adh-toggle');
+    const details = document.getElementById('adh-details');
+    const single = document.getElementById('adh-single');
+
+    btn.addEventListener('click', function(e){
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      if(isOpen){
+        btn.setAttribute('aria-expanded', 'false');
+        btn.textContent = 'View details ▾';
+        details.classList.remove('adh-details-open');
+        details.classList.add('adh-details-collapsed');
+        details.setAttribute('aria-hidden', 'true');
+      } else {
+        btn.setAttribute('aria-expanded', 'true');
+        btn.textContent = 'Hide details ▴';
+        details.classList.remove('adh-details-collapsed');
+        details.classList.add('adh-details-open');
+        details.setAttribute('aria-hidden', 'false');
+
+        /* optional: on open, remove truncation so single line shows full text (if you want) */
+        // single.style.whiteSpace = 'normal';
+      }
+    });
+
+    /* Optional: if viewport is wide, open details by default */
+    if(window.innerWidth > 900){
+      btn.click(); // opens
+    }
+  })();
 </script>
