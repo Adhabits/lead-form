@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -449,6 +450,7 @@
       justify-content: center;
       height: 52px;
       padding: 0 16px;
+      min-width: 130px;
       border-radius: 14px;
       font: 800 14px/1 Inter, sans-serif;
       border: 1px solid transparent;
@@ -1525,6 +1527,7 @@
         <p class="stk-sub">We deliver results that matter to your affiliate business</p>
 
         <div class="stk-grid">
+         </article>
           <article class="stk-card reveal" data-plan-feature="experience">
             <div class="stk-icon" aria-hidden="true">👥</div>
             <h3>290+ Affiliates Served</h3>
@@ -1880,50 +1883,23 @@
 
     // ===== WHATSAPP LINK TRACKING =====
     function bindWhatsAppLinks() {
-      // Add click handlers to WhatsApp links and buttons
-      document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com"], button[data-whatsapp="true"]').forEach(el => {
-        // Store original onclick if any
-        const originalOnClick = el.onclick;
-        
-        el.addEventListener('click', function(e) {
-          // Track the interaction first
+      document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com"], button[data-whatsapp="true"]').forEach(a => {
+        a.addEventListener('click', function() {
           const plan = sessionStorage.getItem('adh_plan') || 'Direct WhatsApp';
-          
-          // Track custom event
           DualPixel.trackCustom('WhatsAppLinkClick', { plan: plan });
           
-          // Track as Lead
-          DualPixel.track('Lead', {
-            content_name: plan,
-            content_category: 'WhatsApp Contact',
-            value: 0,
-            currency: 'INR'
-          });
-          
-          // Track as Contact
-          DualPixel.track('Contact', {
-            content_name: plan,
-            content_category: 'WhatsApp Contact',
-            value: 0,
-            currency: 'INR'
-          });
-
-          // If it's the expert button, open WhatsApp
-          if (this.tagName === 'BUTTON' && this.dataset.whatsapp === 'true') {
-            e.preventDefault();
-            const WHATSAPP_TO = "919610580359";
-            const msg = `Hello Rahman sir,\n\nI am interested in your ad service. Would like to discuss the plans.`;
-            window.open(`https://wa.me/${WHATSAPP_TO}?text=${encodeURIComponent(msg)}`, '_blank');
-          }
-          
-          // Call original handler if existed
-          if (originalOnClick) {
-            originalOnClick.call(this, e);
+          // Track as Lead if coming from form or expert section
+          if (this.closest('#getstart') || this.closest('.exp1')) {
+            DualPixel.track('Lead', {
+              content_name: plan,
+              content_category: 'WhatsApp Contact',
+              value: 0,
+              currency: 'INR'
+            });
           }
         });
       });
     }
-    
     bindWhatsAppLinks();
 
     // ===== FORM HANDLING =====
@@ -1991,20 +1967,11 @@
           }
         } catch (_) {}
 
-        // Track conversions on BOTH pixels for Lead
-        const planValue = plan.includes('3,999') ? 3999 : plan.includes('6,999') ? 6999 : 9999;
+        // Track conversions on BOTH pixels
         DualPixel.track('Lead', {
           content_name: plan,
           content_category: platform,
-          value: planValue,
-          currency: 'INR'
-        });
-
-        // Track Contact event
-        DualPixel.track('Contact', {
-          content_name: plan,
-          content_category: platform,
-          value: planValue,
+          value: plan.includes('3,999') ? 3999 : plan.includes('6,999') ? 6999 : 9999,
           currency: 'INR'
         });
         
@@ -2014,11 +1981,11 @@
           form_completed: true
         });
 
-        // Open WhatsApp (fixed URL)
+        // Open WhatsApp
         const WHATSAPP_TO = "919610580359";
         const msg = `Hello Rahman sir,\n\nI am interested in your ad service. My details:\n\n📋 *Platform:* ${platform}\n👤 *Name:* ${name}\n📱 *Phone:* ${phone}\n💼 *Selected Plan:* ${plan}\n\nPlease share me details and next steps.`;
         
-        window.open(`https://wa.me/${WHATSAPP_TO}?text=${encodeURIComponent(msg)}`, '_blank');
+        window.open(`https://wa.me/ ${WHATSAPP_TO}?text=${encodeURIComponent(msg)}`, '_blank');
 
         // Reset button after delay
         setTimeout(() => {
