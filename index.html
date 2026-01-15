@@ -506,7 +506,7 @@
       color: #0e0c06;
     }
 
-    /* ==================== FEATURES (NORMAL FLOW + SHINE + 3D) ==================== */
+    /* ==================== FEATURES ==================== */
     .stacked {
       padding: 60px 0;
     }
@@ -544,7 +544,6 @@
       box-shadow: 0 6px 14px var(--shadow), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       overflow: hidden;
-      /* 3D perspective */
       transform-style: preserve-3d;
       perspective: 1000px;
     }
@@ -837,7 +836,7 @@
       object-fit: contain;
     }
 
-    /* ==================== PLANS (NORMAL FLOW + SHINE + 3D) ==================== */
+    /* ==================== PLANS ==================== */
     .plans {
       padding: 60px 0;
     }
@@ -871,7 +870,6 @@
       padding: 26px 20px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       overflow: hidden;
-      /* 3D perspective */
       transform-style: preserve-3d;
       perspective: 1000px;
     }
@@ -1044,7 +1042,7 @@
     }
 
     details p {
-      color: #9fb0c9;
+      color: var(--muted);
       margin-top: 8px;
       padding-top: 8px;
       border-top: 1px solid var(--stroke);
@@ -1372,13 +1370,11 @@
       
       track: function(eventName, eventData) {
         try {
-          // Track on both pixels
           this.pixelIds.forEach(pixelId => {
             if (window.fbq) {
               window.fbq('trackSingle', pixelId, eventName, eventData || {});
             }
           });
-          
           console.log('📊 DualPixel:', eventName, eventData);
         } catch (e) {
           console.error('Pixel tracking error:', e);
@@ -1392,7 +1388,6 @@
               window.fbq('trackSingleCustom', pixelId, eventName, eventData || {});
             }
           });
-          
           console.log('📊 DualPixel Custom:', eventName, eventData);
         } catch (e) {
           console.error('Pixel tracking error:', e);
@@ -1520,7 +1515,7 @@
       </div>
     </section>
 
-    <!-- FEATURES (NORMAL FLOW + SHINE + 3D) -->
+    <!-- FEATURES -->
     <section id="features" class="stacked" aria-labelledby="features-title">
       <div class="stk-wrap">
         <h2 id="features-title" class="stk-title">Why Choose AdHabits</h2>
@@ -1599,7 +1594,7 @@
       </div>
     </section>
 
-    <!-- PLANS (NORMAL FLOW + SHINE + 3D) -->
+    <!-- PLANS -->
     <section id="plans" class="plans" aria-labelledby="plans-title">
       <div class="container">
         <h2 id="plans-title" class="plans-title">Choose Your <span style="color: var(--accent)">Plan</span></h2>
@@ -1794,6 +1789,12 @@
       </div>
       <div id="terms" style="margin-top: 8px; color: #9fb0c9">
         <b>Terms &amp; Conditions:</b> Services are provided as-is. Due to the nature of digital ad services, all payments are <u>Non-Refundable</u>.
+      </div>
+      <!-- Contact Details Added Here -->
+      <div id="contact-details" style="margin-top: 16px; padding-top: 16px; border-top: 1px solid #233149; color: #8292b6; font-size: 14px;">
+        <p style="margin-bottom: 8px;"><strong>Address:</strong> S/O Abdul Bari, Banjaraha, Zama Masjid, Motihari, Bihar, Patna - PIN 845304</p>
+        <p style="margin-bottom: 8px;">Phone: <a href="tel:9743140915" style="color: #9fc5ff; text-decoration: none;">9743140915</a></p>
+        <p>Email: <a href="mailto:adhabits5@gmail.com" style="color: #9fc5ff; text-decoration: none;">adhabits5@gmail.com</a></p>
       </div>
     </div>
   </footer>
