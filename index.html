@@ -12,25 +12,24 @@
   <meta property="og:title" content="AdHabits — Professional Meta Ads for Affiliates" />
   <meta property="og:description" content="Let us run your Meta Ads & get you more leads. 3+ years experience, 290+ affiliates served." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://adhabits.in " />
-  <meta property="og:image" content="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png " />
+  <meta property="og:url" content="https://adhabits.in" />
+  <meta property="og:image" content="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png" />
 
   <!-- Preconnect -->
-  <link rel="preconnect" href="https://fonts.googleapis.com " />
-  <link rel="preconnect" href="https://fonts.gstatic.com " crossorigin />
-  <link rel="preconnect" href="https://connect.facebook.net " />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://connect.facebook.net" />
   <link rel="preconnect" href="www.facebook.com" />
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400 ;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet" />
 
   <!-- Favicon -->
-  <link rel="icon" href="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png " type="image/png" />
+  <link rel="icon" href="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png" type="image/png" />
 
   <title>AdHabits — Professional Meta Ads for Affiliate Marketers</title>
 
   <style>
-    /* ==================== ROOT & RESET ==================== */
     :root {
       --bg: #0a0f1b;
       --text: #e7eaf0;
@@ -90,78 +89,6 @@
       padding: 0 18px;
     }
 
-    /* ==================== VIDEO POPUP STYLES ==================== */
-    .video-popup-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-
-    .video-popup-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .video-popup-container {
-      position: relative;
-      width: 90%;
-      max-width: 800px;
-      aspect-ratio: 16/9;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
-      transform: scale(0.8);
-      transition: transform 0.3s ease;
-    }
-
-    .video-popup-overlay.active .video-popup-container {
-      transform: scale(1);
-    }
-
-    .video-popup-container iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    .video-close-btn {
-      position: absolute;
-      top: -50px;
-      right: 0;
-      background: var(--accent);
-      color: #000;
-      border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      font-size: 24px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.2s ease;
-    }
-
-    .video-close-btn:hover {
-      transform: scale(1.1);
-    }
-
-    /* Hide original video card */
-    .video-card {
-      display: none;
-    }
-
-    /* ==================== NAVIGATION ==================== */
     .nav {
       position: sticky;
       top: 0;
@@ -262,7 +189,6 @@
       }
     }
 
-    /* Mobile Menu */
     .mobile-menu {
       position: fixed;
       inset: 64px 0 auto 0;
@@ -302,7 +228,6 @@
       background: rgba(255, 255, 255, 0.05);
     }
 
-    /* ==================== HERO ==================== */
     .hero {
       padding: 70px 0;
       background: radial-gradient(1200px 600px at 80% -10%, rgba(167, 139, 250, 0.20), transparent 60%),
@@ -311,7 +236,6 @@
       overflow: hidden;
     }
 
-    /* Subtle animated background particles */
     .hero::before {
       content: '';
       position: absolute;
@@ -319,7 +243,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg " viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.03)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.02)"/><circle cx="50" cy="70" r="1" fill="rgba(255,255,255,0.03)"/></svg>');
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.03)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.02)"/><circle cx="50" cy="70" r="1" fill="rgba(255,255,255,0.03)"/></svg>');
       animation: float 20s infinite linear;
       pointer-events: none;
     }
@@ -369,6 +293,32 @@
     @keyframes gradientShift {
       0%, 100% { filter: hue-rotate(0deg); }
       50% { filter: hue-rotate(10deg); }
+    }
+
+    .video-card {
+      margin: 16px 0;
+    }
+
+    .yt-embed {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #25304a;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .yt-embed:hover {
+      transform: scale(1.02);
+    }
+
+    .yt-embed iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
     }
 
     .kpis {
@@ -460,7 +410,6 @@
       gap: 8px;
     }
 
-    /* ==================== BRAND TICKER ==================== */
     .bnc {
       padding: 32px 0 18px;
     }
@@ -551,7 +500,6 @@
       color: #0e0c06;
     }
 
-    /* ==================== FEATURES ==================== */
     .stacked {
       padding: 60px 0;
     }
@@ -598,7 +546,6 @@
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.03);
     }
 
-    /* SHINING EFFECT */
     .stk-card::before {
       content: '';
       position: absolute;
@@ -630,7 +577,6 @@
       }
     }
 
-    /* Animated border gradient */
     .stk-card::after {
       content: '';
       position: absolute;
@@ -674,7 +620,6 @@
       color: #9fb0c9;
     }
 
-    /* ==================== EXPERT ==================== */
     .exp1 {
       padding: 60px 0;
     }
@@ -817,7 +762,6 @@
       -webkit-background-clip: initial;
     }
 
-    /* ==================== TESTIMONIALS ==================== */
     .tcarousel {
       padding: 50px 0;
     }
@@ -881,7 +825,6 @@
       object-fit: contain;
     }
 
-    /* ==================== PLANS ==================== */
     .plans {
       padding: 60px 0;
     }
@@ -924,7 +867,6 @@
       box-shadow: 0 14px 36px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(255, 255, 255, 0.03);
     }
 
-    /* SHINING EFFECT FOR PLAN CARDS */
     .plan-card::before {
       content: '';
       position: absolute;
@@ -942,7 +884,6 @@
       animation: shine 1.2s ease-out;
     }
 
-    /* Price with gradient and shine */
     .price {
       font: 800 30px/1.1 Inter, sans-serif;
       background: var(--grad);
@@ -970,7 +911,6 @@
       animation: shine 1.2s ease-out;
     }
 
-    /* Animated border gradient */
     .plan-card::after {
       content: '';
       position: absolute;
@@ -1052,7 +992,6 @@
       outline-offset: 2px;
     }
 
-    /* ==================== FAQ ==================== */
     .faq {
       padding: 60px 0;
     }
@@ -1093,7 +1032,6 @@
       border-top: 1px solid var(--stroke);
     }
 
-    /* ==================== FORM ==================== */
     #getstart {
       padding: 60px 0;
     }
@@ -1193,7 +1131,6 @@
       font-size: 14px;
     }
 
-    /* Right Stats Box */
     .right-box {
       border: 1px solid var(--stroke);
       background: #0f172a;
@@ -1248,7 +1185,6 @@
       font-size: 14px;
     }
 
-    /* Back to top button */
     #backToTop {
       position: fixed;
       bottom: 30px;
@@ -1277,7 +1213,6 @@
       display: flex;
     }
 
-    /* ==================== FOOTER ==================== */
     footer {
       border-top: 1px solid #233149;
       margin-top: 40px;
@@ -1337,7 +1272,6 @@
       color: #8292b6;
     }
 
-    /* ==================== REVEAL ANIMATION ==================== */
     .reveal {
       opacity: 0;
       transform: translateY(12px);
@@ -1349,7 +1283,6 @@
       transform: none;
     }
 
-    /* ==================== UTILITY CLASSES ==================== */
     .sr-only {
       position: absolute;
       width: 1px;
@@ -1367,49 +1300,230 @@
       opacity: 0.7;
     }
 
-    /* ==================== MAGNETIC CURSOR EFFECT ==================== */
     .magnetic {
       transition: transform 0.3s ease;
       will-change: transform;
     }
 
-    /* ==================== DARK MODE SUPPORT REMOVED ==================== */
-    /* This block has been removed to maintain dark theme on all devices */
+    .section {
+      padding: 60px 0;
+    }
+
+    .section-title {
+      font: 800 36px/1.15 Inter, sans-serif;
+      color: #e8edf7;
+      margin-bottom: 12px;
+    }
+
+    .section-sub {
+      color: #9fb0c9;
+      font-size: 18px;
+      margin-bottom: 24px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 980px) {
+      .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .service-card {
+      border: 1px solid var(--stroke);
+      background: linear-gradient(180deg, #0f172a, #0b0f1a);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 6px 14px var(--shadow), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .service-card h3 {
+      font: 800 22px/1.2 Inter, sans-serif;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      color: #9fb0c9;
+      margin-bottom: 12px;
+    }
+
+    .service-card ul {
+      list-style: none;
+      color: #b7c3da;
+    }
+
+    .service-card ul li {
+      padding-left: 20px;
+      position: relative;
+      margin: 4px 0;
+    }
+
+    .service-card ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .contact-card {
+      border: 1px solid var(--stroke);
+      background: var(--card);
+      border-radius: 14px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .contact-card h4 {
+      font: 800 18px/1.2 Inter, sans-serif;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .contact-card p {
+      color: #9fb0c9;
+      margin: 4px 0;
+    }
+
+    .contact-card a {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    .policy-section {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 18px;
+    }
+
+    .policy-section h2 {
+      font: 800 28px/1.2 Inter, sans-serif;
+      color: var(--text);
+      margin: 24px 0 12px;
+    }
+
+    .policy-section h3 {
+      font: 800 20px/1.2 Inter, sans-serif;
+      color: var(--accent);
+      margin: 20px 0 8px;
+    }
+
+    .policy-section p, .policy-section li {
+      color: #9fb0c9;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    .policy-section ul {
+      margin-left: 20px;
+      color: #9fb0c9;
+    }
+
+    .policy-section strong {
+      color: var(--text);
+    }
+
+    .footer-links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--stroke);
+    }
+
+    .footer-column h4 {
+      font: 800 16px/1.2 Inter, sans-serif;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .footer-column a {
+      display: block;
+      color: #9fb0c9;
+      margin: 6px 0;
+      font-size: 14px;
+      transition: color 0.2s ease;
+    }
+
+    .footer-column a:hover {
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 16px;
+      border-top: 1px solid var(--stroke);
+      color: #8292b6;
+      font-size: 14px;
+    }
+
+    .footer-bottom p {
+      margin: 4px 0;
+    }
   </style>
 
-  <!-- ==================== META PIXEL #1 (Original) ==================== -->
+  <!-- Meta Pixel #1 -->
   <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
     n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
-    (window, document,'script','https://connect.facebook.net/en_US/fbevents.js ');
+    (window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
     
     fbq('init', '1615358806544488');
     fbq('track', 'PageView');
   </script>
   <noscript>
-    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1615358806544488&ev=PageView&noscript=1 "/>
+    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1615358806544488&ev=PageView&noscript=1"/>
   </noscript>
 
-  <!-- ==================== META PIXEL #2 (New) ==================== -->
+  <!-- Meta Pixel #2 -->
   <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
     n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
-    (window, document,'script','https://connect.facebook.net/en_US/fbevents.js ');
+    (window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
     
     fbq('init', '1255041905596153');
     fbq('track', 'PageView');
   </script>
   <noscript>
-    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1255041905596153&ev=PageView&noscript=1 "/>
+    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1255041905596153&ev=PageView&noscript=1"/>
   </noscript>
 
-  <!-- ==================== UNIFIED TRACKING SETUP ==================== -->
+  <!-- Unified Tracking -->
   <script>
-    // Dual Pixel Tracker - Tracks events on BOTH pixels simultaneously
     window.DualPixel = {
       pixelIds: ['1615358806544488', '1255041905596153'],
       
@@ -1440,14 +1554,12 @@
       }
     };
 
-    // Track page view completion
     window.addEventListener('load', function() {
       setTimeout(() => {
         DualPixel.trackCustom('PageLoadComplete', {time_on_page: 3});
       }, 3000);
     });
 
-    // Track scroll depth
     let scrollTracked = {25: false, 50: false, 75: false, 100: false};
     window.addEventListener('scroll', function() {
       const pct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
@@ -1462,35 +1574,22 @@
 </head>
 
 <body>
-  <!-- Accessibility: Skip to main content -->
   <a href="#features" class="sr-only">Skip to main content</a>
-
-  <!-- VIDEO POPUP -->
-  <div id="videoPopup" class="video-popup-overlay">
-    <div class="video-popup-container">
-      <button class="video-close-btn" aria-label="Close video">×</button>
-      <iframe
-        id="popupVideo"
-        src="https://www.youtube.com/embed/SG5MdFiP1zA?rel=0&modestbranding=1&playsinline=1&autoplay=1"
-        title="AdHabits Intro"
-        loading="lazy"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-      </iframe>
-    </div>
-  </div>
 
   <header class="nav" role="navigation" aria-label="Main navigation">
     <div class="container nav-inner">
       <div class="brand" aria-label="AdHabits Home">
-        <span class="logo"><img src="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png " alt="AdHabits Logo" /></span>
+        <span class="logo"><img src="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png" alt="AdHabits Logo" /></span>
         <span>AdHabits</span>
       </div>
       <nav class="nav-links" aria-label="Desktop menu">
+        <a href="#about" aria-label="About Us">About</a>
+        <a href="#services" aria-label="Services">Services</a>
         <a href="#features" aria-label="Features">Features</a>
         <a href="#expert" aria-label="Expert">Expert</a>
         <a href="#testimonials" aria-label="Testimonials">Testimonials</a>
         <a href="#plans" aria-label="Plans">Plans</a>
+        <a href="#contact" aria-label="Contact">Contact</a>
         <a href="#faq" aria-label="FAQ">FAQ</a>
         <a href="#getstart" class="btn secondary" aria-label="Contact on WhatsApp">WhatsApp</a>
       </nav>
@@ -1501,24 +1600,25 @@
       </button>
     </div>
     <div class="mobile-menu" id="mnav" role="navigation" aria-label="Mobile menu">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
       <a href="#features">Features</a>
       <a href="#expert">Expert</a>
       <a href="#testimonials">Testimonials</a>
       <a href="#plans">Plans</a>
+      <a href="#contact">Contact</a>
       <a href="#faq">FAQ</a>
       <a href="#getstart">WhatsApp</a>
     </div>
   </header>
 
   <main>
-    <!-- HERO SECTION -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="container">
         <div class="reveal">
           <span class="eyebrow">Affiliate Marketer?</span>
           <h1 id="hero-title">Let Us Run Your <span class="hl2">Meta Ads</span><br>&amp; Get You More Leads</h1>
 
-          <!-- Hidden video card - video will show in popup -->
           <div class="video-card">
             <div class="yt-embed">
               <iframe
@@ -1549,7 +1649,6 @@
       </div>
     </section>
 
-    <!-- BRAND TICKER -->
     <section class="bnc" aria-labelledby="bnc-title">
       <div class="container">
         <h3 id="bnc-title">Trusted by top affiliates from these platforms</h3>
@@ -1563,7 +1662,6 @@
             <span class="bnc-item brand-gyangrowth">GyaanGrowth</span>
             <span class="bnc-item brand-richind">RichIND</span>
             <span class="bnc-item brand-forever">Forever</span>
-            <!-- duplicate for seamless loop -->
             <span class="bnc-item brand-idp">IDP</span>
             <span class="bnc-item brand-mt">MillionaireTrack</span>
             <span class="bnc-item brand-biz">Bizgurukul</span>
@@ -1576,7 +1674,108 @@
       </div>
     </section>
 
-    <!-- FEATURES -->
+    <section id="about" class="section" aria-labelledby="about-title">
+      <div class="container">
+        <h2 id="about-title" class="section-title">About AdHabits</h2>
+        <p class="section-sub">Professional digital marketing agency specializing in Meta ads management for affiliate marketers</p>
+        
+        <div class="grid-2">
+          <div class="service-card reveal">
+            <h3>Our Story</h3>
+            <p>Founded in 2021, AdHabits emerged from a simple observation: affiliate marketers needed specialized Meta ads management that understands their unique challenges. What started as a one-person consultancy has grown into a full-service digital marketing agency serving 290+ clients across India.</p>
+            <p>We believe in transparent, data-driven marketing that focuses on measurable results rather than empty promises. Our team stays updated with the latest Meta platform changes to ensure your campaigns remain effective and compliant.</p>
+          </div>
+          <div class="service-card reveal">
+            <h3>Our Mission</h3>
+            <p>To empower affiliate marketers with professional Meta ads management that drives quality leads while maintaining ethical advertising practices. We strive to be the bridge between complex advertising platforms and affiliate marketing success.</p>
+            <p>We focus on building long-term partnerships based on trust, transparency, and consistent performance delivery.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section" aria-labelledby="services-title">
+      <div class="container">
+        <h2 id="services-title" class="section-title">Our Services</h2>
+        <p class="section-sub">Comprehensive digital marketing solutions tailored for affiliate marketers</p>
+        
+        <div class="grid-3">
+          <div class="service-card reveal">
+            <h3>Meta Ads Management</h3>
+            <p>Complete Facebook and Instagram advertising management including:</p>
+            <ul>
+              <li>Campaign strategy and setup</li>
+              <li>Audience research and targeting</li>
+              <li>Ad creative development</li>
+              <li>Daily optimization and monitoring</li>
+              <li>Performance reporting and analysis</li>
+              <li>Budget allocation and scaling</li>
+            </ul>
+          </div>
+          <div class="service-card reveal">
+            <h3>Instagram Growth</h3>
+            <p>Organic and paid Instagram growth strategies:</p>
+            <ul>
+              <li>Content strategy development</li>
+              <li>Hashtag research and optimization</li>
+              <li>Instagram ads management</li>
+              <li>Story and reel promotion</li>
+              <li>Community engagement</li>
+              <li>Influencer collaboration setup</li>
+            </ul>
+          </div>
+          <div class="service-card reveal">
+            <h3>Lead Generation</h3>
+            <p>Targeted lead generation campaigns:</p>
+            <ul>
+              <li>Landing page optimization</li>
+              <li>Lead magnet creation</li>
+              <li>Form optimization</li>
+              <li>Lead quality improvement</li>
+              <li>Conversion tracking setup</li>
+              <li>Lead nurturing strategies</li>
+            </ul>
+          </div>
+          <div class="service-card reveal">
+            <h3>Consulting & Training</h3>
+            <p>Expert guidance and knowledge transfer:</p>
+            <ul>
+              <li>One-on-one consulting sessions</li>
+              <li>Team training workshops</li>
+              <li>Strategy development</li>
+              <li>Platform best practices</li>
+              <li>Compliance guidance</li>
+              <li>Performance audits</li>
+            </ul>
+          </div>
+          <div class="service-card reveal">
+            <h3>Campaign Audits</h3>
+            <p>Comprehensive campaign analysis:</p>
+            <ul>
+              <li>Account structure review</li>
+              <li>Performance analysis</li>
+              <li>Optimization recommendations</li>
+              <li>Budget efficiency assessment</li>
+              <li>Competitive analysis</li>
+              <li>Actionable improvement plan</li>
+            </ul>
+          </div>
+          <div class="service-card reveal">
+            <h3>Creative Services</h3>
+            <p>Professional ad creative development:</p>
+            <ul>
+              <li>Ad copywriting</li>
+              <li>Visual design creation</li>
+              <li>Video ad production</li>
+              <li>A/B testing setup</li>
+              <li>Creative performance analysis</li>
+              <li>Brand consistency maintenance</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="features" class="stacked" aria-labelledby="features-title">
       <div class="stk-wrap">
         <h2 id="features-title" class="stk-title">Why Choose AdHabits</h2>
@@ -1602,12 +1801,11 @@
       </div>
     </section>
 
-    <!-- EXPERT -->
     <section id="expert" class="exp1" aria-labelledby="expert-title">
       <div class="ex-wrap">
         <div class="ex-photo">
           <div class="ex-frame">
-            <img src="https://i.postimg.cc/cC2f5c0G/IMG-5862-2.avif " alt="Rahman — Meta Ads Expert" loading="lazy" />
+            <img src="https://i.postimg.cc/cC2f5c0G/IMG-5862-2.avif" alt="Rahman — Meta Ads Expert" loading="lazy" />
           </div>
         </div>
 
@@ -1635,34 +1833,31 @@
       </div>
     </section>
 
-    <!-- TESTIMONIALS -->
     <section id="testimonials" class="tcarousel" aria-labelledby="testimonials-title">
       <div class="container">
         <h2 id="testimonials-title" class="tc-title">Client <span style="color: var(--accent)">Testimonials</span></h2>
         <p class="tc-sub">Real WhatsApp screenshots from happy clients</p>
 
         <div class="tc-track">
-          <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/PJtN2tcP/nasreen-mam-finel.jpg " alt="Testimonial from Nasreen" loading="lazy" /></div></div>
-          <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/G3qpbnVx/Rukkaya-appi-finel.jpg " alt="Testimonial from Rukkaya" loading="lazy" /></div></div>
-          <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/LXSzFFwM/Farheen-mam.jpg " alt="Testimonial from Farheen" loading="lazy" /></div></div>
-          <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/vBDGBcp7/Firdous-finel.jpg " alt="Testimonial from Firdous" loading="lazy" /></div></div>
-          <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/CxF50LL7/Ahemadi-mam-finel.jpg " alt="Testimonial from Ahemadi" loading="lazy" /></div></div>
-          <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/nhcF5R0w/balvinder-finel.jpg " alt="Testimonial from Balvinder" loading="lazy" /></div></div>
-          <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/rFhXd8NQ/faizeen-finel.jpg " alt="Testimonial from Faizeen" loading="lazy" /></div></div>
-          <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/FRbwhmKb/Nadeem-finel.jpg " alt="Testimonial from Nadeem" loading="lazy" /></div></div>
-          <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/pL97pKTL/Rukhsaar-finel.jpg " alt="Testimonial from Rukhsaar" loading="lazy" /></div></div>
+          <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/PJtN2tcP/nasreen-mam-finel.jpg" alt="Testimonial from Nasreen" loading="lazy" /></div></div>
+          <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/G3qpbnVx/Rukkaya-appi-finel.jpg" alt="Testimonial from Rukkaya" loading="lazy" /></div></div>
+          <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/LXSzFFwM/Farheen-mam.jpg" alt="Testimonial from Farheen" loading="lazy" /></div></div>
+          <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/vBDGBcp7/Firdous-finel.jpg" alt="Testimonial from Firdous" loading="lazy" /></div></div>
+          <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/CxF50LL7/Ahemadi-mam-finel.jpg" alt="Testimonial from Ahemadi" loading="lazy" /></div></div>
+          <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/nhcF5R0w/balvinder-finel.jpg" alt="Testimonial from Balvinder" loading="lazy" /></div></div>
+          <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/rFhXd8NQ/faizeen-finel.jpg" alt="Testimonial from Faizeen" loading="lazy" /></div></div>
+          <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/FRbwhmKb/Nadeem-finel.jpg" alt="Testimonial from Nadeem" loading="lazy" /></div></div>
+          <div class="tc-card"><div class="tc-shot"><img src="https://i.postimg.cc/pL97pKTL/Rukhsaar-finel.jpg" alt="Testimonial from Rukhsaar" loading="lazy" /></div></div>
         </div>
       </div>
     </section>
 
-    <!-- PLANS -->
     <section id="plans" class="plans" aria-labelledby="plans-title">
       <div class="container">
         <h2 id="plans-title" class="plans-title">Choose Your <span style="color: var(--accent)">Plan</span></h2>
         <p class="plans-sub">Select the package that fits your goals &amp; budget</p>
 
         <div class="plan-grid">
-          <!-- Starter Plan -->
           <article class="plan-card reveal" data-plan-name="Starter Plan">
             <div class="row">
               <div>
@@ -1688,7 +1883,6 @@
             </div>
           </article>
 
-          <!-- Boost Plan -->
           <article class="plan-card reveal" data-plan-name="Boost Plan">
             <div class="row">
               <div>
@@ -1713,7 +1907,6 @@
             </div>
           </article>
 
-          <!-- Growth Plan -->
           <article class="plan-card reveal" data-plan-name="Growth Plan">
             <div class="row">
               <div>
@@ -1741,7 +1934,36 @@
       </div>
     </section>
 
-    <!-- FAQ -->
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <div class="container">
+        <h2 id="contact-title" class="section-title">Contact Us</h2>
+        <p class="section-sub">Get in touch with our team for any queries or support</p>
+        
+        <div class="contact-grid">
+          <div class="contact-card reveal">
+            <h4>📧 Email Us</h4>
+            <p>General inquiries:</p>
+            <a href="mailto:adhabits5@gmail.com">adhabits5@gmail.com</a>
+          </div>
+          <div class="contact-card reveal">
+            <h4>📱 WhatsApp / Phone</h4>
+            <p>Business hours: 9 AM - 6 PM IST</p>
+            <a href="tel:7258055245">7258055245</a>
+          </div>
+          <div class="contact-card reveal">
+            <h4>📍 Location</h4>
+            <p>Motihari, Bihar, India</p>
+            <p>PIN: 845304</p>
+          </div>
+          <div class="contact-card reveal">
+            <h4>💬 Support</h4>
+            <p>24/7 WhatsApp Support</p>
+            <p>For existing clients</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="faq" class="faq" aria-labelledby="faq-title">
       <div class="container">
         <h2 id="faq-title">Frequently Asked Questions</h2>
@@ -1769,7 +1991,6 @@
       </div>
     </section>
 
-    <!-- FORM -->
     <section id="getstart" aria-labelledby="form-title">
       <div class="container form-wrap">
         <div class="form-card">
@@ -1829,87 +2050,166 @@
         </aside>
       </div>
     </section>
+
+    <section id="privacy" class="section" aria-labelledby="privacy-title">
+      <div class="container policy-section">
+        <h2 id="privacy-title" class="section-title">Privacy Policy</h2>
+        <p class="section-sub">Last updated: January 27, 2025</p>
+
+        <h3>1. Information We Collect</h3>
+        <p>We collect information you provide directly to us, such as when you fill out our contact form, subscribe to our newsletter, or communicate with us via WhatsApp or email. This may include your name, email address, phone number, and any other information you choose to provide.</p>
+
+        <h3>2. How We Use Your Information</h3>
+        <p>We use the information we collect to:</p>
+        <ul>
+          <li>Provide and maintain our services</li>
+          <li>Respond to your inquiries and provide customer support</li>
+          <li>Send you promotional communications</li>
+          <li>Monitor and analyze usage patterns</li>
+          <li>Detect, prevent and address technical issues</li>
+        </ul>
+
+        <h3>3. Data Security</h3>
+        <p>We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet is 100% secure.</p>
+
+        <h3>4. Third-Party Services</h3>
+        <p>We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except as described in this policy or as required by law.</p>
+
+        <h3>5. Your Rights</h3>
+        <p>You have the right to:</p>
+        <ul>
+          <li>Access your personal information</li>
+          <li>Correct inaccurate data</li>
+          <li>Request deletion of your data</li>
+          <li>Opt-out of marketing communications</li>
+        </ul>
+
+        <h3>6. Contact Us</h3>
+        <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:adhabits5@gmail.com">adhabits5@gmail.com</a> or call <a href="tel:7258055245">7258055245</a>.</p>
+      </div>
+    </section>
+
+    <section id="terms" class="section" aria-labelledby="terms-title">
+      <div class="container policy-section">
+        <h2 id="terms-title" class="section-title">Terms & Conditions</h2>
+        <p class="section-sub">Last updated: January 27, 2025</p>
+
+        <h3>1. Acceptance of Terms</h3>
+        <p>By accessing and using AdHabits services, you agree to be bound by these Terms & Conditions. If you disagree with any part of these terms, you may not access our services.</p>
+
+        <h3>2. Services Description</h3>
+        <p>AdHabits provides digital marketing services including Meta ads management, Instagram growth, lead generation, and consulting services. We do not guarantee specific results or outcomes from our services.</p>
+
+        <h3>3. Payment Terms</h3>
+        <p>All services require upfront payment. Payment plans are available for select packages. Due to the nature of digital marketing services, all payments are non-refundable once work has commenced.</p>
+
+        <h3>4. Client Responsibilities</h3>
+        <p>Clients must:</p>
+        <ul>
+          <li>Provide accurate and complete information</li>
+          <li>Respond to communication within reasonable timeframes</li>
+          <li>Comply with platform policies and guidelines</li>
+          <li>Maintain appropriate ad budgets as recommended</li>
+        </ul>
+
+        <h3>5. Service Limitations</h3>
+        <p>We do not guarantee specific results, leads, or conversions. Advertising performance depends on various factors including market conditions, competition, and platform algorithms.</p>
+
+        <h3>6. Intellectual Property</h3>
+        <p>All strategies, processes, and methodologies developed by AdHabits remain our intellectual property. Clients receive usage rights for deliverables created specifically for them.</p>
+
+        <h3>7. Limitation of Liability</h3>
+        <p>AdHabits shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from the use of our services.</p>
+
+        <h3>8. Governing Law</h3>
+        <p>These terms shall be governed by and construed in accordance with the laws of India. Any disputes shall be subject to the exclusive jurisdiction of courts in Motihari, Bihar.</p>
+      </div>
+    </section>
+
+    <section id="refund" class="section" aria-labelledby="refund-title">
+      <div class="container policy-section">
+        <h2 id="refund-title" class="section-title">Refund & Cancellation Policy</h2>
+        <p class="section-sub">Last updated: January 27, 2025</p>
+
+        <h3>1. Refund Policy</h3>
+        <p><strong>All sales are final.</strong> Due to the nature of digital marketing services and the immediate allocation of resources upon payment, we do not offer refunds for any services once work has commenced.</p>
+
+        <p>This includes but is not limited to:</p>
+        <ul>
+          <li>Consulting sessions</li>
+          <li>Campaign management services</li>
+          <li>Creative development</li>
+          <li>Training programs</li>
+          <li>Audit services</li>
+        </ul>
+
+        <h3>2. Cancellation Policy</h3>
+        <p>Clients may cancel ongoing monthly services by providing 7 days written notice before the next billing cycle. No refunds will be provided for the current billing period.</p>
+
+        <h3>3. Service Modifications</h3>
+        <p>We reserve the right to modify or discontinue services at any time. In such cases, we will provide reasonable notice and work with clients to transition services appropriately.</p>
+
+        <h3>4. Force Majeure</h3>
+        <p>AdHabits shall not be liable for any failure or delay in performance due to circumstances beyond our reasonable control, including but not limited to acts of God, war, terrorism, riots, embargoes, acts of civil or military authorities, fire, floods, accidents, pandemics, or shortages of transportation, facilities, fuel, energy, labor or materials.</p>
+
+        <h3>5. Dispute Resolution</h3>
+        <p>Any disputes regarding refunds or cancellations will be handled on a case-by-case basis. We are committed to finding fair solutions within the constraints of our policies.</p>
+
+        <h3>6. Contact for Inquiries</h3>
+        <p>For any questions regarding our refund or cancellation policy, please contact us at <a href="mailto:adhabits5@gmail.com">adhabits5@gmail.com</a> or call <a href="tel:7258055245">7258055245</a>.</p>
+      </div>
+    </section>
   </main>
 
-  <!-- Back to top button -->
   <button id="backToTop" aria-label="Back to top">↑</button>
 
   <footer role="contentinfo">
     <div class="foot">
-      <div class="foot-row">
-        <small>© 2025 AdHabits. All rights reserved.</small>
-        <div class="foot-links">
-          <a class="ig" href="https://www.instagram.com/adhabits.in/ " target="_blank" rel="noopener" aria-label="AdHabits Instagram">
+      <div class="footer-links-grid">
+        <div class="footer-column">
+          <h4>Services</h4>
+          <a href="#services">Meta Ads Management</a>
+          <a href="#services">Instagram Growth</a>
+          <a href="#services">Lead Generation</a>
+          <a href="#services">Consulting</a>
+        </div>
+        <div class="footer-column">
+          <h4>Company</h4>
+          <a href="#about">About Us</a>
+          <a href="#features">Features</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <a href="#privacy">Privacy Policy</a>
+          <a href="#terms">Terms & Conditions</a>
+          <a href="#refund">Refund Policy</a>
+        </div>
+        <div class="footer-column">
+          <h4>Connect</h4>
+          <a class="ig" href="https://www.instagram.com/adhabits.in/" target="_blank" rel="noopener" aria-label="AdHabits Instagram">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.9.3 2.4.5.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.5.4 1.2.5 2.4.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.9-.5 2.4-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.5.2-1.2.4-2.4.5-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.9-.3-2.4-.5-.6-.2-1-.5-1.4-.9-.4.4.8.7 1.4.9.5.2 1.2.4 2.4.5C8.4 2.2 8.8 2.2 12 2.2m0 1.8c-3.1 0-3.5 0-4.8.1-1 .1-1.5.2-1.9.4-.5.2-.8.4-1.1.7-.3.3-.5.6-.7 1.1-.2.4-.3.9-.4 1.9-.1 1.3-.1 1.7-.1 4.8s0 3.5.1 4.8c.1 1 .2 1.5.4 1.9.2.5.4.8.7 1.1.3.3.6.5 1.1.7.4.2.9.3 1.9.4 1.3.1 1.7.1 4.8.1s3.5 0 4.8-.1c1-.1 1.5-.2 1.9-.4.5-.2.8-.4 1.1-.7.3-.3.5-.6.7-1.1.2-.4.3-.9.4-1.9.1-1.3.1-1.7.1-4.8s0-3.5-.1-4.8c-.1-1-.2-1.5-.4-1.9-.2-.5-.4-.8-.7-1.1-.3-.3-.6-.5-1.1-.7-.4-.2-.9-.3-1.9-.4-1.3-.1-1.7-.1-4.8-.1zm0 3.1a5.9 5.9 0 110 11.8 5.9 5.9 0 010-11.8zm0 1.8a4.1 4.1 0 100 8.2 4.1 4.1 0 000-8.2zm5.9-2.2a1.4 1.4 0 110 2.8 1.4 1.4 0 010-2.8z"/>
             </svg>
             Instagram
           </a>
-          <a class="terms" href="#terms" aria-label="View terms and conditions">Terms</a>
         </div>
       </div>
-      <div id="terms" style="margin-top: 8px; color: #9fb0c9">
-        <b>Terms &amp; Conditions:</b> Services are provided as-is. Due to the nature of digital ad services, all payments are <u>Non-Refundable</u>.
+      <div id="contact-details" style="margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--stroke); color: #8292b6; font-size: 14px;">
+        <p style="margin-bottom: 8px;"><strong>Registered Address:</strong> S/O Abdul Bari, Banjaraha, Zama Masjid, Motihari, Bihar, Patna - PIN 845304</p>
+        <p style="margin-bottom: 8px;">Business Phone: <a href="tel:7258055245" style="color: #9fc5ff; text-decoration: none;">7258055245</a></p>
+        <p>Business Email: <a href="mailto:adhabits5@gmail.com" style="color: #9fc5ff; text-decoration: none;">adhabits5@gmail.com</a></p>
       </div>
-      <!-- Contact Details Added Here -->
-      <div id="contact-details" style="margin-top: 16px; padding-top: 16px; border-top: 1px solid #233149; color: #8292b6; font-size: 14px;">
-        <p style="margin-bottom: 8px;"><strong>Address:</strong> S/O Abdul Bari, Banjaraha, Zama Masjid, Motihari, Bihar, Patna - PIN 845304</p>
-        <p style="margin-bottom: 8px;">Phone: <a href="tel:9743140915" style="color: #9fc5ff; text-decoration: none;">9743140915</a></p>
-        <p>Email: <a href="mailto:adhabits5@gmail.com" style="color: #9fc5ff; text-decoration: none;">adhabits5@gmail.com</a></p>
+      <div class="footer-bottom">
+        <p>© 2025 AdHabits. All rights reserved.</p>
+        <p>GSTIN: Not applicable (Service provider below threshold)</p>
+        <p>Business Hours: Monday - Saturday, 9 AM - 6 PM IST</p>
       </div>
     </div>
   </footer>
 
-  <!-- ==================== JAVASCRIPT ==================== -->
   <script>
-    // ===== VIDEO POPUP FUNCTIONALITY =====
-    function showVideoPopup() {
-      const popup = document.getElementById('videoPopup');
-      popup.classList.add('active');
-      
-      // Track video popup event
-      DualPixel.trackCustom('VideoPopupShown', {
-        trigger: 'auto_popup',
-        delay: '2_seconds'
-      });
-    }
-
-    function hideVideoPopup() {
-      const popup = document.getElementById('videoPopup');
-      const iframe = document.getElementById('popupVideo');
-      
-      // Stop video by removing src and adding it back
-      const src = iframe.src;
-      iframe.src = '';
-      iframe.src = src;
-      
-      popup.classList.remove('active');
-      
-      // Track video close event
-      DualPixel.trackCustom('VideoPopupClosed', {});
-    }
-
-    // Show video popup after 2 seconds
-    setTimeout(showVideoPopup, 2000);
-
-    // Close popup when clicking close button
-    document.querySelector('.video-close-btn').addEventListener('click', hideVideoPopup);
-
-    // Close popup when clicking outside the video container
-    document.getElementById('videoPopup').addEventListener('click', function(e) {
-      if (e.target === this) {
-        hideVideoPopup();
-      }
-    });
-
-    // Close popup with Escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        hideVideoPopup();
-      }
-    });
-
-    // ===== MOBILE MENU =====
     const hamb = document.getElementById('hamb');
     const mnav = document.getElementById('mnav');
     
@@ -1927,7 +2227,6 @@
       });
     }
 
-    // ===== REVEAL & NUMBER ANIMATIONS =====
     function animateNum(el, to, dur = 1300) {
       const start = performance.now();
       const from = 0;
@@ -1959,14 +2258,12 @@
 
     document.querySelectorAll('.reveal, .knum').forEach(el => io.observe(el));
 
-    // ===== PLAN BUTTONS - Track & Scroll =====
     document.querySelectorAll('.plan-btn').forEach(btn => {
       btn.addEventListener('click', function() {
         const planName = this.dataset.plan;
         const planPrice = this.dataset.planPrice;
         const planDuration = this.dataset.planDuration;
         
-        // Track plan selection on BOTH pixels
         DualPixel.track('AddToCart', {
           content_name: planName,
           content_category: 'Service Plan',
@@ -1980,23 +2277,18 @@
           duration: planDuration
         });
 
-        // Save to session and scroll to form
         sessionStorage.setItem('adh_plan', planName);
         document.getElementById('name').focus({ preventScroll: true });
-        
-        // Smooth scroll to form
         document.getElementById('getstart').scrollIntoView({ behavior: 'smooth' });
       });
     });
 
-    // ===== WHATSAPP LINK TRACKING =====
     function bindWhatsAppLinks() {
       document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com"], button[data-whatsapp="true"]').forEach(a => {
         a.addEventListener('click', function() {
           const plan = sessionStorage.getItem('adh_plan') || 'Direct WhatsApp';
           DualPixel.trackCustom('WhatsAppLinkClick', { plan: plan });
           
-          // Track as Lead if coming from form or expert section
           if (this.closest('#getstart') || this.closest('.exp1')) {
             DualPixel.track('Lead', {
               content_name: plan,
@@ -2010,7 +2302,6 @@
     }
     bindWhatsAppLinks();
 
-    // ===== FORM HANDLING =====
     const leadForm = document.getElementById('leadForm');
     const sendBtn = document.getElementById('sendBtn');
     
@@ -2023,7 +2314,6 @@
         const phone = document.getElementById('phone').value.trim();
         const plan = sessionStorage.getItem('adh_plan') || 'Starter';
 
-        // Validation
         if (!platform || !name || !phone) {
           alert('⚠️ Please fill all required fields.');
           return;
@@ -2034,16 +2324,13 @@
           return;
         }
 
-        // Track form submission attempt
         DualPixel.trackCustom('FormSubmitAttempt', { plan, platform });
 
-        // Disable button & show loading
         const originalBtnText = sendBtn.textContent;
         sendBtn.disabled = true;
         sendBtn.classList.add('loading');
         sendBtn.textContent = 'Processing...';
 
-        // Prepare data
         const payload = new URLSearchParams({
           name,
           phone,
@@ -2052,14 +2339,12 @@
           timestamp: new Date().toISOString()
         });
 
-        // Add UTM data if available
         const utm = sessionStorage.getItem('adh_utm');
         if (utm) {
           payload.append('utm', utm);
         }
 
-        // Save to Google Sheets
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbznR1Wk3Gn2jztC1ZXnBW4jr52146ctHC3phfdn8Ve3zuwKvCflNIOy_sxfPZNhQbbf/exec ";
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbznR1Wk3Gn2jztC1ZXnBW4jr52146ctHC3phfdn8Ve3zuwKvCflNIOy_sxfPZNhQbbf/exec";
         
         try {
           if (navigator.sendBeacon) {
@@ -2075,7 +2360,6 @@
           }
         } catch (_) {}
 
-        // Track conversions on BOTH pixels
         DualPixel.track('Lead', {
           content_name: plan,
           content_category: platform,
@@ -2089,13 +2373,11 @@
           form_completed: true
         });
 
-        // Open WhatsApp (FIXED: Removed extra space in URL)
         const WHATSAPP_TO = "919610580359";
         const msg = `Hello Rahman sir,\n\nI am interested in your ad service. My details:\n\n📋 *Platform:* ${platform}\n👤 *Name:* ${name}\n📱 *Phone:* ${phone}\n💼 *Selected Plan:* ${plan}\n\nPlease share me details and next steps.`;
         
-        window.open(`https://wa.me/ ${WHATSAPP_TO}?text=${encodeURIComponent(msg)}`, '_blank');
+        window.open(`https://wa.me/${WHATSAPP_TO}?text=${encodeURIComponent(msg)}`, '_blank');
 
-        // Reset button after delay
         setTimeout(() => {
           sendBtn.disabled = false;
           sendBtn.classList.remove('loading');
@@ -2106,7 +2388,6 @@
       });
     }
 
-    // ===== BACK TO TOP BUTTON =====
     const backToTop = document.getElementById('backToTop');
     
     if (backToTop) {
@@ -2123,7 +2404,6 @@
       });
     }
 
-    // ===== MAGNETIC CURSOR EFFECT =====
     const magneticElements = document.querySelectorAll('.magnetic');
     
     magneticElements.forEach(el => {
