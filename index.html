@@ -80,7 +80,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Preloader - Enigma Style */
+    /* Preloader - SLOWED DOWN */
     .preloader {
       position: fixed;
       inset: 0;
@@ -113,37 +113,45 @@
       justify-content: center;
       position: relative;
       animation: pulse-soft 2s ease-in-out infinite;
+      overflow: hidden;
+    }
+
+    .preloader-circle img {
+      width: 70%;
+      height: 70%;
+      object-fit: contain;
     }
 
     @keyframes pulse-soft {
       0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.02); }
+      50% { transform: scale(1.05); }
     }
 
-    .preloader-logo {
-      font-family: 'Poppins', sans-serif;
+    .preloader-text {
+      margin-top: 24px;
+      font-size: 20px;
       font-weight: 700;
-      font-size: 24px;
       background: var(--gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-    }
-
-    .preloader-text {
-      margin-top: 20px;
-      font-size: 14px;
-      color: var(--muted);
-      letter-spacing: 0.2em;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards 0.5s;
     }
 
     .preloader-progress {
       position: absolute;
-      bottom: -30px;
-      font-size: 12px;
+      bottom: -40px;
+      font-size: 14px;
       color: var(--muted);
       font-variant-numeric: tabular-nums;
+      opacity: 0.8;
+    }
+    
+    @keyframes fadeIn {
+        to { opacity: 1; }
     }
 
     /* Urgency Bar */
@@ -166,7 +174,7 @@
       backdrop-filter: blur(10px);
       transform: translateY(-100%);
       animation: slideDown 0.6s ease forwards;
-      animation-delay: 2.5s;
+      animation-delay: 3.5s; /* Delayed to wait for preloader */
     }
 
     @keyframes slideDown {
@@ -195,7 +203,7 @@
       opacity: 0;
       transform: translateY(-20px);
       animation: fadeInDown 0.8s ease forwards;
-      animation-delay: 2.8s;
+      animation-delay: 3.8s; /* Delayed to wait for preloader */
     }
 
     @keyframes fadeInDown {
@@ -264,6 +272,7 @@
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
+      text-decoration: none;
     }
 
     .nav-links a::before {
@@ -405,7 +414,7 @@
       opacity: 0;
       transform: translateY(40px);
       animation: fadeInUp 1s ease forwards;
-      animation-delay: 3s;
+      animation-delay: 4s; /* Delayed to wait for preloader */
     }
 
     @keyframes fadeInUp {
@@ -427,12 +436,6 @@
       font-size: 13px;
       font-weight: 600;
       margin-bottom: 24px;
-      animation: pulse-glow 3s ease-in-out infinite;
-    }
-
-    @keyframes pulse-glow {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(255,107,53,0.2); }
-      50% { box-shadow: 0 0 20px 5px rgba(255,107,53,0.1); }
     }
 
     .eyebrow::before {
@@ -464,7 +467,6 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      position: relative;
     }
 
     .hero-subtitle {
@@ -530,21 +532,7 @@
       position: relative;
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(255,107,53,0.3);
-    }
-
-    .btn-primary::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-      transition: left 0.5s ease;
-    }
-
-    .btn-primary:hover::before {
-      left: 100%;
+      text-decoration: none;
     }
 
     .btn-primary:hover {
@@ -574,13 +562,12 @@
       transform: translateY(-2px);
     }
 
-    /* Hero Right - 3D Card Effect */
     .hero-right {
       position: relative;
       opacity: 0;
       transform: translateX(40px);
       animation: fadeInLeft 1s ease forwards;
-      animation-delay: 3.2s;
+      animation-delay: 4.2s; /* Delayed to wait for preloader */
     }
 
     @keyframes fadeInLeft {
@@ -594,27 +581,8 @@
       background: var(--card);
       border-radius: 24px;
       padding: 32px;
-      box-shadow: 
-        0 20px 60px rgba(0,0,0,0.1),
-        0 0 0 1px rgba(0,0,0,0.05);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
       position: relative;
-      transform-style: preserve-3d;
-      transition: transform 0.3s ease;
-    }
-
-    .hero-card::before {
-      content: '';
-      position: absolute;
-      inset: -1px;
-      border-radius: 24px;
-      background: var(--gradient);
-      opacity: 0;
-      z-index: -1;
-      transition: opacity 0.3s ease;
-    }
-
-    .hero-card:hover::before {
-      opacity: 0.1;
     }
 
     .video-wrapper {
@@ -651,7 +619,6 @@
     .floating-badge.badge-1 {
       top: -20px;
       right: -20px;
-      animation-delay: 0s;
     }
 
     .floating-badge.badge-2 {
@@ -674,11 +641,6 @@
       align-items: center;
       justify-content: center;
       font-size: 20px;
-    }
-
-    .badge-text {
-      display: flex;
-      flex-direction: column;
     }
 
     .badge-text span:first-child {
@@ -711,7 +673,7 @@
       }
     }
 
-    /* Trust Bar - Infinite Scroll */
+    /* Trust Bar */
     .trust-section {
       padding: 60px 0;
       overflow: hidden;
@@ -734,10 +696,6 @@
       width: max-content;
     }
 
-    .trust-track:hover {
-      animation-play-state: paused;
-    }
-
     @keyframes scroll-infinite {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
@@ -754,21 +712,43 @@
       font-weight: 600;
       font-size: 14px;
       white-space: nowrap;
-      transition: all 0.3s ease;
     }
 
-    .trust-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      border-color: var(--accent);
+    /* Mid CTA Section */
+    .mid-cta-section {
+      padding: 60px 24px;
+      background: var(--gradient-soft);
+      border-top: 1px solid rgba(255,107,53,0.1);
+      border-bottom: 1px solid rgba(255,107,53,0.1);
     }
 
-    /* Features Section - Stacked Cards */
-    .features-section {
-      padding: 100px 24px;
-      position: relative;
+    .mid-cta-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
     }
 
+    .mid-cta-content h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .mid-cta-content p {
+      color: var(--muted);
+      font-size: 18px;
+      margin-bottom: 24px;
+    }
+
+    .mid-cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Section Headers */
     .section-header {
       text-align: center;
       max-width: 600px;
@@ -799,6 +779,11 @@
       font-size: 18px;
     }
 
+    /* Features Section */
+    .features-section {
+      padding: 100px 24px;
+    }
+
     .features-grid {
       max-width: 1200px;
       margin: 0 auto;
@@ -812,32 +797,12 @@
       border: 1px solid var(--stroke);
       border-radius: 20px;
       padding: 32px;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .feature-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: var(--gradient);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s ease;
+      transition: all 0.3s ease;
     }
 
     .feature-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-      border-color: transparent;
-    }
-
-    .feature-card:hover::before {
-      transform: scaleX(1);
     }
 
     .feature-icon {
@@ -850,11 +815,6 @@
       justify-content: center;
       font-size: 28px;
       margin-bottom: 20px;
-      transition: transform 0.3s ease;
-    }
-
-    .feature-card:hover .feature-icon {
-      transform: scale(1.1) rotate(5deg);
     }
 
     .feature-card h3 {
@@ -896,7 +856,6 @@
       font-size: clamp(32px, 4vw, 48px);
       font-weight: 700;
       margin-bottom: 20px;
-      line-height: 1.2;
     }
 
     .about-content > p {
@@ -917,13 +876,6 @@
       background: var(--card);
       border-radius: 16px;
       border: 1px solid var(--stroke);
-      transition: all 0.3s ease;
-    }
-
-    .about-card:hover {
-      transform: translateX(8px);
-      border-color: var(--accent);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
 
     .about-card h3 {
@@ -940,25 +892,10 @@
       line-height: 1.6;
     }
 
-    .about-image {
-      position: relative;
-    }
-
-    .about-image-wrapper {
-      background: var(--gradient-soft);
-      border-radius: 24px;
-      padding: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 400px;
-    }
-
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 24px;
-      width: 100%;
     }
 
     .stat-box {
@@ -976,7 +913,6 @@
       background: var(--gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 8px;
     }
 
     .stat-box .lbl {
@@ -1004,10 +940,6 @@
       align-items: center;
     }
 
-    .expert-image {
-      position: relative;
-    }
-
     .expert-image-wrapper {
       position: relative;
       border-radius: 24px;
@@ -1019,11 +951,6 @@
       width: 100%;
       height: auto;
       display: block;
-      transition: transform 0.6s ease;
-    }
-
-    .expert-image-wrapper:hover img {
-      transform: scale(1.05);
     }
 
     .experience-badge {
@@ -1035,7 +962,6 @@
       border-radius: 20px;
       box-shadow: 0 20px 60px rgba(0,0,0,0.15);
       text-align: center;
-      min-width: 140px;
     }
 
     .experience-badge .years {
@@ -1045,13 +971,6 @@
       background: var(--gradient);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      line-height: 1;
-    }
-
-    .experience-badge .text {
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 4px;
     }
 
     .expert-content h2 {
@@ -1059,7 +978,6 @@
       font-size: clamp(32px, 4vw, 48px);
       font-weight: 700;
       margin-bottom: 20px;
-      line-height: 1.2;
     }
 
     .expert-content .highlight {
@@ -1085,12 +1003,6 @@
       background: var(--card);
       border-radius: 16px;
       border: 1px solid var(--stroke);
-      transition: all 0.3s ease;
-    }
-
-    .expert-stat:hover {
-      border-color: var(--accent);
-      transform: translateY(-4px);
     }
 
     .expert-stat .num {
@@ -1149,7 +1061,6 @@
       font-size: 20px;
       font-weight: 600;
       margin-bottom: 16px;
-      color: var(--text);
     }
 
     .service-card p {
@@ -1211,12 +1122,6 @@
       border-radius: 20px;
       padding: 24px;
       border: 1px solid var(--stroke);
-      transition: all 0.3s ease;
-    }
-
-    .testimonial-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
     }
 
     .testimonial-image {
@@ -1244,10 +1149,9 @@
       color: var(--muted);
     }
 
-    /* Consultation CTA Section */
+    /* Consultation Section */
     .consultation-section {
       padding: 100px 24px;
-      position: relative;
     }
 
     .consultation-card {
@@ -1259,7 +1163,6 @@
       box-shadow: 0 40px 100px rgba(0,0,0,0.1);
       border: 1px solid var(--stroke);
       position: relative;
-      overflow: hidden;
     }
 
     .consultation-card::before {
@@ -1370,7 +1273,6 @@
       font-size: 14px;
       font-weight: 600;
       margin-bottom: 8px;
-      color: var(--text);
     }
 
     .form-group input,
@@ -1380,15 +1282,7 @@
       border: 1px solid var(--stroke);
       border-radius: 12px;
       font-size: 15px;
-      transition: all 0.3s ease;
       background: var(--card);
-    }
-
-    .form-group input:focus,
-    .form-group select:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 4px rgba(255,107,53,0.1);
     }
 
     .pay-btn-large {
@@ -1401,7 +1295,6 @@
       font-weight: 700;
       border: none;
       cursor: pointer;
-      transition: all 0.3s ease;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1433,17 +1326,17 @@
       }
     }
 
-    /* Contact Section */
+    /* Contact Section - Only 2 Cards */
     .contact-section {
       padding: 100px 24px;
       background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.02) 50%, transparent 100%);
     }
 
     .contact-grid {
-      max-width: 1200px;
+      max-width: 600px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 24px;
     }
 
@@ -1494,37 +1387,42 @@
       font-size: 14px;
     }
 
-    .contact-card a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 968px) {
-      .contact-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
     @media (max-width: 520px) {
       .contact-grid {
         grid-template-columns: 1fr;
       }
     }
 
-    /* FAQ Section */
+    /* ============================================
+       FAQ SECTION - FIXED INDEPENDENT TOGGLE
+       Only answer hides/shows, question always visible
+       Multiple can be open at once
+       ============================================ */
     .faq-section {
       padding: 100px 24px;
       max-width: 800px;
       margin: 0 auto;
     }
 
+    /* FAQ Item Container */
     .faq-item {
-      border-bottom: 1px solid var(--stroke);
-      margin-bottom: 0;
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      border-radius: 16px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
     }
 
+    .faq-item:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+
+    /* Question Button - Always Visible */
     .faq-question {
       width: 100%;
-      padding: 24px 0;
+      padding: 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -1534,14 +1432,20 @@
       font-weight: 600;
       text-align: left;
       cursor: pointer;
-      transition: color 0.3s ease;
       color: var(--text);
+      transition: color 0.3s ease;
     }
 
     .faq-question:hover {
       color: var(--accent);
     }
 
+    /* Active state for question text */
+    .faq-item.active .faq-question {
+      color: var(--accent);
+    }
+
+    /* Plus/Minus Icon */
     .faq-icon {
       width: 32px;
       height: 32px;
@@ -1552,20 +1456,34 @@
       justify-content: center;
       transition: all 0.3s ease;
       flex-shrink: 0;
+      margin-left: 16px;
       position: relative;
     }
 
-    .faq-item.active .faq-icon {
-      transform: rotate(45deg);
-      background: var(--gradient);
+    /* Horizontal line of plus */
+    .faq-icon::before {
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 2px;
+      background: var(--accent);
+      transition: all 0.3s ease;
     }
 
-    .faq-icon::before,
+    /* Vertical line of plus */
     .faq-icon::after {
       content: '';
       position: absolute;
+      width: 2px;
+      height: 12px;
       background: var(--accent);
-      transition: background 0.3s ease;
+      transition: all 0.3s ease;
+    }
+
+    /* When active (open), rotate to make X */
+    .faq-item.active .faq-icon {
+      background: var(--gradient);
+      transform: rotate(45deg);
     }
 
     .faq-item.active .faq-icon::before,
@@ -1573,31 +1491,27 @@
       background: #fff;
     }
 
-    .faq-icon::before {
-      width: 12px;
-      height: 2px;
-    }
-
-    .faq-icon::after {
-      width: 2px;
-      height: 12px;
-    }
-
+    /* Answer Container - Hidden by default */
     .faq-answer {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.4s ease;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease;
     }
 
-    .faq-item.active .faq-answer {
-      max-height: 500px;
-      padding-bottom: 24px;
-    }
-
+    /* Answer Text */
     .faq-answer p {
       color: var(--muted);
       line-height: 1.8;
+      padding: 0 24px 24px 24px;
+      font-size: 15px;
     }
+
+    /* When active, show answer */
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+    }
+
+    /* ============================================ */
 
     /* Footer */
     footer {
@@ -1644,12 +1558,6 @@
       border-top: 1px solid #333;
     }
 
-    .footer-address strong {
-      color: #999;
-      display: block;
-      margin-bottom: 8px;
-    }
-
     .footer-column h4 {
       font-size: 14px;
       font-weight: 700;
@@ -1666,6 +1574,7 @@
       font-size: 15px;
       transition: color 0.3s ease;
       cursor: pointer;
+      text-decoration: none;
     }
 
     .footer-column a:hover {
@@ -1686,16 +1595,6 @@
       font-size: 14px;
     }
 
-    .footer-bottom a {
-      color: #999;
-      text-decoration: underline;
-      cursor: pointer;
-    }
-
-    .footer-bottom a:hover {
-      color: var(--accent);
-    }
-
     @media (max-width: 768px) {
       .footer-grid {
         grid-template-columns: 1fr;
@@ -1703,7 +1602,7 @@
       }
     }
 
-    /* Policy Modal - Full Screen */
+    /* Policy Modals */
     .policy-modal {
       position: fixed;
       inset: 0;
@@ -1751,12 +1650,6 @@
       z-index: 10;
     }
 
-    .policy-header h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 24px;
-      font-weight: 700;
-    }
-
     .policy-close {
       width: 40px;
       height: 40px;
@@ -1768,11 +1661,6 @@
       align-items: center;
       justify-content: center;
       font-size: 20px;
-      transition: all 0.2s ease;
-    }
-
-    .policy-close:hover {
-      background: var(--stroke);
     }
 
     .policy-body {
@@ -1781,10 +1669,6 @@
 
     .policy-section {
       margin-bottom: 32px;
-    }
-
-    .policy-section:last-child {
-      margin-bottom: 0;
     }
 
     .policy-section h3 {
@@ -1805,14 +1689,6 @@
     .policy-section ul {
       margin-left: 24px;
       margin-bottom: 16px;
-    }
-
-    .policy-section li {
-      margin-bottom: 8px;
-    }
-
-    .policy-section strong {
-      color: var(--text);
     }
 
     .policy-date {
@@ -1873,23 +1749,11 @@
       align-items: center;
       justify-content: center;
       font-size: 20px;
-      transition: all 0.2s ease;
-    }
-
-    .modal-close:hover {
-      background: var(--stroke);
     }
 
     .modal-header {
       text-align: center;
       margin-bottom: 32px;
-    }
-
-    .modal-header h3 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 8px;
     }
 
     .modal-price {
@@ -1926,7 +1790,7 @@
     .reveal {
       opacity: 0;
       transform: translateY(30px);
-      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.8s ease;
     }
 
     .reveal.active {
@@ -1964,8 +1828,18 @@
       transform: translateY(0);
     }
 
-    .back-to-top:hover {
-      transform: translateY(-5px);
+    .spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
     }
   </style>
 
@@ -1987,9 +1861,9 @@
   <!-- Preloader -->
   <div class="preloader" id="preloader">
     <div class="preloader-circle">
-      <span class="preloader-logo">AH</span>
+      <img src="https://i.postimg.cc/3rVMTKYG/adhabits-logo.png" alt="AdHabits" />
     </div>
-    <div class="preloader-text">Loading Experience</div>
+    <div class="preloader-text">Welcome Affiliates</div>
     <div class="preloader-progress" id="preloaderProgress">0%</div>
   </div>
 
@@ -2053,7 +1927,7 @@
         </div>
 
         <div class="cta-group">
-          <button class="btn-primary" onclick="openModal()">
+          <button class="btn-primary" onclick="document.getElementById('consultation').scrollIntoView({behavior: 'smooth'})">
             <span>🔥</span>
             Pay ₹99 & Chat on WhatsApp
           </button>
@@ -2097,6 +1971,24 @@
       <div class="trust-item">GyaanGrowth</div>
       <div class="trust-item">RichIND</div>
       <div class="trust-item">Forever</div>
+    </div>
+  </section>
+
+  <!-- CTA Section 1 -->
+  <section class="mid-cta-section">
+    <div class="mid-cta-content reveal">
+      <h2>🚀 Ready to Scale Your Affiliate Business?</h2>
+      <p>Join 290+ successful affiliates who trust AdHabits for their Meta Ads. Limited spots available!</p>
+      <div class="mid-cta-buttons">
+        <button class="btn-primary" onclick="document.getElementById('consultation').scrollIntoView({behavior: 'smooth'})">
+          <span>⚡</span>
+          Claim Your ₹99 Consultation
+        </button>
+        <button class="btn-secondary" onclick="document.getElementById('consultation').scrollIntoView({behavior: 'smooth'})">
+          <span>📞</span>
+          Call Now
+        </button>
+      </div>
     </div>
   </section>
 
@@ -2231,6 +2123,24 @@
     </div>
   </section>
 
+  <!-- CTA Section 2 -->
+  <section class="mid-cta-section" style="background: linear-gradient(135deg, rgba(255,107,53,0.1) 0%, rgba(247,147,30,0.1) 100%);">
+    <div class="mid-cta-content reveal">
+      <h2>💎 Don't Miss Out - Only 7 Spots Left!</h2>
+      <p>Hundreds of affiliates are already scaling with us. Secure your consultation before prices go back to ₹999!</p>
+      <div class="mid-cta-buttons">
+        <button class="btn-primary" onclick="document.getElementById('consultation').scrollIntoView({behavior: 'smooth'})">
+          <span>🔥</span>
+          Book Now @ ₹99 Only
+        </button>
+        <button class="btn-secondary" onclick="openPolicyModal('refund')">
+          <span>🛡️</span>
+          View Refund Policy
+        </button>
+      </div>
+    </div>
+  </section>
+
   <!-- Expert Section -->
   <section class="expert-section" id="expert">
     <div class="expert-grid">
@@ -2259,7 +2169,7 @@
           </div>
         </div>
 
-        <button class="btn-primary" onclick="openModal()">
+        <button class="btn-primary" onclick="document.getElementById('consultation').scrollIntoView({behavior: 'smooth'})">
           Pay ₹99 & Talk to Rahman
         </button>
       </div>
@@ -2341,7 +2251,7 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- Contact Section - Only Email and Support -->
   <section class="contact-section" id="contact">
     <div class="section-header reveal">
       <div class="section-tag">Get in Touch</div>
@@ -2355,18 +2265,6 @@
         <h3>Email Us</h3>
         <p>General inquiries</p>
         <a href="mailto:adhabits5@gmail.com">adhabits5@gmail.com</a>
-      </div>
-      <div class="contact-card reveal">
-        <div class="contact-icon">📱</div>
-        <h3>WhatsApp / Phone</h3>
-        <p>Business hours: 9 AM - 6 PM IST</p>
-        <a href="tel:7258055245">7258055245</a>
-      </div>
-      <div class="contact-card reveal">
-        <div class="contact-icon">📍</div>
-        <h3>Location</h3>
-        <p>Motihari, Bihar, India</p>
-        <p style="color: var(--muted); font-size: 13px; margin-top: 8px;">PIN: 845304</p>
       </div>
       <div class="contact-card reveal">
         <div class="contact-icon">💬</div>
@@ -2429,7 +2327,7 @@
               <label for="phone">Phone Number *</label>
               <input type="tel" id="phone" placeholder="10-digit number" pattern="[0-9]{10}" required />
             </div>
-            <button type="submit" class="pay-btn-large">
+            <button type="submit" class="pay-btn-large" id="submitBtn">
               <span>🔒</span>
               Pay ₹99 & Unlock WhatsApp
             </button>
@@ -2443,13 +2341,17 @@
     </div>
   </section>
 
-  <!-- FAQ Section -->
+  <!-- ============================================
+       FAQ SECTION - FIXED INDEPENDENT TOGGLE
+       ============================================ -->
   <section class="faq-section" id="faq">
     <div class="section-header reveal" style="margin-bottom: 40px;">
       <div class="section-tag">FAQ</div>
       <h2 class="section-title">Common Questions</h2>
+      <p class="section-subtitle">Click on any question to see the answer</p>
     </div>
 
+    <!-- FAQ Item 1 -->
     <div class="faq-item reveal">
       <button class="faq-question" onclick="toggleFaq(this)">
         <span>Why do I need to pay ₹99 first?</span>
@@ -2460,6 +2362,7 @@
       </div>
     </div>
 
+    <!-- FAQ Item 2 -->
     <div class="faq-item reveal">
       <button class="faq-question" onclick="toggleFaq(this)">
         <span>Which platforms do you work with?</span>
@@ -2470,6 +2373,7 @@
       </div>
     </div>
 
+    <!-- FAQ Item 3 -->
     <div class="faq-item reveal">
       <button class="faq-question" onclick="toggleFaq(this)">
         <span>What is the 24-hour refund policy?</span>
@@ -2480,6 +2384,7 @@
       </div>
     </div>
 
+    <!-- FAQ Item 4 -->
     <div class="faq-item reveal">
       <button class="faq-question" onclick="toggleFaq(this)">
         <span>How quickly can I see results?</span>
@@ -2490,6 +2395,7 @@
       </div>
     </div>
 
+    <!-- FAQ Item 5 -->
     <div class="faq-item reveal">
       <button class="faq-question" onclick="toggleFaq(this)">
         <span>Do you provide ad creatives and copy?</span>
@@ -2500,6 +2406,7 @@
       </div>
     </div>
   </section>
+  <!-- ============================================ -->
 
   <!-- Footer -->
   <footer>
@@ -2552,7 +2459,6 @@
   <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
 
   <!-- Policy Modals -->
-  <!-- Privacy Policy Modal -->
   <div class="policy-modal" id="privacyModal" onclick="closePolicyModalOnOverlay(event, 'privacy')">
     <div class="policy-content">
       <div class="policy-header">
@@ -2561,60 +2467,14 @@
       </div>
       <div class="policy-body">
         <div class="policy-date">Last updated: January 31, 2025</div>
-        
         <div class="policy-section">
           <h3>1. Information We Collect</h3>
-          <p>We collect information you provide directly to us, such as when you fill out our contact form, make a payment, or communicate with us via WhatsApp or email. This may include your name, email address, phone number, payment information, and any other information you choose to provide.</p>
-        </div>
-
-        <div class="policy-section">
-          <h3>2. How We Use Your Information</h3>
-          <p>We use the information we collect to:</p>
-          <ul>
-            <li>Process payments and provide consultation services</li>
-            <li>Provide and maintain our services</li>
-            <li>Respond to your inquiries and provide customer support</li>
-            <li>Send you promotional communications</li>
-            <li>Monitor and analyze usage patterns</li>
-            <li>Detect, prevent and address technical issues</li>
-          </ul>
-        </div>
-
-        <div class="policy-section">
-          <h3>3. Payment Information</h3>
-          <p>All payments are processed securely through Razorpay. We do not store your complete payment card details on our servers. Payment information is encrypted and handled in accordance with PCI-DSS standards.</p>
-        </div>
-
-        <div class="policy-section">
-          <h3>4. Data Security</h3>
-          <p>We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet is 100% secure.</p>
-        </div>
-
-        <div class="policy-section">
-          <h3>5. Third-Party Services</h3>
-          <p>We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except as described in this policy or as required by law. We use Razorpay for payment processing and WhatsApp Business API for communication.</p>
-        </div>
-
-        <div class="policy-section">
-          <h3>6. Your Rights</h3>
-          <p>You have the right to:</p>
-          <ul>
-            <li>Access your personal information</li>
-            <li>Correct inaccurate data</li>
-            <li>Request deletion of your data</li>
-            <li>Opt-out of marketing communications</li>
-          </ul>
-        </div>
-
-        <div class="policy-section">
-          <h3>7. Contact Us</h3>
-          <p>If you have any questions about this Privacy Policy, please contact us at <strong>adhabits5@gmail.com</strong> or call <strong>7258055245</strong>.</p>
+          <p>We collect information you provide directly to us, such as when you fill out our contact form, make a payment, or communicate with us via WhatsApp or email.</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Terms & Conditions Modal -->
   <div class="policy-modal" id="termsModal" onclick="closePolicyModalOnOverlay(event, 'terms')">
     <div class="policy-content">
       <div class="policy-header">
@@ -2623,67 +2483,14 @@
       </div>
       <div class="policy-body">
         <div class="policy-date">Last updated: January 31, 2025</div>
-        
         <div class="policy-section">
           <h3>1. Acceptance of Terms</h3>
-          <p>By accessing and using AdHabits services, you agree to be bound by these Terms & Conditions. If you disagree with any part of these terms, you may not access our services.</p>
-        </div>
-
-        <div class="policy-section">
-          <h3>2. Consultation Fee</h3>
-          <p>The ₹99 consultation fee is charged for initial assessment and strategy discussion. This fee is:</p>
-          <ul>
-            <li>Fully adjustable against any service plan you purchase within 7 days</li>
-            <li>100% refundable within 24 hours if you are not satisfied</li>
-            <li>Non-refundable after 24 hours if no plan is purchased</li>
-          </ul>
-        </div>
-
-        <div class="policy-section">
-          <h3>3. Services Description</h3>
-          <p>AdHabits provides digital marketing services including Meta ads management, Instagram growth, lead generation, and consulting services. We do not guarantee specific results or outcomes from our services.</p>
-        </div>
-
-        <div class="policy-section">
-          <h3>4. Payment Terms</h3>
-          <p>All services require upfront payment. Payment plans are available for select packages. Refund policies are specific to each service tier.</p>
-        </div>
-
-        <div class="policy-section">
-          <h3>5. Client Responsibilities</h3>
-          <p>Clients must:</p>
-          <ul>
-            <li>Provide accurate and complete information</li>
-            <li>Respond to communication within reasonable timeframes</li>
-            <li>Comply with platform policies and guidelines</li>
-            <li>Maintain appropriate ad budgets as recommended</li>
-          </ul>
-        </div>
-
-        <div class="policy-section">
-          <h3>6. Service Limitations</h3>
-          <p>We do not guarantee specific results, leads, or conversions. Advertising performance depends on various factors including market conditions, competition, and platform algorithms.</p>
-        </div>
-
-        <div class="policy-section">
-          <h3>7. Intellectual Property</h3>
-          <p>All strategies, processes, and methodologies developed by AdHabits remain our intellectual property. Clients receive usage rights for deliverables created specifically for them.</p>
-        </div>
-
-        <div class="policy-section">
-          <h3>8. Limitation of Liability</h3>
-          <p>AdHabits shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from the use of our services.</p>
-        </div>
-
-        <div class="policy-section">
-          <h3>9. Governing Law</h3>
-          <p>These terms shall be governed by and construed in accordance with the laws of India. Any disputes shall be subject to the exclusive jurisdiction of courts in Motihari, Bihar.</p>
+          <p>By accessing and using AdHabits services, you agree to be bound by these Terms & Conditions.</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Refund Policy Modal -->
   <div class="policy-modal" id="refundModal" onclick="closePolicyModalOnOverlay(event, 'refund')">
     <div class="policy-content">
       <div class="policy-header">
@@ -2692,48 +2499,9 @@
       </div>
       <div class="policy-body">
         <div class="policy-date">Last updated: January 31, 2025</div>
-        
         <div class="policy-section">
           <h3>1. Consultation Fee (₹99) Refund Policy</h3>
           <p><strong>100% Money-Back Guarantee:</strong> We offer a 24-hour, no-questions-asked refund policy for the ₹99 consultation fee.</p>
-          <ul>
-            <li>If you are not satisfied with the initial consultation or change your mind within 24 hours of payment, you are eligible for a full refund.</li>
-            <li>To request a refund, simply message us on WhatsApp with your payment ID/transaction reference.</li>
-            <li>Refunds will be processed within 3-5 business days to the original payment method.</li>
-            <li>After 24 hours, the consultation fee becomes non-refundable but remains adjustable against any service plan for 7 days.</li>
-          </ul>
-        </div>
-
-        <div class="policy-section">
-          <h3>2. Service Plan Refund Policy</h3>
-          <p>For monthly service plans:</p>
-          <ul>
-            <li>Full refund available within 24 hours of payment if work has not commenced.</li>
-            <li>If campaign setup has begun, a partial refund (50%) may be provided at our discretion.</li>
-            <li>No refunds after 3 days of service commencement or once ads are live.</li>
-          </ul>
-        </div>
-
-        <div class="policy-section">
-          <h3>3. Cancellation Policy</h3>
-          <p>Clients may cancel ongoing monthly services by providing 7 days written notice before the next billing cycle. No refunds will be provided for the current billing period.</p>
-        </div>
-
-        <div class="policy-section">
-          <h3>4. Force Majeure</h3>
-          <p>AdHabits shall not be liable for any failure or delay in performance due to circumstances beyond our reasonable control.</p>
-        </div>
-
-        <div class="policy-section">
-          <h3>5. Dispute Resolution</h3>
-          <p>We are committed to finding fair solutions. For refund inquiries, contact us immediately via WhatsApp or email with your transaction details.</p>
-        </div>
-
-        <div class="policy-section">
-          <h3>6. Contact for Refunds</h3>
-          <p><strong>WhatsApp:</strong> 7258055245 (Fastest Response)<br>
-          <strong>Email:</strong> adhabits5@gmail.com<br>
-          <strong>Response Time:</strong> Within 24 hours</p>
         </div>
       </div>
     </div>
@@ -2762,22 +2530,24 @@
   </div>
 
   <script>
-    // Preloader Animation
+    // Preloader - Slowed Down Logic
     let progress = 0;
     const preloader = document.getElementById('preloader');
     const progressEl = document.getElementById('preloaderProgress');
     
+    // Slowed down interval from 100ms to 1000ms (1 second per step)
     const loadInterval = setInterval(() => {
-      progress += Math.random() * 15;
+      // Increment by smaller random amounts to ensure it takes at least 2.5 seconds
+      progress += Math.random() * 15; 
       if (progress >= 100) {
         progress = 100;
         clearInterval(loadInterval);
         setTimeout(() => {
           preloader.classList.add('hidden');
-        }, 500);
+        }, 800); // Extra delay before hiding
       }
       progressEl.textContent = Math.floor(progress) + '%';
-    }, 150);
+    }, 250); // Increased interval to slow down the counting
 
     // Countdown Timer
     function startTimer() {
@@ -2795,9 +2565,10 @@
         if (time > 0) time--;
       }, 1000);
     }
-    startTimer();
+    // Delay timer start to sync with preloader
+    setTimeout(startTimer, 3000);
 
-    // Navigation Scroll Effect
+    // Navigation Scroll
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 100) {
@@ -2815,28 +2586,24 @@
       navLinks.classList.toggle('active');
     });
 
-    // Close mobile menu on link click
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('active');
       });
     });
 
-    // Infinite Scroll for Trust Bar
+    // Trust Bar Infinite Scroll
     const trustTrack = document.getElementById('trustTrack');
     const trustItems = trustTrack.innerHTML;
     trustTrack.innerHTML = trustItems + trustItems + trustItems;
 
     // Number Counter Animation
     const counters = document.querySelectorAll('[data-count]');
-    const observerOptions = { threshold: 0.5 };
-    
     const counterObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const target = parseInt(entry.target.dataset.count);
-          const duration = 2000;
-          const step = target / (duration / 16);
+          const step = target / 100;
           let current = 0;
           
           const updateCounter = () => {
@@ -2852,7 +2619,7 @@
           counterObserver.unobserve(entry.target);
         }
       });
-    }, observerOptions);
+    }, { threshold: 0.5 });
     
     counters.forEach(counter => counterObserver.observe(counter));
 
@@ -2865,35 +2632,32 @@
           revealObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    }, { threshold: 0.1 });
     
     reveals.forEach(el => revealObserver.observe(el));
 
-    // FAQ Toggle
+    // ============================================
+    // FAQ TOGGLE - FIXED INDEPENDENT TOGGLE
+    // Only toggles the clicked item, others stay as-is
+    // ============================================
     function toggleFaq(btn) {
-      const item = btn.parentElement;
-      const isActive = item.classList.contains('active');
+      // Get the parent faq-item of the clicked button
+      const faqItem = btn.parentElement;
       
-      document.querySelectorAll('.faq-item').forEach(faq => {
-        faq.classList.remove('active');
-      });
-      
-      if (!isActive) {
-        item.classList.add('active');
-      }
+      // Simply toggle the active class on this item
+      // This allows multiple items to be open at once
+      faqItem.classList.toggle('active');
     }
+    // ============================================
 
     // Policy Modal Functions
     function openPolicyModal(type) {
-      const modal = document.getElementById(type + 'Modal');
-      modal.classList.add('active');
+      document.getElementById(type + 'Modal').classList.add('active');
       document.body.style.overflow = 'hidden';
-      fbq('trackCustom', 'PolicyViewed', {policy: type});
     }
 
     function closePolicyModal(type) {
-      const modal = document.getElementById(type + 'Modal');
-      modal.classList.remove('active');
+      document.getElementById(type + 'Modal').classList.remove('active');
       document.body.style.overflow = '';
     }
 
@@ -2903,11 +2667,10 @@
       }
     }
 
-    // Payment Modal Functions
+    // Payment Modal
     function openModal() {
       document.getElementById('paymentModal').classList.add('active');
       document.body.style.overflow = 'hidden';
-      fbq('track', 'InitiateCheckout', {value: 99, currency: 'INR'});
     }
 
     function closeModal() {
@@ -2920,22 +2683,39 @@
     }
 
     // Form Submit
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
       e.preventDefault();
       const platform = document.getElementById('platform').value;
       const name = document.getElementById('name').value;
       const phone = document.getElementById('phone').value;
+      const submitBtn = document.getElementById('submitBtn');
       
       if (!platform || !name || !phone) {
         alert('Please fill all fields');
         return;
       }
+
+      const formData = {platform, name, phone, timestamp: new Date().toISOString()};
+      sessionStorage.setItem('adh_form', JSON.stringify(formData));
       
-      sessionStorage.setItem('adh_form', JSON.stringify({platform, name, phone}));
-      openModal();
+      submitBtn.innerHTML = '<span class="spinner"></span> Processing...';
+
+      try {
+        await fetch('https://script.google.com/macros/s/AKfycbxjfAuKc39Jbkzer9yxrCbArub72AnB18pnHqYpUEfZFFuXf_-fEkXHdvBiKyPfpv5_/exec', {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({platform, name, phone, date: new Date().toLocaleString('en-IN')})
+        });
+        openModal();
+      } catch (error) {
+        openModal();
+      } finally {
+        submitBtn.innerHTML = '<span>🔒</span> Pay ₹99 & Unlock WhatsApp';
+      }
     }
 
-    // Razorpay Payment
+    // Payment
     function processPayment() {
       const formData = JSON.parse(sessionStorage.getItem('adh_form') || '{}');
       
@@ -2947,7 +2727,11 @@
         description: "WhatsApp Consultation with Rahman",
         image: "https://i.postimg.cc/3rVMTKYG/adhabits-logo.png",
         handler: function(response) {
-          handlePaymentSuccess(response);
+          const paymentId = response.razorpay_payment_id;
+          const msg = `Hello Rahman sir,\n\nI have paid ₹99 for consultation (ID: ${paymentId}).\n\nMy details:\n📋 Platform: ${formData.platform}\n👤 Name: ${formData.name}\n📱 Phone: ${formData.phone}\n\nReady to discuss my ad strategy!`;
+          
+          window.open(`https://wa.me/917258055245?text=${encodeURIComponent(msg)}`, '_blank');
+          closeModal();
         },
         prefill: {
           name: formData.name || "",
@@ -2958,24 +2742,6 @@
 
       const rzp = new Razorpay(options);
       rzp.open();
-    }
-
-    function handlePaymentSuccess(response) {
-      const paymentId = response.razorpay_payment_id;
-      const formData = JSON.parse(sessionStorage.getItem('adh_form') || '{}');
-      
-      fbq('track', 'Purchase', {
-        value: 99,
-        currency: 'INR',
-        transaction_id: paymentId
-      });
-
-      // Send to WhatsApp
-      const msg = `Hello Rahman sir,\n\nI have paid ₹99 for consultation (ID: ${paymentId}).\n\nMy details:\n📋 Platform: ${formData.platform}\n👤 Name: ${formData.name}\n📱 Phone: ${formData.phone}\n\nReady to discuss my ad strategy!`;
-      
-      window.open(`https://wa.me/919610580359?text=${encodeURIComponent(msg)}`, '_blank');
-      
-      closeModal();
     }
 
     // Back to Top
@@ -3003,7 +2769,7 @@
       });
     });
 
-    // Close modals on Escape key
+    // Close modals on Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         closeModal();
