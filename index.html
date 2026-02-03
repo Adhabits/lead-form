@@ -57,7 +57,7 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 80px;
+      scroll-padding-top: 120px; /* Offset for fixed nav */
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -80,7 +80,85 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Preloader - SLOWED DOWN */
+    /* ============================================
+       SHINE EFFECT FOR ALL BUTTONS
+       ============================================ */
+    .btn-primary, .btn-secondary, .pay-btn-large, .nav-links a.btn {
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Shimmer overlay using ::before */
+    .btn-primary::before, .btn-secondary::before, .pay-btn-large::before, .nav-links a.btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.6) 50%,
+        transparent 100%
+      );
+      transform: skewX(-25deg);
+      animation: shimmer 3s infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Secondary button specific adjustments */
+    .btn-secondary::before {
+      background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255, 107, 53, 0.3) 50%,
+        transparent 100%
+      );
+      animation: shimmer 3s infinite 0.5s;
+    }
+
+    /* Navigation button */
+    .nav-links a.btn::before {
+      background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        transparent 100%
+      );
+      animation: shimmer 3s infinite 0.3s;
+    }
+
+    /* Shimmer animation keyframes */
+    @keyframes shimmer {
+      0% {
+        left: -100%;
+      }
+      20% {
+        left: 200%;
+      }
+      100% {
+        left: 200%;
+      }
+    }
+
+    /* Hover state - faster shimmer */
+    .btn-primary:hover::before, .btn-secondary:hover::before, 
+    .pay-btn-large:hover::before, .nav-links a.btn:hover::before {
+      animation: shimmer 1.5s infinite;
+    }
+
+    /* Ensure button text stays above shimmer */
+    .btn-primary span, .btn-primary svg,
+    .btn-secondary span, .btn-secondary svg,
+    .pay-btn-large span, .pay-btn-large svg,
+    .nav-links a.btn span {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Preloader - 1 SECOND ONLY */
     .preloader {
       position: fixed;
       inset: 0;
@@ -90,7 +168,7 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      transition: opacity 0.8s ease, visibility 0.8s ease;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
     }
 
     .preloader.hidden {
@@ -138,7 +216,7 @@
       letter-spacing: 0.15em;
       text-transform: uppercase;
       opacity: 0;
-      animation: fadeIn 1s ease forwards 0.5s;
+      animation: fadeIn 0.5s ease forwards 0.2s;
     }
 
     .preloader-progress {
@@ -174,7 +252,7 @@
       backdrop-filter: blur(10px);
       transform: translateY(-100%);
       animation: slideDown 0.6s ease forwards;
-      animation-delay: 3.5s; /* Delayed to wait for preloader */
+      animation-delay: 1.2s;
     }
 
     @keyframes slideDown {
@@ -203,7 +281,7 @@
       opacity: 0;
       transform: translateY(-20px);
       animation: fadeInDown 0.8s ease forwards;
-      animation-delay: 3.8s; /* Delayed to wait for preloader */
+      animation-delay: 1.4s;
     }
 
     @keyframes fadeInDown {
@@ -414,7 +492,7 @@
       opacity: 0;
       transform: translateY(40px);
       animation: fadeInUp 1s ease forwards;
-      animation-delay: 4s; /* Delayed to wait for preloader */
+      animation-delay: 1.6s;
     }
 
     @keyframes fadeInUp {
@@ -529,8 +607,6 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      position: relative;
-      overflow: hidden;
       box-shadow: 0 10px 30px rgba(255,107,53,0.3);
       text-decoration: none;
     }
@@ -567,7 +643,7 @@
       opacity: 0;
       transform: translateX(40px);
       animation: fadeInLeft 1s ease forwards;
-      animation-delay: 4.2s; /* Delayed to wait for preloader */
+      animation-delay: 1.8s;
     }
 
     @keyframes fadeInLeft {
@@ -1152,6 +1228,7 @@
     /* Consultation Section */
     .consultation-section {
       padding: 100px 24px;
+      scroll-margin-top: 120px; /* Offset for fixed nav */
     }
 
     .consultation-card {
@@ -1393,18 +1470,13 @@
       }
     }
 
-    /* ============================================
-       FAQ SECTION - FIXED INDEPENDENT TOGGLE
-       Only answer hides/shows, question always visible
-       Multiple can be open at once
-       ============================================ */
+    /* FAQ SECTION */
     .faq-section {
       padding: 100px 24px;
       max-width: 800px;
       margin: 0 auto;
     }
 
-    /* FAQ Item Container */
     .faq-item {
       background: var(--card);
       border: 1px solid var(--stroke);
@@ -1419,7 +1491,6 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     }
 
-    /* Question Button - Always Visible */
     .faq-question {
       width: 100%;
       padding: 24px;
@@ -1440,12 +1511,10 @@
       color: var(--accent);
     }
 
-    /* Active state for question text */
     .faq-item.active .faq-question {
       color: var(--accent);
     }
 
-    /* Plus/Minus Icon */
     .faq-icon {
       width: 32px;
       height: 32px;
@@ -1460,7 +1529,6 @@
       position: relative;
     }
 
-    /* Horizontal line of plus */
     .faq-icon::before {
       content: '';
       position: absolute;
@@ -1470,7 +1538,6 @@
       transition: all 0.3s ease;
     }
 
-    /* Vertical line of plus */
     .faq-icon::after {
       content: '';
       position: absolute;
@@ -1480,7 +1547,6 @@
       transition: all 0.3s ease;
     }
 
-    /* When active (open), rotate to make X */
     .faq-item.active .faq-icon {
       background: var(--gradient);
       transform: rotate(45deg);
@@ -1491,14 +1557,12 @@
       background: #fff;
     }
 
-    /* Answer Container - Hidden by default */
     .faq-answer {
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease;
     }
 
-    /* Answer Text */
     .faq-answer p {
       color: var(--muted);
       line-height: 1.8;
@@ -1506,12 +1570,9 @@
       font-size: 15px;
     }
 
-    /* When active, show answer */
     .faq-item.active .faq-answer {
       max-height: 500px;
     }
-
-    /* ============================================ */
 
     /* Footer */
     footer {
@@ -1820,12 +1881,30 @@
       transition: all 0.3s ease;
       box-shadow: 0 10px 30px rgba(255,107,53,0.3);
       z-index: 999;
+      overflow: hidden;
     }
 
     .back-to-top.visible {
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
+    }
+
+    .back-to-top::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        transparent 100%
+      );
+      transform: skewX(-25deg);
+      animation: shimmer 3s infinite;
     }
 
     .spinner {
@@ -1927,7 +2006,7 @@
         </div>
 
         <div class="cta-group">
-          <button class="btn-primary" onclick="document.getElementById('consultation').scrollIntoView({behavior: 'smooth'})">
+          <button class="btn-primary" onclick="scrollToConsultation()">
             <span>🔥</span>
             Pay ₹99 & Chat on WhatsApp
           </button>
@@ -1980,11 +2059,11 @@
       <h2>🚀 Ready to Scale Your Affiliate Business?</h2>
       <p>Join 290+ successful affiliates who trust AdHabits for their Meta Ads. Limited spots available!</p>
       <div class="mid-cta-buttons">
-        <button class="btn-primary" onclick="document.getElementById('consultation').scrollIntoView({behavior: 'smooth'})">
+        <button class="btn-primary" onclick="scrollToConsultation()">
           <span>⚡</span>
           Claim Your ₹99 Consultation
         </button>
-        <button class="btn-secondary" onclick="document.getElementById('consultation').scrollIntoView({behavior: 'smooth'})">
+        <button class="btn-secondary" onclick="scrollToConsultation()">
           <span>📞</span>
           Call Now
         </button>
@@ -2129,7 +2208,7 @@
       <h2>💎 Don't Miss Out - Only 7 Spots Left!</h2>
       <p>Hundreds of affiliates are already scaling with us. Secure your consultation before prices go back to ₹999!</p>
       <div class="mid-cta-buttons">
-        <button class="btn-primary" onclick="document.getElementById('consultation').scrollIntoView({behavior: 'smooth'})">
+        <button class="btn-primary" onclick="scrollToConsultation()">
           <span>🔥</span>
           Book Now @ ₹99 Only
         </button>
@@ -2169,7 +2248,7 @@
           </div>
         </div>
 
-        <button class="btn-primary" onclick="document.getElementById('consultation').scrollIntoView({behavior: 'smooth'})">
+        <button class="btn-primary" onclick="scrollToConsultation()">
           Pay ₹99 & Talk to Rahman
         </button>
       </div>
@@ -2275,7 +2354,7 @@
     </div>
   </section>
 
-  <!-- Consultation Section -->
+  <!-- Consultation Section - FULL FORM DISPLAY -->
   <section class="consultation-section" id="consultation">
     <div class="consultation-card reveal">
       <div class="consultation-grid">
@@ -2341,9 +2420,7 @@
     </div>
   </section>
 
-  <!-- ============================================
-       FAQ SECTION - FIXED INDEPENDENT TOGGLE
-       ============================================ -->
+  <!-- FAQ SECTION -->
   <section class="faq-section" id="faq">
     <div class="section-header reveal" style="margin-bottom: 40px;">
       <div class="section-tag">FAQ</div>
@@ -2406,7 +2483,6 @@
       </div>
     </div>
   </section>
-  <!-- ============================================ -->
 
   <!-- Footer -->
   <footer>
@@ -2530,24 +2606,22 @@
   </div>
 
   <script>
-    // Preloader - Slowed Down Logic
+    // Preloader - 1 SECOND ONLY
     let progress = 0;
     const preloader = document.getElementById('preloader');
     const progressEl = document.getElementById('preloaderProgress');
     
-    // Slowed down interval from 100ms to 1000ms (1 second per step)
     const loadInterval = setInterval(() => {
-      // Increment by smaller random amounts to ensure it takes at least 2.5 seconds
-      progress += Math.random() * 15; 
+      progress += Math.random() * 30; 
       if (progress >= 100) {
         progress = 100;
         clearInterval(loadInterval);
         setTimeout(() => {
           preloader.classList.add('hidden');
-        }, 800); // Extra delay before hiding
+        }, 400);
       }
       progressEl.textContent = Math.floor(progress) + '%';
-    }, 250); // Increased interval to slow down the counting
+    }, 100);
 
     // Countdown Timer
     function startTimer() {
@@ -2565,8 +2639,7 @@
         if (time > 0) time--;
       }, 1000);
     }
-    // Delay timer start to sync with preloader
-    setTimeout(startTimer, 3000);
+    setTimeout(startTimer, 1500);
 
     // Navigation Scroll
     const nav = document.getElementById('nav');
@@ -2636,19 +2709,35 @@
     
     reveals.forEach(el => revealObserver.observe(el));
 
-    // ============================================
-    // FAQ TOGGLE - FIXED INDEPENDENT TOGGLE
-    // Only toggles the clicked item, others stay as-is
-    // ============================================
-    function toggleFaq(btn) {
-      // Get the parent faq-item of the clicked button
-      const faqItem = btn.parentElement;
+    // Scroll to Consultation - FULL FORM DISPLAY
+    function scrollToConsultation() {
+      const consultation = document.getElementById('consultation');
+      const navHeight = 100; // Height of fixed nav + urgency bar
       
-      // Simply toggle the active class on this item
-      // This allows multiple items to be open at once
+      // Calculate position to show full form
+      const elementPosition = consultation.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+      
+      // Smooth scroll
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+      
+      // Highlight the form section briefly
+      setTimeout(() => {
+        consultation.querySelector('.consultation-card').style.transform = 'scale(1.02)';
+        setTimeout(() => {
+          consultation.querySelector('.consultation-card').style.transform = 'scale(1)';
+        }, 300);
+      }, 800);
+    }
+
+    // FAQ TOGGLE
+    function toggleFaq(btn) {
+      const faqItem = btn.parentElement;
       faqItem.classList.toggle('active');
     }
-    // ============================================
 
     // Policy Modal Functions
     function openPolicyModal(type) {
