@@ -144,7 +144,7 @@
       padding: 60px 20px 40px;
       text-align: center;
       overflow: hidden;
-      background: 
+      background:
         radial-gradient(circle at 50% 30%, rgba(255, 87, 34, 0.12) 0%, transparent 50%),
         radial-gradient(circle at 20% 80%, rgba(255, 107, 53, 0.06) 0%, transparent 40%),
         radial-gradient(circle at 80% 80%, rgba(255, 120, 78, 0.06) 0%, transparent 40%);
@@ -153,7 +153,7 @@
     .hero-bg-grid {
       position: absolute;
       inset: 0;
-      background-image: 
+      background-image:
         linear-gradient(rgba(255,87,34,0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,87,34,0.03) 1px, transparent 1px);
       background-size: 50px 50px;
@@ -325,14 +325,14 @@
       50% { transform: translateY(12px); }
     }
 
-    /* ===== TESTIMONIALS SECTION ===== */
-    .section-testimonials {
+    /* ===== VIDEO TESTIMONIALS SECTION ===== */
+    .section-video-testimonials {
       padding: 60px 20px;
       background: #fff;
       position: relative;
     }
 
-    .section-testimonials .section-title {
+    .section-video-testimonials .section-title {
       text-align: center;
       font-size: clamp(22px, 3.5vw, 34px);
       color: #1a1a2e;
@@ -340,66 +340,214 @@
       font-weight: 800;
     }
 
-    .section-testimonials .section-title .orange { color: var(--primary); }
+    .section-video-testimonials .section-title .orange { color: var(--primary); }
 
-    .testimonials-grid {
+    .video-slider-container {
       max-width: 800px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .video-slider {
+      display: flex;
+      transition: transform 0.5s ease;
       gap: 20px;
     }
 
-    .testimonial-video {
-      background: #000;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 2px solid rgba(255, 87, 34, 0.3);
-      position: relative;
-      aspect-ratio: 9/16;
+    .video-slide {
+      min-width: 100%;
+      flex-shrink: 0;
     }
 
-    .testimonial-video img {
+    .video-slide video {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      display: block;
+      border-radius: 16px;
+      border: 2px solid rgba(255, 87, 34, 0.3);
+      background: #000;
+    }
+
+    .video-slider-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .video-slider-btn {
+      width: 44px;
+      height: 44px;
+      background: var(--gradient-primary);
+      border: none;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+      box-shadow: var(--glow-primary);
+    }
+
+    .video-slider-btn:hover {
+      transform: scale(1.1);
+      box-shadow: var(--glow-strong);
+    }
+
+    .video-slider-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .video-slider-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ddd;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .video-slider-dot.active {
+      background: var(--primary);
+      width: 28px;
+      border-radius: 5px;
+    }
+
+    /* ===== WHATSAPP TESTIMONIALS CAROUSEL ===== */
+    .section-wa-testimonials {
+      padding: 80px 20px;
+      background: var(--bg-dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-wa-testimonials::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(255, 87, 34, 0.08) 0%, transparent 60%);
+    }
+
+    .wa-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .wa-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .wa-header h2 {
+      font-size: clamp(24px, 4vw, 38px);
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .wa-header h2 .orange { color: var(--primary); }
+
+    .wa-header p {
+      color: var(--text-muted);
+      font-size: 16px;
+    }
+
+    .wa-carousel {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      padding: 10px 0 30px;
+      scrollbar-width: none;
+    }
+
+    .wa-carousel::-webkit-scrollbar { display: none; }
+
+    .wa-card {
+      scroll-snap-align: start;
+      flex-shrink: 0;
+      width: 280px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .wa-card:hover {
+      border-color: rgba(255, 87, 34, 0.3);
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(255, 87, 34, 0.15);
+    }
+
+    .wa-shot {
+      width: 100%;
+      aspect-ratio: 9/16;
+      overflow: hidden;
+    }
+
+    .wa-shot img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
 
-    .testimonial-video .play-btn {
-      position: absolute;
-      bottom: 12px;
-      left: 12px;
-      width: 36px;
-      height: 36px;
-      background: rgba(255,255,255,0.9);
+    .wa-carousel-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      margin-top: 10px;
+    }
+
+    .wa-nav-btn {
+      width: 48px;
+      height: 48px;
+      background: rgba(255, 87, 34, 0.15);
+      border: 1px solid rgba(255, 87, 34, 0.3);
       border-radius: 50%;
+      color: var(--primary);
+      font-size: 20px;
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
-      font-size: 12px;
+      transition: all 0.3s;
     }
 
-    .testimonial-video .duration {
-      position: absolute;
-      bottom: 12px;
-      left: 56px;
-      background: rgba(0,0,0,0.7);
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-size: 11px;
+    .wa-nav-btn:hover {
+      background: var(--primary);
       color: #fff;
     }
 
-    .testimonial-video .menu-dots {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      color: #fff;
-      font-size: 20px;
+    .wa-nav-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .wa-nav-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
       cursor: pointer;
-      line-height: 1;
+      transition: all 0.3s;
+    }
+
+    .wa-nav-dot.active {
+      background: var(--primary);
+      width: 28px;
+      border-radius: 5px;
     }
 
     /* ===== CTA BLOCK ===== */
@@ -666,7 +814,7 @@
     }
 
     .module-list li::before {
-      content: '→';
+      content: '->';
       color: var(--primary);
       font-weight: 700;
       flex-shrink: 0;
@@ -1024,7 +1172,6 @@
       .hero-cta-box { padding: 16px; }
       .btn-hero { padding: 14px 24px; font-size: 15px; }
 
-      .testimonials-grid { grid-template-columns: 1fr; max-width: 350px; }
       .pain-grid { grid-template-columns: 1fr; }
       .pain-box { padding: 24px; }
       .modules-grid { grid-template-columns: 1fr; }
@@ -1034,11 +1181,19 @@
       .coach-image img { max-width: 250px; }
       .benefits-grid { grid-template-columns: 1fr; }
       .benefits-box { padding: 24px; }
-      .section-pain, .section-modules, .section-coach, .section-benefits, .section-faq, .section-final-cta {
+      .section-pain, .section-modules, .section-coach, .section-benefits, .section-faq, .section-final-cta, .section-wa-testimonials {
         padding: 50px 16px;
       }
       .faq-question { padding: 18px 20px; font-size: 15px; }
       .faq-answer p { font-size: 14px; }
+
+      .wa-card {
+        width: 240px;
+      }
+
+      .video-slide video {
+        max-width: 100%;
+      }
     }
 
     @media (max-width: 480px) {
@@ -1061,8 +1216,8 @@
   <div class="sticky-bar">
     <div class="sticky-left">
       <div class="sticky-price">
-        <span class="current">₹199</span>
-        <span class="original">₹1999</span>
+        <span class="current">Rs.199</span>
+        <span class="original">Rs.1999</span>
       </div>
       <div class="sticky-urgency">
         <span>Hurry Up!!!</span> Limited seats available
@@ -1084,7 +1239,7 @@
       </div>
 
       <div class="hero-logo fade-up fade-up-delay-1">
-        <img src="https://i.ibb.co/Z6LKk0SD/mee-pic-uniq.avif" alt="Rahman - Meta & Snapchat Ads Expert">
+        <img src="https://i.ibb.co/C3JWKXPW/mee-landing-page-pic.png" alt="Rahman - Meta & Snapchat Ads Expert">
       </div>
 
       <h1 class="fade-up fade-up-delay-2">
@@ -1099,12 +1254,12 @@
       <div class="hero-cta-box fade-up fade-up-delay-3">
         <a href="https://superprofile.bio/vp/adhabits" class="btn-hero" onclick="fbq('track', 'InitiateCheckout');">
           Join The Affiliate Growth Masterclass
-          <small>Start Building Your System For Just ₹199</small>
+          <small>Start Building Your System For Just Rs.199</small>
         </a>
         <div class="seats-left">
           <div class="people">
-            <span>👤</span><span>👤</span><span>👤</span><span>👤</span>
-            <span>👤</span><span>👤</span><span>👤</span><span>👤</span>
+            <span>U</span><span>U</span><span>U</span><span>U</span>
+            <span>U</span><span>U</span><span>U</span><span>U</span>
           </div>
           <span class="count" id="heroSeats">44 SEATS LEFT</span>
         </div>
@@ -1118,24 +1273,35 @@
     </div>
   </section>
 
-  <!-- ===== TESTIMONIALS SECTION ===== -->
-  <section class="section-testimonials">
+  <!-- ===== VIDEO TESTIMONIALS SLIDER ===== -->
+  <section class="section-video-testimonials">
     <h2 class="section-title fade-up">
-      Systems Used By <span class="orange">Top Performing Affiliates</span>
+      Systems Chosen By <span class="orange">Top Performing Affiliates</span>
     </h2>
 
-    <div class="testimonials-grid fade-up">
-      <div class="testimonial-video">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=700&fit=crop&crop=face" alt="Affiliate Testimonial 1">
-        <div class="play-btn">▶</div>
-        <div class="duration">00:23</div>
-        <div class="menu-dots">⋮</div>
+    <div class="video-slider-container fade-up">
+      <div class="video-slider" id="videoSlider">
+        <div class="video-slide">
+          <video controls poster="">
+            <source src="video1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-slide">
+          <video controls poster="">
+            <source src="video2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </div>
-      <div class="testimonial-video">
-        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=700&fit=crop&crop=face" alt="Affiliate Testimonial 2">
-        <div class="play-btn">▶</div>
-        <div class="duration">00:27</div>
-        <div class="menu-dots">⋮</div>
+
+      <div class="video-slider-nav">
+        <button class="video-slider-btn" onclick="moveVideoSlider(-1)">&#10094;</button>
+        <div class="video-slider-dots">
+          <span class="video-slider-dot active" onclick="goToVideoSlide(0)"></span>
+          <span class="video-slider-dot" onclick="goToVideoSlide(1)"></span>
+        </div>
+        <button class="video-slider-btn" onclick="moveVideoSlider(1)">&#10095;</button>
       </div>
     </div>
 
@@ -1147,14 +1313,101 @@
       </div>
       <a href="https://superprofile.bio/vp/adhabits" class="btn-cta" onclick="fbq('track', 'InitiateCheckout');">
         Join The Affiliate Growth Masterclass
-        <small>Start Building Your System For Just ₹199</small>
+        <small>Start Building Your System For Just Rs.199</small>
       </a>
       <div class="seats-counter">
         <div class="people-icons">
-          <span>👤</span><span>👤</span><span>👤</span><span>👤</span>
-          <span>👤</span><span>👤</span><span>👤</span><span>👤</span>
+          <span>U</span><span>U</span><span>U</span><span>U</span>
+          <span>U</span><span>U</span><span>U</span><span>U</span>
         </div>
-        <span class="count-badge" id="testimonialSeats">44 SEATS LEFT</span>
+        <span class="count-badge" id="videoSeats">44 SEATS LEFT</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHATSAPP TESTIMONIALS CAROUSEL ===== -->
+  <section class="section-wa-testimonials" id="testimonials">
+    <div class="wa-container">
+      <div class="wa-header fade-up">
+        <h2>Client <span class="orange">Testimonials</span></h2>
+        <p>Real WhatsApp screenshots from happy clients</p>
+      </div>
+
+      <div class="wa-carousel fade-up" id="waCarousel">
+        <div class="wa-card">
+          <div class="wa-shot">
+            <img src="https://i.postimg.cc/PJtN2tcP/nasreen-mam-finel.jpg" alt="Testimonial from Nasreen" loading="lazy" />
+          </div>
+        </div>
+        <div class="wa-card">
+          <div class="wa-shot">
+            <img src="https://i.postimg.cc/G3qpbnVx/Rukkaya-appi-finel.jpg" alt="Testimonial from Rukkaya" loading="lazy" />
+          </div>
+        </div>
+        <div class="wa-card">
+          <div class="wa-shot">
+            <img src="https://i.postimg.cc/LXSzFFwM/Farheen-mam.jpg" alt="Testimonial from Farheen" loading="lazy" />
+          </div>
+        </div>
+        <div class="wa-card">
+          <div class="wa-shot">
+            <img src="https://i.postimg.cc/vBDGBcp7/Firdous-finel.jpg" alt="Testimonial from Firdous" loading="lazy" />
+          </div>
+        </div>
+        <div class="wa-card">
+          <div class="wa-shot">
+            <img src="https://i.postimg.cc/CxF50LL7/Ahemadi-mam-finel.jpg" alt="Testimonial from Ahemadi" loading="lazy" />
+          </div>
+        </div>
+        <div class="wa-card">
+          <div class="wa-shot">
+            <img src="https://i.postimg.cc/nhcF5R0w/balvinder-finel.jpg" alt="Testimonial from Balvinder" loading="lazy" />
+          </div>
+        </div>
+        <div class="wa-card">
+          <div class="wa-shot">
+            <img src="https://i.postimg.cc/rFhXd8NQ/faizeen-finel.jpg" alt="Testimonial from Faizeen" loading="lazy" />
+          </div>
+        </div>
+        <div class="wa-card">
+          <div class="wa-shot">
+            <img src="https://i.postimg.cc/FRbwhmKb/Nadeem-finel.jpg" alt="Testimonial from Nadeem" loading="lazy" />
+          </div>
+        </div>
+        <div class="wa-card">
+          <div class="wa-shot">
+            <img src="https://i.postimg.cc/pL97pKTL/Rukhsaar-finel.jpg" alt="Testimonial from Rukhsaar" loading="lazy" />
+          </div>
+        </div>
+      </div>
+
+      <div class="wa-carousel-nav fade-up">
+        <button class="wa-nav-btn" onclick="scrollWaCarousel(-1)">&#10094;</button>
+        <div class="wa-nav-dots" id="waNavDots">
+          <span class="wa-nav-dot active" onclick="scrollWaTo(0)"></span>
+          <span class="wa-nav-dot" onclick="scrollWaTo(1)"></span>
+          <span class="wa-nav-dot" onclick="scrollWaTo(2)"></span>
+        </div>
+        <button class="wa-nav-btn" onclick="scrollWaCarousel(1)">&#10095;</button>
+      </div>
+    </div>
+
+    <div class="cta-block">
+      <div class="scroll-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--primary);">
+          <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+        </svg>
+      </div>
+      <a href="https://superprofile.bio/vp/adhabits" class="btn-cta" onclick="fbq('track', 'InitiateCheckout');">
+        Join The Affiliate Growth Masterclass
+        <small>Start Building Your System For Just Rs.199</small>
+      </a>
+      <div class="seats-counter">
+        <div class="people-icons">
+          <span>U</span><span>U</span><span>U</span><span>U</span>
+          <span>U</span><span>U</span><span>U</span><span>U</span>
+        </div>
+        <span class="count-badge" id="waSeats">44 SEATS LEFT</span>
       </div>
     </div>
   </section>
@@ -1169,27 +1422,27 @@
 
         <div class="pain-grid">
           <div class="pain-item">
-            <div class="pain-icon">😰</div>
+            <div class="pain-icon">.</div>
             <p><strong>Leads aa rahi hain but sales nahi ho rahi</strong></p>
           </div>
           <div class="pain-item">
-            <div class="pain-icon">😤</div>
+            <div class="pain-icon">.</div>
             <p><strong>High-ticket closing samajh nahi aa rahi</strong></p>
           </div>
           <div class="pain-item">
-            <div class="pain-icon">😵</div>
+            <div class="pain-icon">.</div>
             <p><strong>Random kaam kar rahe ho, koi clear system nahi hai</strong></p>
           </div>
           <div class="pain-item">
-            <div class="pain-icon">🤯</div>
+            <div class="pain-icon">.</div>
             <p><strong>Dusro ko copy kar rahe ho but results nahi aa rahe</strong></p>
           </div>
           <div class="pain-item">
-            <div class="pain-icon">📉</div>
+            <div class="pain-icon">.</div>
             <p><strong>Daily income nahi ban pa rahi affiliate se</strong></p>
           </div>
           <div class="pain-item">
-            <div class="pain-icon">🎯</div>
+            <div class="pain-icon">.</div>
             <p><strong>Samajh nahi aa raha kaunsi leads best hoti hain</strong></p>
           </div>
         </div>
@@ -1204,12 +1457,12 @@
       </div>
       <a href="https://superprofile.bio/vp/adhabits" class="btn-cta" onclick="fbq('track', 'InitiateCheckout');">
         Join The Affiliate Growth Masterclass
-        <small>Start Building Your System For Just ₹199</small>
+        <small>Start Building Your System For Just Rs.199</small>
       </a>
       <div class="seats-counter">
         <div class="people-icons">
-          <span>👤</span><span>👤</span><span>👤</span><span>👤</span>
-          <span>👤</span><span>👤</span><span>👤</span><span>👤</span>
+          <span>U</span><span>U</span><span>U</span><span>U</span>
+          <span>U</span><span>U</span><span>U</span><span>U</span>
         </div>
         <span class="count-badge" id="painSeats">44 SEATS LEFT</span>
       </div>
@@ -1221,14 +1474,14 @@
     <div class="modules-container">
       <div class="modules-header fade-up">
         <h2>
-          Inside This Invite Only <span class="orange">3 Hour Closed-Room Mastermind</span>
+          Inside This Invite Only <span class="orange">1 Hour Closed-Room Mastermind</span>
         </h2>
         <p>You'll Learn & Build Live With Other Serious Affiliate Marketers, Ad Experts & Top Earners.</p>
       </div>
 
       <div class="modules-grid">
         <div class="modules-image fade-up">
-          <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=500&h=600&fit=crop" alt="AI Affiliate System">
+          <img src="https://i.ibb.co/6cPJd2qq/mee-pic-new.jpg" alt="AI Affiliate System">
         </div>
 
         <div class="modules-list">
@@ -1263,7 +1516,7 @@
               <li>Leads ko buyers me convert kaise kare</li>
               <li>WhatsApp closing framework</li>
               <li>Follow-up system (jo sales laata hai)</li>
-              <li>Real case studies (lead → sale)</li>
+              <li>Real case studies (lead -> sale)</li>
               <li>Scaling mindset & execution</li>
             </ul>
           </div>
@@ -1279,12 +1532,12 @@
       </div>
       <a href="https://superprofile.bio/vp/adhabits" class="btn-cta" onclick="fbq('track', 'InitiateCheckout');">
         Join The Affiliate Growth Masterclass
-        <small>Start Building Your System For Just ₹199</small>
+        <small>Start Building Your System For Just Rs.199</small>
       </a>
       <div class="seats-counter">
         <div class="people-icons">
-          <span>👤</span><span>👤</span><span>👤</span><span>👤</span>
-          <span>👤</span><span>👤</span><span>👤</span><span>👤</span>
+          <span>U</span><span>U</span><span>U</span><span>U</span>
+          <span>U</span><span>U</span><span>U</span><span>U</span>
         </div>
         <span class="count-badge" id="moduleSeats">44 SEATS LEFT</span>
       </div>
@@ -1302,11 +1555,11 @@
 
           <div class="coach-stats">
             <div class="coach-stat">
-              <span class="num">📘 Meta</span>
+              <span class="num">Meta</span>
               <span class="label">Ads Certified</span>
             </div>
             <div class="coach-stat">
-              <span class="num">👻 Snapchat</span>
+              <span class="num">Snapchat</span>
               <span class="label">Ads Expert</span>
             </div>
             <div class="coach-stat">
@@ -1325,13 +1578,13 @@
 
           <a href="https://superprofile.bio/vp/adhabits" class="btn-cta" onclick="fbq('track', 'InitiateCheckout');">
             Join The Affiliate Growth Masterclass
-            <small>Start Building Your System For Just ₹199</small>
+            <small>Start Building Your System For Just Rs.199</small>
           </a>
         </div>
 
         <div class="coach-image">
-          <img src="https://i.ibb.co/Z6LKk0SD/mee-pic-uniq.avif" alt="Rahman - Meta & Snapchat Ads Expert">
-          <div class="coach-name-tag">Rahman – Affiliate Growth Strategist</div>
+          <img src="https://i.ibb.co/gbW97LbM/Copy-of-mee-landing-page-pic.png" alt="Rahman - Meta & Snapchat Ads Expert">
+          <div class="coach-name-tag">Rahman - Affiliate Growth Strategist</div>
         </div>
       </div>
     </div>
@@ -1344,12 +1597,12 @@
       </div>
       <a href="https://superprofile.bio/vp/adhabits" class="btn-cta" onclick="fbq('track', 'InitiateCheckout');">
         Join The Affiliate Growth Masterclass
-        <small>Start Building Your System For Just ₹199</small>
+        <small>Start Building Your System For Just Rs.199</small>
       </a>
       <div class="seats-counter">
         <div class="people-icons">
-          <span>👤</span><span>👤</span><span>👤</span><span>👤</span>
-          <span>👤</span><span>👤</span><span>👤</span><span>👤</span>
+          <span>U</span><span>U</span><span>U</span><span>U</span>
+          <span>U</span><span>U</span><span>U</span><span>U</span>
         </div>
         <span class="count-badge" id="coachSeats">44 SEATS LEFT</span>
       </div>
@@ -1364,35 +1617,35 @@
 
         <div class="benefits-grid">
           <div class="benefit-item">
-            <div class="check">✓</div>
+            <div class="check">v</div>
             <p>You stop depending on luck and start following a system</p>
           </div>
           <div class="benefit-item">
-            <div class="check">✓</div>
+            <div class="check">v</div>
             <p>You understand what actually brings sales</p>
           </div>
           <div class="benefit-item">
-            <div class="check">✓</div>
+            <div class="check">v</div>
             <p>You generate high-quality leads consistently</p>
           </div>
           <div class="benefit-item">
-            <div class="check">✓</div>
+            <div class="check">v</div>
             <p>You learn how to close high-ticket offers</p>
           </div>
           <div class="benefit-item">
-            <div class="check">✓</div>
+            <div class="check">v</div>
             <p>You build a predictable affiliate income model</p>
           </div>
           <div class="benefit-item">
-            <div class="check">✓</div>
+            <div class="check">v</div>
             <p>You gain clarity, confidence & direction</p>
           </div>
           <div class="benefit-item">
-            <div class="check">✓</div>
-            <p>You can scale towards ₹2–3L/month income</p>
+            <div class="check">v</div>
+            <p>You can scale towards Rs.2-3L/month income</p>
           </div>
           <div class="benefit-item">
-            <div class="check">✓</div>
+            <div class="check">v</div>
             <p>You stop wasting time on random strategies</p>
           </div>
         </div>
@@ -1407,12 +1660,12 @@
       </div>
       <a href="https://superprofile.bio/vp/adhabits" class="btn-cta" onclick="fbq('track', 'InitiateCheckout');">
         Join The Affiliate Growth Masterclass
-        <small>Start Building Your System For Just ₹199</small>
+        <small>Start Building Your System For Just Rs.199</small>
       </a>
       <div class="seats-counter">
         <div class="people-icons">
-          <span>👤</span><span>👤</span><span>👤</span><span>👤</span>
-          <span>👤</span><span>👤</span><span>👤</span><span>👤</span>
+          <span>U</span><span>U</span><span>U</span><span>U</span>
+          <span>U</span><span>U</span><span>U</span><span>U</span>
         </div>
         <span class="count-badge" id="benefitSeats">44 SEATS LEFT</span>
       </div>
@@ -1431,7 +1684,7 @@
       <div class="faq-item fade-up">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span>Is This For Beginners?</span>
-          <div class="faq-icon">▼</div>
+          <div class="faq-icon">v</div>
         </button>
         <div class="faq-answer">
           <p>Yes. Even if you're just starting, the system is simple to understand and apply. Rahman breaks everything down step-by-step so anyone can follow along.</p>
@@ -1441,30 +1694,30 @@
       <div class="faq-item fade-up">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span>Do I Need Any Experience In Affiliate Marketing?</span>
-          <div class="faq-icon">▼</div>
+          <div class="faq-icon">v</div>
         </button>
         <div class="faq-answer">
-          <p>No. This will help you understand what works and why. Whether you've never done affiliate marketing or you've been trying for months — you'll learn the exact system that top affiliates use.</p>
+          <p>No. This will help you understand what works and why. Whether you've never done affiliate marketing or you've been trying for months - you'll learn the exact system that top affiliates use.</p>
         </div>
       </div>
 
       <div class="faq-item fade-up">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span>Will This Help Me Earn Money?</span>
-          <div class="faq-icon">▼</div>
+          <div class="faq-icon">v</div>
         </button>
         <div class="faq-answer">
-          <p>It will show you the system to convert leads into affiliate income. Execution depends on you. But if you follow the system, you'll have a clear path to ₹2-3L/month.</p>
+          <p>It will show you the system to convert leads into affiliate income. Execution depends on you. But if you follow the system, you'll have a clear path to Rs.2-3L/month.</p>
         </div>
       </div>
 
       <div class="faq-item fade-up">
         <button class="faq-question" onclick="toggleFaq(this)">
           <span>Do I Need Any Tools Or Setup Before Joining?</span>
-          <div class="faq-icon">▼</div>
+          <div class="faq-icon">v</div>
         </button>
         <div class="faq-answer">
-          <p>No. Just attend live, take notes, and focus for these 3 hours. You'll get everything you need during the workshop itself.</p>
+          <p>No. Just attend live, take notes, and focus for this 1 hour. You'll get everything you need during the workshop itself.</p>
         </div>
       </div>
     </div>
@@ -1477,12 +1730,12 @@
       </div>
       <a href="https://superprofile.bio/vp/adhabits" class="btn-cta" onclick="fbq('track', 'InitiateCheckout');">
         Join The Affiliate Growth Masterclass
-        <small>Start Building Your System For Just ₹199</small>
+        <small>Start Building Your System For Just Rs.199</small>
       </a>
       <div class="seats-counter">
         <div class="people-icons">
-          <span>👤</span><span>👤</span><span>👤</span><span>👤</span>
-          <span>👤</span><span>👤</span><span>👤</span><span>👤</span>
+          <span>U</span><span>U</span><span>U</span><span>U</span>
+          <span>U</span><span>U</span><span>U</span><span>U</span>
         </div>
         <span class="count-badge" id="faqSeats">44 SEATS LEFT</span>
       </div>
@@ -1500,13 +1753,13 @@
 
       <a href="https://superprofile.bio/vp/adhabits" class="btn-cta" style="padding: 20px 40px; font-size: 18px;" onclick="fbq('track', 'Purchase', {value: 199, currency: 'INR'});">
         Join The Affiliate Growth Masterclass
-        <small>Start Building Your System For Just ₹199</small>
+        <small>Start Building Your System For Just Rs.199</small>
       </a>
 
       <div class="seats-counter" style="margin-top: 16px;">
         <div class="people-icons">
-          <span>👤</span><span>👤</span><span>👤</span><span>👤</span>
-          <span>👤</span><span>👤</span><span>👤</span><span>👤</span>
+          <span>U</span><span>U</span><span>U</span><span>U</span>
+          <span>U</span><span>U</span><span>U</span><span>U</span>
         </div>
         <span class="count-badge" id="finalSeats">44 SEATS LEFT</span>
       </div>
@@ -1517,7 +1770,7 @@
     // ===== SEAT COUNTER =====
     let seats = 44;
     function updateSeats() {
-      const ids = ['heroSeats', 'testimonialSeats', 'painSeats', 'moduleSeats', 'coachSeats', 'benefitSeats', 'faqSeats', 'finalSeats'];
+      const ids = ['heroSeats', 'videoSeats', 'waSeats', 'painSeats', 'moduleSeats', 'coachSeats', 'benefitSeats', 'faqSeats', 'finalSeats'];
       ids.forEach(id => {
         const el = document.getElementById(id);
         if (el) el.textContent = seats + ' SEATS LEFT';
@@ -1541,6 +1794,68 @@
       });
       item.classList.toggle('active');
     }
+
+    // ===== VIDEO SLIDER =====
+    let currentVideoSlide = 0;
+    const videoSlider = document.getElementById('videoSlider');
+    const videoDots = document.querySelectorAll('.video-slider-dot');
+
+    function updateVideoSlider() {
+      videoSlider.style.transform = 'translateX(-' + (currentVideoSlide * 100) + '%)';
+      videoDots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentVideoSlide);
+      });
+    }
+
+    function moveVideoSlider(dir) {
+      currentVideoSlide += dir;
+      if (currentVideoSlide < 0) currentVideoSlide = 1;
+      if (currentVideoSlide > 1) currentVideoSlide = 0;
+      updateVideoSlider();
+    }
+
+    function goToVideoSlide(index) {
+      currentVideoSlide = index;
+      updateVideoSlider();
+    }
+
+    // Touch swipe support for video slider
+    let videoTouchStartX = 0;
+    videoSlider.addEventListener('touchstart', (e) => {
+      videoTouchStartX = e.changedTouches[0].screenX;
+    }, {passive: true});
+
+    videoSlider.addEventListener('touchend', (e) => {
+      const diff = videoTouchStartX - e.changedTouches[0].screenX;
+      if (Math.abs(diff) > 50) {
+        moveVideoSlider(diff > 0 ? 1 : -1);
+      }
+    }, {passive: true});
+
+    // ===== WHATSAPP TESTIMONIALS CAROUSEL =====
+    const waCarousel = document.getElementById('waCarousel');
+    const waDots = document.querySelectorAll('.wa-nav-dot');
+
+    function scrollWaCarousel(dir) {
+      const scrollAmount = 300;
+      waCarousel.scrollBy({ left: dir * scrollAmount, behavior: 'smooth' });
+    }
+
+    function scrollWaTo(index) {
+      const cardWidth = 300;
+      waCarousel.scrollTo({ left: index * cardWidth, behavior: 'smooth' });
+    }
+
+    // Update dots on scroll
+    waCarousel.addEventListener('scroll', () => {
+      const scrollLeft = waCarousel.scrollLeft;
+      const maxScroll = waCarousel.scrollWidth - waCarousel.clientWidth;
+      const progress = scrollLeft / maxScroll;
+      const activeIndex = Math.min(2, Math.floor(progress * 3));
+      waDots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === activeIndex);
+      });
+    }, {passive: true});
 
     // ===== SCROLL ANIMATIONS =====
     const observer = new IntersectionObserver((entries) => {
