@@ -325,7 +325,7 @@
       50% { transform: translateY(12px); }
     }
 
-    /* ===== VIDEO TESTIMONIALS SECTION ===== */
+    /* ===== VIDEO TESTIMONIALS SLIDER ===== */
     .section-video-testimonials {
       padding: 60px 20px;
       background: #fff;
@@ -343,31 +343,32 @@
     .section-video-testimonials .section-title .orange { color: var(--primary); }
 
     .video-slider-container {
-      max-width: 800px;
+      max-width: 500px;
       margin: 0 auto;
       position: relative;
       overflow: hidden;
+      border-radius: 20px;
     }
 
     .video-slider {
       display: flex;
       transition: transform 0.5s ease;
-      gap: 20px;
     }
 
     .video-slide {
       min-width: 100%;
       flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #000;
     }
 
-    .video-slide video {
+    .video-slide iframe {
       width: 100%;
-      max-width: 400px;
-      margin: 0 auto;
+      height: 600px;
+      border: none;
       display: block;
-      border-radius: 16px;
-      border: 2px solid rgba(255, 87, 34, 0.3);
-      background: #000;
     }
 
     .video-slider-nav {
@@ -1172,6 +1173,8 @@
       .hero-cta-box { padding: 16px; }
       .btn-hero { padding: 14px 24px; font-size: 15px; }
 
+      .video-slide iframe { height: 480px; }
+
       .pain-grid { grid-template-columns: 1fr; }
       .pain-box { padding: 24px; }
       .modules-grid { grid-template-columns: 1fr; }
@@ -1181,7 +1184,7 @@
       .coach-image img { max-width: 250px; }
       .benefits-grid { grid-template-columns: 1fr; }
       .benefits-box { padding: 24px; }
-      .section-pain, .section-modules, .section-coach, .section-benefits, .section-faq, .section-final-cta, .section-wa-testimonials {
+      .section-pain, .section-modules, .section-coach, .section-benefits, .section-faq, .section-final-cta, .section-wa-testimonials, .section-video-testimonials {
         padding: 50px 16px;
       }
       .faq-question { padding: 18px 20px; font-size: 15px; }
@@ -1189,10 +1192,6 @@
 
       .wa-card {
         width: 240px;
-      }
-
-      .video-slide video {
-        max-width: 100%;
       }
     }
 
@@ -1206,8 +1205,10 @@
       .module-card { padding: 20px; }
       .module-card h3 { font-size: 17px; }
       .module-list li { font-size: 13px; }
+      .video-slide iframe { height: 420px; }
     }
   </style>
+<base target="_blank">
 <base target="_blank">
 </head>
 
@@ -1282,16 +1283,20 @@
     <div class="video-slider-container fade-up">
       <div class="video-slider" id="videoSlider">
         <div class="video-slide">
-          <video controls poster="">
-            <source src="video1.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+          <iframe 
+            src="https://www.youtube.com/embed/vBWFbX9u3EU?rel=0&modestbranding=1" 
+            title="Affiliate Testimonial 1"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+          </iframe>
         </div>
         <div class="video-slide">
-          <video controls poster="">
-            <source src="video2.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
+          <iframe 
+            src="https://www.youtube.com/embed/cxCnF8go0MM?rel=0&modestbranding=1" 
+            title="Affiliate Testimonial 2"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+          </iframe>
         </div>
       </div>
 
@@ -1721,8 +1726,6 @@
         </div>
       </div>
     </div>
-
-    
 
   <!-- ===== FINAL CTA ===== -->
   <section class="section-final-cta">
