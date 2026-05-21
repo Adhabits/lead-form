@@ -1332,7 +1332,7 @@
     /* This block has been removed to maintain dark theme on all devices */
   </style>
 
-  <!-- ==================== META PIXEL #1 (Original) ==================== -->
+  <!-- ==================== META PIXEL ==================== -->
   <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -1347,73 +1347,7 @@
     <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1615358806544488&ev=PageView&noscript=1"/>
   </noscript>
 
-  <!-- ==================== META PIXEL #2 (New) ==================== -->
-  <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
-    (window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    
-    fbq('init', '1255041905596153');
-    fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1255041905596153&ev=PageView&noscript=1"/>
-  </noscript>
-
-  <!-- ==================== UNIFIED TRACKING SETUP ==================== -->
-  <script>
-    // Dual Pixel Tracker - Tracks events on BOTH pixels simultaneously
-    window.DualPixel = {
-      pixelIds: ['1615358806544488', '1255041905596153'],
-      
-      track: function(eventName, eventData) {
-        try {
-          this.pixelIds.forEach(pixelId => {
-            if (window.fbq) {
-              window.fbq('trackSingle', pixelId, eventName, eventData || {});
-            }
-          });
-          console.log('📊 DualPixel:', eventName, eventData);
-        } catch (e) {
-          console.error('Pixel tracking error:', e);
-        }
-      },
-      
-      trackCustom: function(eventName, eventData) {
-        try {
-          this.pixelIds.forEach(pixelId => {
-            if (window.fbq) {
-              window.fbq('trackSingleCustom', pixelId, eventName, eventData || {});
-            }
-          });
-          console.log('📊 DualPixel Custom:', eventName, eventData);
-        } catch (e) {
-          console.error('Pixel tracking error:', e);
-        }
-      }
-    };
-
-    // Track page view completion
-    window.addEventListener('load', function() {
-      setTimeout(() => {
-        DualPixel.trackCustom('PageLoadComplete', {time_on_page: 3});
-      }, 3000);
-    });
-
-    // Track scroll depth
-    let scrollTracked = {25: false, 50: false, 75: false, 100: false};
-    window.addEventListener('scroll', function() {
-      const pct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
-      [25, 50, 75, 100].forEach(threshold => {
-        if (pct >= threshold && !scrollTracked[threshold]) {
-          scrollTracked[threshold] = true;
-          DualPixel.trackCustom('ScrollDepth', {depth: threshold});
-        }
-      });
-    });
-  </script>
+<base target="_blank">
 </head>
 
 <body>
@@ -1477,8 +1411,8 @@
       </div>
 
       <div class="cta">
-        <a href="#getstart" class="btn primary magnetic" aria-label="Get ad setup help">Yes, I want ad setup help!</a>
-        <a href="#features" class="btn secondary magnetic" aria-label="See how it works">See How It Works</a>
+        <a href="#getstart" class="btn primary" aria-label="Get ad setup help">Yes, I want ad setup help!</a>
+        <a href="#features" class="btn secondary" aria-label="See how it works">See How It Works</a>
       </div>
 
       <div class="panel" role="note">
@@ -1521,17 +1455,17 @@
         <p class="stk-sub">We deliver results that matter to your affiliate business</p>
 
         <div class="stk-grid">
-          <article class="stk-card reveal" data-plan-feature="experience">
+          <article class="stk-card reveal" >
             <div class="stk-icon" aria-hidden="true">👥</div>
             <h3>290+ Affiliates Served</h3>
             <p>Experience across niches.</p>
           </article>
-          <article class="stk-card reveal" data-plan-feature="top-performers">
+          <article class="stk-card reveal" >
             <div class="stk-icon" aria-hidden="true">🏆</div>
             <h3>60+ Top Affiliates Monthly</h3>
             <p>Consistent results for top performers.</p>
           </article>
-          <article class="stk-card reveal" data-plan-feature="verified">
+          <article class="stk-card reveal" >
             <div class="stk-icon" aria-hidden="true">🔎</div>
             <h3>Verified Results</h3>
             <p>Transparent reporting & outcomes.</p>
@@ -1566,7 +1500,7 @@
             </div>
           </div>
 
-          <button class="ex-btn magnetic" data-whatsapp="true" data-plan="Expert Contact" aria-label="Contact Rahman on WhatsApp">
+          <button class="ex-btn"  aria-label="Contact Rahman on WhatsApp">
             Let’s talk with <span class="name-grad" style="font-weight: 900; color: #000">&nbsp;Rahman&nbsp;</span> on WhatsApp
           </button>
         </div>
@@ -1652,7 +1586,7 @@
             <input id="phone" type="tel" placeholder="10-digit number" required autocomplete="tel" pattern="[0-9]{10}" />
 
             <div style="margin-top: 10px">
-              <button type="submit" id="sendBtn" class="form-btn magnetic" aria-label="Send details on WhatsApp">
+              <button type="submit" id="sendBtn" class="form-btn" aria-label="Send details on WhatsApp">
                 <span>Send on WhatsApp</span>
               </button>
               <span class="form-hint">Auto-opens WhatsApp after saving.</span>
@@ -1769,20 +1703,6 @@
         const planName = this.dataset.plan;
         const planPrice = this.dataset.planPrice;
         const planDuration = this.dataset.planDuration;
-        
-        // Track plan selection on BOTH pixels
-        DualPixel.track('AddToCart', {
-          content_name: planName,
-          content_category: 'Service Plan',
-          value: planPrice,
-          currency: 'INR'
-        });
-        
-        DualPixel.trackCustom('PlanSelected', {
-          plan: planName,
-          price: planPrice,
-          duration: planDuration
-        });
 
         // Save to session and scroll to form
         sessionStorage.setItem('adh_plan', planName);
@@ -1792,27 +1712,6 @@
         document.getElementById('getstart').scrollIntoView({ behavior: 'smooth' });
       });
     });
-
-    // ===== WHATSAPP LINK TRACKING =====
-    function bindWhatsAppLinks() {
-      document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com"], button[data-whatsapp="true"]').forEach(a => {
-        a.addEventListener('click', function() {
-          const plan = sessionStorage.getItem('adh_plan') || 'Direct WhatsApp';
-          DualPixel.trackCustom('WhatsAppLinkClick', { plan: plan });
-          
-          // Track as Lead if coming from form or expert section
-          if (this.closest('#getstart') || this.closest('.exp1')) {
-            DualPixel.track('Lead', {
-              content_name: plan,
-              content_category: 'WhatsApp Contact',
-              value: 0,
-              currency: 'INR'
-            });
-          }
-        });
-      });
-    }
-    bindWhatsAppLinks();
 
     // ===== FORM HANDLING =====
     const leadForm = document.getElementById('leadForm');
@@ -1838,60 +1737,32 @@
           return;
         }
 
-        // Track form submission attempt
-        DualPixel.trackCustom('FormSubmitAttempt', { plan, platform });
-
         // Disable button & show loading
         const originalBtnText = sendBtn.textContent;
         sendBtn.disabled = true;
         sendBtn.classList.add('loading');
         sendBtn.textContent = 'Processing...';
 
-        // Prepare data
-        const payload = new URLSearchParams({
-          name,
-          phone,
-          platform,
-          plan,
-          timestamp: new Date().toISOString()
-        });
-
-        // Add UTM data if available
-        const utm = sessionStorage.getItem('adh_utm');
-        if (utm) {
-          payload.append('utm', utm);
-        }
-
         // Save to Google Sheets
         const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbznR1Wk3Gn2jztC1ZXnBW4jr52146ctHC3phfdn8Ve3zuwKvCflNIOy_sxfPZNhQbbf/exec";
-        
+        const payload = new URLSearchParams({ name, phone, platform, plan, timestamp: new Date().toISOString() });
+
         try {
           if (navigator.sendBeacon) {
             const blob = new Blob([payload.toString()], { type: 'application/x-www-form-urlencoded' });
             navigator.sendBeacon(SCRIPT_URL, blob);
           } else {
-            await fetch(SCRIPT_URL, { 
-              method: 'POST', 
-              body: payload, 
-              mode: 'no-cors',
-              keepalive: true 
-            }).catch(() => {});
+            fetch(SCRIPT_URL, { method: 'POST', body: payload, mode: 'no-cors', keepalive: true }).catch(() => {});
           }
         } catch (_) {}
 
-        // Track conversions on BOTH pixels
-        DualPixel.track('Lead', {
-          content_name: plan,
-          content_category: platform,
-          value: plan.includes('3,999') ? 3999 : plan.includes('6,999') ? 6999 : 9999,
-          currency: 'INR'
-        });
-        
-        DualPixel.trackCustom('WhatsAppOpen', {
-          plan: plan,
-          platform: platform,
-          form_completed: true
-        });
+        // Track ONLY Contact event when form is submitted and WhatsApp opens
+        if (typeof fbq === 'function') {
+          fbq('track', 'Contact', {
+            content_name: plan,
+            content_category: platform
+          });
+        }
 
         // Open WhatsApp (FIXED: Removed extra space in URL)
         const WHATSAPP_TO = "919610580359";
@@ -1908,42 +1779,8 @@
           sessionStorage.removeItem('adh_plan');
         }, 1500);
       });
+    };
     }
-
-    // ===== BACK TO TOP BUTTON =====
-    const backToTop = document.getElementById('backToTop');
-    
-    if (backToTop) {
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-          backToTop.classList.add('show');
-        } else {
-          backToTop.classList.remove('show');
-        }
-      });
-
-      backToTop.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    }
-
-    // ===== MAGNETIC CURSOR EFFECT =====
-    const magneticElements = document.querySelectorAll('.magnetic');
-    
-    magneticElements.forEach(el => {
-      el.addEventListener('mousemove', function(e) {
-        const rect = this.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        
-        this.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
-      });
-
-      el.addEventListener('mouseleave', function() {
-        this.style.transform = '';
-      });
-    });
   </script>
 </body>
 </html>
-
