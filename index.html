@@ -1340,8 +1340,9 @@
     t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
     (window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
     
+    fbq('set', 'autoConfig', false, '1615358806544488');
     fbq('init', '1615358806544488');
-    fbq('track', 'PageView');
+    fbq('trackSingle', '1615358806544488', 'PageView');
   </script>
   <noscript>
     <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1615358806544488&ev=PageView&noscript=1"/>
@@ -1758,7 +1759,7 @@
 
         // Track ONLY Contact event when form is submitted and WhatsApp opens
         if (typeof fbq === 'function') {
-          fbq('track', 'Contact', {
+          fbq('trackSingle', '1615358806544488', 'Contact', {
             content_name: plan,
             content_category: platform
           });
